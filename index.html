@@ -1,0 +1,79 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <title>ProofZoom</title>
+  <link rel="stylesheet" href="style.css"/>
+  
+<script>
+  window.MathJax = {
+    tex: {inlineMath: [['$','$'], ['\\(','\\)']]},
+    options: {skipHtmlTags: ['script','noscript','style','textarea','pre','code']}
+  };
+</script>
+<script defer src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>
+
+</head>
+<body>
+  <div class="container">
+    <header class="header">
+      <div class="kicker">ProofZoom</div>
+      <h1 class="brand">ProofZoom</h1>
+      <p class="subtitle">A curated collection of rigor-audited proofs and proof repairs.</p>
+      <p class="byline">Maintained by <strong>Rubin Thomas</strong> in collaboration with <strong>ChatGPT</strong> (collaborator and AI system).</p>
+      <nav class="nav">
+        <span class="pill"><a href="index.html">Home</a></span>
+        <span class="pill"><a href="entry-001-lemma1.html">Entry #1</a></span>
+        <span class="pill"><a href="#method">Methodology</a></span>
+      </nav>
+    </header>
+
+    <section>
+      <h2 class="h1">What is ProofZoom?</h2>
+      <p class="lead">
+        ProofZoom is a curated archive of mathematical proofs that have been carefully examined,
+        logically audited, and—where necessary—repaired. Many standard proofs in textbooks and
+        lecture notes contain small gaps, illicit steps, or quiet handwaving that are usually harmless,
+        but pedagogically damaging. The goal of ProofZoom is to slow down, zoom in, and make every step honest.
+      </p>
+      <div class="block small"><em>Rigor is not pedantry. It is respect for meaning.</em></div>
+    </section>
+
+    <section class="grid">
+      <div class="card half">
+        <h2>Prototype entry</h2>
+        <p class="meta">Entry #1</p>
+        <p><strong>Lemma 1 — Existence of the complex line integral on rectifiable curves</strong></p>
+        <p class="small">
+          A standard proof often “inherits” tags under refinement (not a legitimate tagged partition).
+          We diagnose the issue and give a fully tag-honest repaired proof.
+        </p>
+        <div class="btnrow">
+          <a class="btn primary" href="entry-001-lemma1.html">View Entry #1 →</a>
+        </div>
+      </div>
+
+      <div class="card half" id="method">
+        <h2>Methodology</h2>
+        <p class="meta">How entries are structured</p>
+        <p class="small">
+          Each ProofZoom entry contains: (i) a commonly taught proof (or proof skeleton),
+          (ii) identification of a subtle logical gap or illicit step,
+          (iii) a diagnosis explaining why it is illegitimate,
+          (iv) a repaired proof that respects all definitions,
+          and (v) brief commentary on what changed and why it matters.
+        </p>
+        <p class="small">
+          Proofs are developed through careful human analysis in collaboration with an AI proof-analysis and writing system.
+        </p>
+      </div>
+    </section>
+
+    <footer class="footer">
+      <div>© ProofZoom. Maintained by Rubin Thomas in collaboration with ChatGPT (collaborator and AI system).</div>
+      <div class="small">Phase 1: static site prototype (single entry).</div>
+    </footer>
+  </div>
+</body>
+</html>

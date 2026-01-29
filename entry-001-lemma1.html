@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <title>ProofZoom — Entry #1</title>
+  <link rel="stylesheet" href="style.css"/>
+  
+<script>
+  window.MathJax = {
+    tex: {inlineMath: [['$','$'], ['\\(','\\)']]},
+    options: {skipHtmlTags: ['script','noscript','style','textarea','pre','code']}
+  };
+</script>
+<script defer src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>
+
+</head>
+<body>
+  <div class="container">
+    <header class="header">
+      <div class="kicker"><a href="index.html">ProofZoom</a> • Entry #1</div>
+      <h1 class="brand" style="font-size:34px;margin-bottom:6px;">Lemma 1 — Existence of $\int_C f(z)\,dz$ on rectifiable curves</h1>
+      <p class="subtitle" style="font-size:16px;">
+        A fully tag-honest proof that the Riemann-sum definition converges (independently of tags) for continuous $f$ on a rectifiable curve.
+      </p>
+      <p class="byline">Maintained by <strong>Rubin Thomas</strong> in collaboration with <strong>ChatGPT</strong> (collaborator and AI system).</p>
+      <nav class="nav">
+        <span class="pill"><a href="index.html">← Home</a></span>
+        <span class="pill"><a href="#statement">Statement</a></span>
+        <span class="pill"><a href="#proof">Proof</a></span>
+      </nav>
+    </header>
+
+    <article class="proof">
+      <h2 class="h1" id="statement">Statement</h2>
+      <div class="card">
+        <p>Let $\gamma:[a,b]\to\mathbb C$ be continuous and rectifiable with length $L(\gamma)<\infty$, and let $f:\gamma([a,b])\to\mathbb C$ be continuous. For a partition $P:\ a=t_0<\cdots<t_n=b$ and tags $\xi_k\in[t_{k-1},t_k]$, set $$ S(P,\xi):=\sum_{k=1}^n f(\gamma(\xi_k))\big(\gamma(t_k)-\gamma(t_{k-1})\big). $$ Then $S(P,\xi)$ converges to a limit as $\|P\|\to 0$, independent of the choice of tags. This limit is denoted $\int_C f(z)\,dz$.</p>
+      </div>
+
+      <h2 class="h1" id="proof">Proof</h2>
+      <div class="card">
+        <p>Since $f\circ\gamma$ is continuous on the compact interval $[a,b]$, it is uniformly continuous. Fix $\varepsilon>0$ and choose $\delta>0$ such that $$ |t-s|<\delta \ \Rightarrow\ |f(\gamma(t))-f(\gamma(s))|<\varepsilon/L(\gamma). $$ Let $P$ be a partition with $\|P\|<\delta$ and let $\xi,\eta$ be two choices of tags. Then for each $k$ we have $|\xi_k-\eta_k|\le t_k-t_{k-1}<\delta$, hence $|f(\gamma(\xi_k))-f(\gamma(\eta_k))|<\varepsilon/L(\gamma)$. Therefore $$ |S(P,\xi)-S(P,\eta)| \le \sum_{k=1}^n |f(\gamma(\xi_k))-f(\gamma(\eta_k))|\;|\gamma(t_k)-\gamma(t_{k-1})| < \frac{\varepsilon}{L(\gamma)}\sum_{k=1}^n |\gamma(t_k)-\gamma(t_{k-1})|. $$ By definition of length, $\sum_{k=1}^n |\gamma(t_k)-\gamma(t_{k-1})|\le L(\gamma)$, so $|S(P,\xi)-S(P,\eta)|<\varepsilon$.</p>
+<p>Now let $(P,\xi)$ and $(Q,\eta)$ be tagged partitions with  $\|P\|,\|Q\|<\delta$, and let  $R:a=r_0<r_1<\cdots<r_m=b$ be a common refinement of $P$ and $Q$. For each subinterval $[r_{j-1},r_j]\subset[t_{k-1},t_k]$ of $P$, choose an arbitrary tag  $\tilde\xi_j\in[r_{j-1},r_j]$; similarly, for each  $[r_{j-1},r_j]\subset[s_{\ell-1},s_\ell]$ of $Q$, choose a tag  $\tilde\eta_j\in[r_{j-1},r_j]$. Then $(R,\tilde\xi)$ and $(R,\tilde\eta)$ are honest tagged partitions.</p>
+<p>Since $[r_{j-1},r_j]\subset[t_{k-1},t_k]$, both $\tilde\xi_j$ and $\xi_k$ lie in  $[t_{k-1},t_k]$. Hence $$ |\tilde\xi_j-\xi_k| \le t_k-t_{k-1} <\delta. $$ Since $f\circ\gamma$ is uniformly continuous, it follows that $$ |f(\gamma(\tilde\xi_j))-f(\gamma(\xi_k))| <\varepsilon/L(\gamma). $$</p>
+<p>Writing each increment additively, $$ \gamma(t_k)-\gamma(t_{k-1}) = \sum_{j\in J_k} \big(\gamma(r_j)-\gamma(r_{j-1})\big), $$ where $J_k$ indexes those refined subintervals  $[r_{j-1},r_j]\subset[t_{k-1},t_k]$, we obtain $$ \begin{aligned} \Big|\,S(P,\xi)-S(R,\tilde\xi)\,\Big| &= \Bigg| \sum_{k=1}^n f(\gamma(\xi_k)) \sum_{j\in J_k} \big(\gamma(r_j)-\gamma(r_{j-1})\big) - \sum_{j=1}^m f(\gamma(\tilde\xi_j)) \big(\gamma(r_j)-\gamma(r_{j-1})\big) \Bigg| \$$6pt] &\le \sum_{j=1}^m \big|f(\gamma(\xi_{k(j)}))-f(\gamma(\tilde\xi_j))\big| \,|\gamma(r_j)-\gamma(r_{j-1})| \$$6pt] &< \frac{\varepsilon}{L(\gamma)} \sum_{j=1}^m |\gamma(r_j)-\gamma(r_{j-1})| \le \varepsilon, \end{aligned} $$ where $k(j)$ denotes the index such that  $[r_{j-1},r_j]\subset[t_{k(j)-1},t_{k(j)}]$. Hence $$ |S(P,\xi)-S(R,\tilde\xi)|<\varepsilon. $$ An identical argument gives $$ |S(Q,\eta)-S(R,\tilde\eta)|<\varepsilon. $$</p>
+<p>Finally, by the triangle inequality, $$ \begin{aligned} |S(P,\xi)-S(Q,\eta)| &\le |S(P,\xi)-S(R,\tilde\xi)| + |S(R,\tilde\xi)-S(R,\tilde\eta)| + |S(R,\tilde\eta)-S(Q,\eta)|. \end{aligned} $$ Since $\|R\|<\delta$, the estimate proved earlier yields $$ |S(R,\tilde\xi)-S(R,\tilde\eta)|<\varepsilon. $$ Therefore, $$ |S(P,\xi)-S(Q,\eta)|<3\varepsilon, $$ which establishes the Cauchy criterion.</p>
+<p>Hence $S(P,\xi)$ converges as $\|P\|\to 0$ to a limit independent of tags; define this limit to be $\int_C f(z)\,dz$.</p>
+      </div>
+
+      <div class="hr"></div>
+
+      <div class="small">
+        <strong>Note.</strong> The refinement step is written in a tag-honest way: refined tags are chosen inside each refined subinterval,
+        and uniform continuity controls the retagging error.
+      </div>
+    </article>
+
+    <footer class="footer">
+      <div><a href="index.html">Home</a> • Entry #1</div>
+      <div>© ProofZoom. Maintained by Rubin Thomas in collaboration with ChatGPT (collaborator and AI system).</div>
+    </footer>
+  </div>
+</body>
+</html>
