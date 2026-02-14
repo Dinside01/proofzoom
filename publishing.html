@@ -1,0 +1,138 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>ProofZoom — Publishing Guide</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+  <div class="container">
+
+    <header class="header">
+      <div class="kicker">ProofZoom · Internal Guide</div>
+      <h1 class="brand">Publishing Guide</h1>
+      <p class="subtitle">Templates, file structure, and the zero-404 workflow</p>
+
+      <nav class="nav" aria-label="Primary">
+        <a class="pill" href="index.html">Home</a>
+        <a class="pill" href="entries.html">Entries</a>
+        <a class="pill" href="about.html">About</a>
+        <a class="pill" href="contact.html">Contact</a>
+        <a class="pill active" href="publishing.html" aria-current="page">Publishing</a>
+      </nav>
+    </header>
+
+    <main>
+
+      <section class="section">
+        <div class="card">
+          <span class="badge">Editorial policy</span>
+          <p class="lead">
+            ProofZoom is a curated mathematical archive. Drafts are reviewed by specialists in the relevant area
+            for correctness and clarity. Only after approval is an entry assigned a permanent number and published.
+          </p>
+          <div class="block small">
+            Practical meaning: authors draft → specialists review → staff publishes (HTML/PDF, links, indexing).
+          </div>
+        </div>
+      </section>
+
+      <section class="section">
+        <div class="card">
+          <span class="badge">Canonical folder structure</span>
+          <div class="block small">
+            <pre style="margin:0; white-space:pre-wrap;">
+/ (root)
+  index.html
+  entries.html
+  about.html
+  contact.html
+  publishing.html
+  style.css
+  CNAME
+  entries/
+    complex-analysis/
+    geometry/
+    combinatorics/
+    ...
+    template-entry.html
+  pdf/
+    complex-analysis/
+    geometry/
+    ...
+  images/
+  assets/
+  js/ (optional)
+            </pre>
+          </div>
+        </div>
+      </section>
+
+      <section class="section">
+        <div class="card">
+          <span class="badge">Naming rules (lock these)</span>
+          <ul>
+            <li><strong>Lowercase only</strong></li>
+            <li><strong>Hyphens only</strong> (no spaces, no underscores)</li>
+            <li><strong>Global numbering</strong>: entry-0001, entry-0002, entry-0003, …</li>
+            <li>One entry = one HTML page (mandatory); PDF optional but recommended</li>
+            <li>Do not rename published files; update links instead</li>
+          </ul>
+        </div>
+      </section>
+
+      <section class="section">
+        <div class="card">
+          <span class="badge">New entry checklist</span>
+          <ol>
+            <li>Choose subject: <code>entries/&lt;subject&gt;/</code></li>
+            <li>Create HTML: <code>entries/&lt;subject&gt;/entry-00XX-short-title.html</code></li>
+            <li>If PDF exists: <code>pdf/&lt;subject&gt;/entry-00XX-short-title.pdf</code></li>
+            <li>Link PDF from the entry page</li>
+            <li>Add entry link to <code>entries.html</code> (and optionally to the homepage)</li>
+            <li>Hard refresh after changes: <strong>Ctrl+F5</strong></li>
+          </ol>
+        </div>
+      </section>
+
+      <section class="section">
+        <div class="card subtle">
+          <div class="section-head">
+            <h2 class="h1">Templates</h2>
+            <p class="meta">Copy → rename → edit</p>
+          </div>
+
+          <p class="small">
+            Master entry template:
+            <a class="link" href="entries/template-entry.html" target="_blank" rel="noopener">entries/template-entry.html</a>
+          </p>
+
+          <p class="small muted">
+            (We can add more templates later: no-PDF, short note, theorem-only, math-rendered.)
+          </p>
+        </div>
+      </section>
+
+      <section class="section">
+        <div class="card subtle">
+          <span class="badge ghost">Common 404 causes</span>
+          <ul class="small">
+            <li>Homepage links pointing to root instead of <code>/entries/&lt;subject&gt;/...</code></li>
+            <li>Filename mismatch (e.g., conformal vs conformality)</li>
+            <li>Spaces or capitals in filenames</li>
+            <li>Browser caching old HTML (use Ctrl+F5)</li>
+          </ul>
+        </div>
+      </section>
+
+    </main>
+
+    <footer class="footer">
+      <div class="muted small">© ProofZoom</div>
+    </footer>
+
+  </div>
+</body>
+</html>
