@@ -224,3 +224,18 @@ main{ margin-top: 18px; }
   padding: 16px 10px 0;
   color: var(--muted);
 }
+/* Contact page readability */
+.contact-page {
+  color: #ffffff;
+}
+
+.contact-page .muted,
+.contact-page .small,
+.contact-page .meta {
+  color: #e0e0e0;
+}
+
+.contact-page a {
+  color: #ffffff;
+}
+
