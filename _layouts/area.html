@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>{{ page.area_name }} | ProofZoom</title>
+<link rel="stylesheet" href="{{ site.baseurl }}/assets/css/site.css">
+</head>
+
+<body>
+<div class="container">
+
+  <div class="nav">
+    <div class="brand"><a href="../../index.html">ProofZoom</a></div>
+    <div class="links">
+      <a href="../index.html">Areas</a>
+      <a href="../../entries/index.html">Entries</a>
+      <a href="#">About</a>
+      <a href="#">Contact</a>
+    </div>
+  </div>
+
+  <div class="areahead">
+    <h1>{{ page.area_name }}</h1>
+    <p>{{ page.area_desc }}</p>
+  </div>
+
+  <div class="grid">
+    <div class="tile">
+
+{% assign area_entries = site.collections.entries.docs | where: "primary_area", page.slug | sort: "entry_id" %}
+
+{% if area_entries.size > 0 %}
+  <ul class="entry-list">
+  {% for entry in area_entries %}
+    <li>
+      <a href="{{ entry.url }}">{{ entry.title }}</a>
+    </li>
+  {% endfor %}
+  </ul>
+{% else %}
+  <p class="title">Entries in this area are added as they are completed.</p>
+{% endif %}
+
+    </div>
+  </div>
+
+</div>
+</body>
+</html>

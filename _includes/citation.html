@@ -1,0 +1,88 @@
+{%- comment -%}
+==============================================================================
+ProofZoom Citation Generator
+
+Author resolution order:
+1. page.authors (list or structured list)
+2. page.author (string)
+3. site.authors (from _config.yml)
+4. "Rubin Thomas" (fallback)
+
+Supports:
+authors:
+  - Rubin Thomas
+  - Alice Smith
+
+or
+
+authors:
+  - name: Rubin Thomas
+    role: author
+============================================================================== 
+{%- endcomment -%}
+
+{% if page.cite_as %}
+  {{ page.cite_as }}
+{% else %}
+
+  {%- comment -%} Resolve author list {%- endcomment -%}
+  {% if page.authors %}
+    {% assign authors = page.authors %}
+  {% elsif page.author %}
+    {% assign authors = page.author %}
+  {% elsif site.authors %}
+    {% assign authors = site.authors %}
+  {% else %}
+    {% assign authors = "Rubin Thomas" %}
+  {% endif %}
+
+  {%- comment -%} Extract names if structured objects {%- endcomment -%}
+  {% if authors.first %}
+    {% if authors.first.name %}
+      {% assign authors = authors | map: "name" %}
+    {% endif %}
+  {% endif %}
+
+  {%- comment -%} Format author list {%- endcomment -%}
+  {% if authors.first %}
+    {% assign count = authors | size %}
+
+    {% if count == 1 %}
+      {% assign author_display = authors[0] %}
+    {% elsif count == 2 %}
+      {% assign author_display = authors[0] | append: " and " | append: authors[1] %}
+    {% else %}
+      {% assign last = authors | last %}
+      {% assign author_display = "" %}
+
+      {% for a in authors %}
+        {% if forloop.last %}
+        {% elsif forloop.index == count | minus: 1 %}
+          {% assign author_display = author_display | append: a | append: ", and " %}
+        {% else %}
+          {% assign author_display = author_display | append: a | append: ", " %}
+        {% endif %}
+      {% endfor %}
+
+      {% assign author_display = author_display | append: last %}
+    {% endif %}
+  {% else %}
+    {% assign author_display = authors %}
+  {% endif %}
+
+  {% assign fp_year = page.first_published | date: "%Y" %}
+  {% assign up_year = page.updated | date: "%Y" %}
+
+  {{ author_display }}, “{{ page.title }},” <em>ProofZoom</em>, Entry {{ page.entry_id }}
+
+  {% if page.first_published and page.updated and fp_year != up_year %}
+    (First published {{ fp_year }}; revised {{ up_year }}).
+  {% elsif page.updated %}
+    ({{ up_year }}).
+  {% endif %}
+
+  {% if page.url %}
+    {{ site.url }}{{ page.url }}
+  {% endif %}
+
+{% endif %}

@@ -1,0 +1,169 @@
+---
+layout: default
+---
+
+{%- comment -%}
+Entry layout (ProofZoom)
+
+Revisions:
+- Robust author formatting for citations:
+  * supports authors as string, list of strings, or list of objects {name, role}
+  * exposes pz_author_text for citation include
+{%- endcomment -%}
+
+{%- comment -%}
+Build a clean author string from common front-matter patterns:
+  authors: "Rubin Thomas"
+  authors: ["Rubin Thomas", "ChatGPT"]
+  authors:
+    - name: "Rubin Thomas"
+      role: "author"
+{%- endcomment -%}
+{% assign pz_author_text = "" %}
+{% if page.authors %}
+  {% if page.authors.first %}
+    {%- comment -%} Array case (could be array of strings OR array of objects) {%- endcomment -%}
+    {% if page.authors.first.name %}
+      {% assign pz_author_text = page.authors | map: "name" | join: ", " %}
+    {% else %}
+      {% assign pz_author_text = page.authors | join: ", " %}
+    {% endif %}
+  {% else %}
+    {%- comment -%} String case {%- endcomment -%}
+    {% assign pz_author_text = page.authors %}
+  {% endif %}
+{% endif %}
+
+<article class="pz-entry">
+
+  <!-- Header block -->
+  <header class="pz-entry-header">
+
+    {%- comment -%}
+    Backward-compatible field mapping:
+      - New: entry_id, primary_area, primary_subarea
+      - Old: entry_number, area, subarea
+    {%- endcomment -%}
+    {% assign pz_entry_label = page.entry_id | default: page.entry_number %}
+    {% assign pz_area_label  = page.primary_area | default: page.area %}
+    {% assign pz_subarea_label = page.primary_subarea | default: page.subarea %}
+
+    <div class="pz-entry-kicker">
+      {% if pz_entry_label %}<span class="pz-entry-number">Entry {{ pz_entry_label | remove: "entry-" }}</span>{% endif %}
+      {% if page.status %}<span class="pz-pill">Status: {{ page.status }}</span>{% endif %}
+      {% if page.updated %}<span class="pz-pill">Updated: {{ page.updated }}</span>{% endif %}
+    </div>
+
+    <h1 class="pz-entry-title">{{ page.title }}</h1>
+
+    <div class="pz-entry-meta">
+      {% if pz_area_label %}<span>Area: {{ pz_area_label }}</span>{% endif %}
+      {% if pz_subarea_label %}<span>• Subarea: {{ pz_subarea_label }}</span>{% endif %}
+      {% if page.difficulty %}<span>• Difficulty: {{ page.difficulty }}</span>{% endif %}
+    </div>
+
+    <!-- Cite as (TOP) -->
+    <div class="pz-citebox pz-citebox-top">
+      <div class="pz-citebox-label">Cite as</div>
+      <div class="pz-citebox-body">
+        {%- comment -%}
+        citation.html can optionally use include.author_text; if it doesn't,
+        it will still work as before.
+        {%- endcomment -%}
+        {% include citation.html author_text=pz_author_text %}
+      </div>
+    </div>
+
+    <!-- Abstract ABOVE sponsor strip -->
+    {% if page.abstract %}
+      <div class="pz-abstract">
+        <strong>Abstract.</strong> {{ page.abstract }}
+      </div>
+    {% endif %}
+
+    <!--
+    ============================================================================
+    Sponsor System (Hybrid C Model)
+    ============================================================================
+    -->
+    {% unless page.sponsor_disable %}
+
+      {% assign g = site.data.sponsor | default: "" %}
+
+      {% assign sponsor_label = page.sponsor_label | default: g.label | default: "Supported by" %}
+      {% assign sponsor_name  = page.sponsor_name  | default: g.name %}
+      {% assign sponsor_url   = page.sponsor_url   | default: g.url %}
+      {% assign sponsor_image = page.sponsor_image | default: g.image %}
+      {% assign sponsor_text  = page.sponsor_text  | default: g.text %}
+      {% assign sponsor_html  = page.sponsor_html  | default: g.html %}
+
+      {% if sponsor_name or sponsor_html or sponsor_image or sponsor_url %}
+        <div class="pz-sponsor-strip" aria-label="Sponsor">
+          <div class="pz-sponsor-label">{{ sponsor_label }}</div>
+
+          {% if sponsor_html %}
+            <div class="pz-sponsor-body">
+              {{ sponsor_html }}
+            </div>
+          {% else %}
+            <div class="pz-sponsor-body">
+              {% if sponsor_url %}
+                <a class="pz-sponsor-link" href="{{ sponsor_url }}" rel="sponsored noopener">
+              {% endif %}
+
+              {% if sponsor_image %}
+                <img class="pz-sponsor-logo"
+                     src="{{ sponsor_image | relative_url }}"
+                     alt="{{ sponsor_name | default: 'Sponsor' }}">
+              {% endif %}
+
+              {% if sponsor_name %}
+                <span class="pz-sponsor-name">{{ sponsor_name }}</span>
+              {% endif %}
+
+              {% if sponsor_url %}
+                </a>
+              {% endif %}
+
+              {% if sponsor_text %}
+                <div class="pz-sponsor-text">{{ sponsor_text }}</div>
+              {% endif %}
+            </div>
+          {% endif %}
+        </div>
+      {% endif %}
+
+    {% endunless %}
+
+    {% if page.pdf %}
+      <div class="pz-entry-links">
+        <a class="pz-btn" href="{{ page.pdf | relative_url }}">Download PDF</a>
+      </div>
+    {% endif %}
+
+  </header>
+
+  <!-- Main content (Markdown or HTML body goes here) -->
+  <div class="pz-entry-content">
+    {{ content }}
+  </div>
+
+  <hr class="pz-rule" />
+
+  <!-- Cite as (BOTTOM) -->
+  <footer class="pz-entry-footer">
+    <div class="pz-citebox pz-citebox-bottom">
+      <div class="pz-citebox-label">Cite as</div>
+      <div class="pz-citebox-body">
+        {% include citation.html author_text=pz_author_text %}
+      </div>
+    </div>
+
+    {% if page.pdf %}
+      <div class="pz-footer-links">
+        <a href="{{ page.pdf | relative_url }}">PDF</a>
+      </div>
+    {% endif %}
+  </footer>
+
+</article>
