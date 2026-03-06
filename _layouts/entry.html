@@ -10,7 +10,7 @@ Revisions:
   * supports authors as string, list of strings, or list of objects {name, role}
   * exposes pz_author_text for citation include
 - Citation URL now uses the actual entry page URL via:
-  {{ site.url }}{{ page.permalink }}
+  {{ page.url | absolute_url }}
 {%- endcomment -%}
 
 {%- comment -%}
@@ -70,7 +70,7 @@ Build a clean author string from common front-matter patterns:
       <div class="pz-citebox-label">Cite as</div>
       <div class="pz-citebox-body">
         {% if pz_author_text != "" %}{{ pz_author_text }}{% else %}Rubin Thomas{% endif %}, “{{ page.title }},” <em>ProofZoom</em>, Entry {{ pz_entry_display }}{% if pz_citation_year != "" %} ({{ pz_citation_year }}){% endif %}.<br>
-        {{ site.url }}{{ page.permalink }}
+        {{ page.url | absolute_url }}
       </div>
     </div>
 
@@ -149,7 +149,7 @@ Build a clean author string from common front-matter patterns:
       <div class="pz-citebox-label">Cite as</div>
       <div class="pz-citebox-body">
         {% if pz_author_text != "" %}{{ pz_author_text }}{% else %}Rubin Thomas{% endif %}, “{{ page.title }},” <em>ProofZoom</em>, Entry {{ pz_entry_display }}{% if pz_citation_year != "" %} ({{ pz_citation_year }}){% endif %}.<br>
-        {{ site.url }}{{ page.permalink }}
+        {{ page.url | absolute_url }}
       </div>
     </div>
 
