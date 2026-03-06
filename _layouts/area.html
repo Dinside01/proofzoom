@@ -28,11 +28,13 @@
   <div class="grid">
     <div class="tile">
 
-{% assign area_entries = site.collections.entries.docs | where: "primary_area", page.slug | sort: "entry_id" %}
+{% assign all_entries = site.collections.entries.docs %}
+{% assign area_entries = all_entries | where: "primary_area", page.slug %}
 
-{% if area_entries.size > 0 %}
+{% if area_entries and area_entries.size > 0 %}
+  {% assign sorted_entries = area_entries | sort: "entry_id" %}
   <ul class="entry-list">
-  {% for entry in area_entries %}
+  {% for entry in sorted_entries %}
     <li>
       <a href="{{ entry.url }}">{{ entry.title }}</a>
     </li>
