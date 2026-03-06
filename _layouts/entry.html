@@ -70,22 +70,16 @@ Build a clean author string from common front-matter patterns:
       <div class="pz-citebox-label">Cite as</div>
       <div class="pz-citebox-body">
         {% if pz_author_text != "" %}{{ pz_author_text }}{% else %}Rubin Thomas{% endif %}, “{{ page.title }},” <em>ProofZoom</em>, Entry {{ pz_entry_display }}{% if pz_citation_year != "" %} ({{ pz_citation_year }}){% endif %}.<br>
-        {{ page.url | absolute_url }}
+        {{ site.url }}{{ page.permalink }}
       </div>
     </div>
 
-    <!-- Abstract ABOVE sponsor strip -->
     {% if page.abstract %}
       <div class="pz-abstract">
         <strong>Abstract.</strong> {{ page.abstract }}
       </div>
     {% endif %}
 
-    <!--
-    ============================================================================
-    Sponsor System (Hybrid C Model)
-    ============================================================================
-    -->
     {% unless page.sponsor_disable %}
 
       {% assign g = site.data.sponsor | default: "" %}
@@ -143,7 +137,6 @@ Build a clean author string from common front-matter patterns:
 
   </header>
 
-  <!-- Main content (Markdown or HTML body goes here) -->
   <div class="pz-entry-content">
     {{ content }}
   </div>
@@ -156,7 +149,7 @@ Build a clean author string from common front-matter patterns:
       <div class="pz-citebox-label">Cite as</div>
       <div class="pz-citebox-body">
         {% if pz_author_text != "" %}{{ pz_author_text }}{% else %}Rubin Thomas{% endif %}, “{{ page.title }},” <em>ProofZoom</em>, Entry {{ pz_entry_display }}{% if pz_citation_year != "" %} ({{ pz_citation_year }}){% endif %}.<br>
-        {{ page.url | absolute_url }}
+        {{ site.url }}{{ page.permalink }}
       </div>
     </div>
 
