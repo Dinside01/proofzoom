@@ -30,7 +30,6 @@ authors:
 
 The natural numbers may be characterized as the **smallest inductive structure**.
 
-This entry explains the structural meaning of mathematical induction
-and the role of minimal inductive sets in defining the natural numbers.
+This entry explains the structural meaning of mathematical induction and the role of minimal inductive sets in defining the natural numbers.
 
 More detailed exposition will appear here.
