@@ -10,7 +10,7 @@ Revisions:
   * supports authors as string, list of strings, or list of objects {name, role}
   * exposes pz_author_text for citation include
 - Citation URL now uses the actual entry page URL via:
-  {{ page.url | absolute_url }}
+  {{ site.url }}{{ page.permalink }}
 {%- endcomment -%}
 
 {%- comment -%}
