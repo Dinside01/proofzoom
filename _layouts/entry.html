@@ -11,6 +11,7 @@ Revisions:
   * exposes pz_author_text for citation include
 - Citation URL now uses the actual entry page URL via:
   {{ page.url | absolute_url }}
+- Added future-proof "Discussion" placeholder section
 {%- endcomment -%}
 
 {%- comment -%}
@@ -21,6 +22,7 @@ Build a clean author string from common front-matter patterns:
     - name: "Rubin Thomas"
       role: "author"
 {%- endcomment -%}
+
 {% assign pz_author_text = "" %}
 {% if page.authors %}
   {% if page.authors.first %}
@@ -142,6 +144,21 @@ Build a clean author string from common front-matter patterns:
   </div>
 
   <hr class="pz-rule" />
+
+  <!-- Future discussion space -->
+  <section class="pz-entry-discussion">
+    <h2>Discussion</h2>
+
+    <p>
+    ProofZoom welcomes scholarly commentary, corrections,
+    and suggestions for improvement of this entry.
+    </p>
+
+    <p>
+    A discussion interface for individual entries will be
+    introduced in a future release of the site.
+    </p>
+  </section>
 
   <!-- Cite as (BOTTOM) -->
   <footer class="pz-entry-footer">
