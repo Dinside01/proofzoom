@@ -1,5 +1,8 @@
 # ProofZoom
 
+(For technical documentation and maintenance instructions,
+see PROOFZOOM-MANUAL.md.)
+
 ProofZoom is a mathematics archive of essays designed to present
 mathematical ideas with clarity, structure, and conceptual insight.
 
