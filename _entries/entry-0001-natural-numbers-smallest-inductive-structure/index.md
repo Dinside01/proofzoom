@@ -8,6 +8,7 @@ primary_area: foundations
 primary_subarea: natural-numbers
 
 abstract: "A structural introduction to the natural numbers as the smallest inductive set, motivating induction and recursion."
+
 tags:
   - natural-numbers
   - induction
@@ -17,20 +18,19 @@ tags:
 difficulty: UG-Lower
 status: draft
 
-# Put the PDF inside this same folder and name it exactly as below.
 pdf: /entries/entry-0001-natural-numbers-smallest-inductive-structure/entry-0001-natural-numbers-smallest-inductive-structure.pdf
 
 created: 2026-02-28
 updated: 2026-02-28
 
 authors:
-  - name: "Rubin Thomas"
-    role: "author"
+  - name: Rubin Thomas
+    role: author
 ---
 
-<!--
-Essay content goes below. Do NOT repeat the title as an H1.
-Do NOT paste JSON metadata here.
--->
+The natural numbers may be characterized as the **smallest inductive structure**.
 
-(Entry content coming next.)
+This entry explains the structural meaning of mathematical induction
+and the role of minimal inductive sets in defining the natural numbers.
+
+More detailed exposition will appear here.
