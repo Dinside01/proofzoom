@@ -3,29 +3,21 @@ layout: default
 ---
 
 {%- comment -%}
-Entry layout (ProofZoom)
-
-Revisions:
-- Robust author formatting for citations:
-  * supports authors as string, list of strings, or list of objects {name, role}
-  * exposes pz_author_text for citation include
-- Citation URL now uses the actual entry page URL via:
-  {{ page.url | absolute_url }}
-- Added future-proof "Discussion" placeholder section
-- Added previous / next entry navigation
-- Strengthened PDF download behavior for academic-site style delivery
-{%- endcomment -%}
-
-{%- comment -%}
-Build a clean author string from common front-matter patterns:
-  authors: "Rubin Thomas"
-  authors: ["Rubin Thomas", "ChatGPT"]
-  authors:
-    - name: "Rubin Thomas"
-      role: "author"
+ProofZoom Entry Layout
+Provides:
+• Entry header
+• Abstract
+• Sponsor placeholder
+• Download PDF button
+• Download note
+• Entry content
+• Discussion placeholder
+• Previous / Next navigation
+• Citation block
 {%- endcomment -%}
 
 {% assign pz_author_text = "" %}
+
 {% if page.authors %}
   {% if page.authors.first %}
     {% if page.authors.first.name %}
@@ -40,6 +32,7 @@ Build a clean author string from common front-matter patterns:
 
 {% assign pz_entry_label = page.entry_id | default: page.entry_number %}
 {% assign pz_entry_display = pz_entry_label | remove: "entry-" %}
+
 {% assign pz_area_label = page.primary_area | default: page.area %}
 {% assign pz_subarea_label = page.primary_subarea | default: page.subarea %}
 
@@ -69,11 +62,10 @@ Build a clean author string from common front-matter patterns:
 
     <div class="pz-entry-meta">
       {% if pz_area_label %}<span>Area: {{ pz_area_label }}</span>{% endif %}
-      {% if pz_subarea_label %}<span>• Subarea: {{ pz_subarea_label }}</span>{% endif %}
-      {% if page.difficulty %}<span>• Difficulty: {{ page.difficulty }}</span>{% endif %}
+      {% if pz_subarea_label %}<span> • Subarea: {{ pz_subarea_label }}</span>{% endif %}
+      {% if page.difficulty %}<span> • Difficulty: {{ page.difficulty }}</span>{% endif %}
     </div>
 
-    <!-- Future sponsor / announcement box -->
     <div class="pz-sponsor-placeholder"></div>
 
     {% if page.abstract %}
@@ -81,55 +73,6 @@ Build a clean author string from common front-matter patterns:
         <strong>Abstract.</strong> {{ page.abstract }}
       </div>
     {% endif %}
-
-    {% unless page.sponsor_disable %}
-
-      {% assign g = site.data.sponsor | default: "" %}
-
-      {% assign sponsor_label = page.sponsor_label | default: g.label | default: "Supported by" %}
-      {% assign sponsor_name  = page.sponsor_name  | default: g.name %}
-      {% assign sponsor_url   = page.sponsor_url   | default: g.url %}
-      {% assign sponsor_image = page.sponsor_image | default: g.image %}
-      {% assign sponsor_text  = page.sponsor_text  | default: g.text %}
-      {% assign sponsor_html  = page.sponsor_html  | default: g.html %}
-
-      {% if sponsor_name or sponsor_html or sponsor_image or sponsor_url %}
-        <div class="pz-sponsor-strip" aria-label="Sponsor">
-          <div class="pz-sponsor-label">{{ sponsor_label }}</div>
-
-          {% if sponsor_html %}
-            <div class="pz-sponsor-body">
-              {{ sponsor_html }}
-            </div>
-          {% else %}
-            <div class="pz-sponsor-body">
-              {% if sponsor_url %}
-                <a class="pz-sponsor-link" href="{{ sponsor_url }}" rel="sponsored noopener">
-              {% endif %}
-
-              {% if sponsor_image %}
-                <img class="pz-sponsor-logo"
-                     src="{{ sponsor_image | relative_url }}"
-                     alt="{{ sponsor_name | default: 'Sponsor' }}">
-              {% endif %}
-
-              {% if sponsor_name %}
-                <span class="pz-sponsor-name">{{ sponsor_name }}</span>
-              {% endif %}
-
-              {% if sponsor_url %}
-                </a>
-              {% endif %}
-
-              {% if sponsor_text %}
-                <div class="pz-sponsor-text">{{ sponsor_text }}</div>
-              {% endif %}
-            </div>
-          {% endif %}
-        </div>
-      {% endif %}
-
-    {% endunless %}
 
     {% if page.pdf %}
       <div class="pz-entry-links">
@@ -140,13 +83,14 @@ Build a clean author string from common front-matter patterns:
           type="application/pdf"
           rel="noopener"
           aria-label="Download article PDF">
-          Download Article (PDF)
+          Download PDF
         </a>
       </div>
 
       <div class="pz-entry-download-note">
-        If your browser opens PDFs instead of downloading them, use right-click and choose
-        <em>Save link as…</em>
+        For the best reading experience, use the web version.<br>
+        The PDF is provided for download, printing, and offline use.<br>
+        If your browser opens PDFs instead of downloading them, right-click and choose <em>Save link as…</em>
       </div>
     {% endif %}
 
@@ -162,12 +106,12 @@ Build a clean author string from common front-matter patterns:
     <h2>Discussion</h2>
 
     <p>
-      ProofZoom welcomes scholarly commentary, corrections,
-      and suggestions for improvement of this entry.
+      ProofZoom welcomes scholarly commentary,
+      corrections, and suggestions for improvement.
     </p>
 
     <p>
-      A discussion interface for individual entries will be
+      A discussion interface for entries will be
       introduced in a future release of the site.
     </p>
   </section>
@@ -194,28 +138,42 @@ Build a clean author string from common front-matter patterns:
 
   {% if pz_prev or pz_next %}
     <nav class="pz-entry-nav" aria-label="Entry navigation">
+
       <div class="pz-entry-nav-prev">
         {% if pz_prev %}
-          <a href="{{ pz_prev.url | relative_url }}">← Previous: {{ pz_prev.entry_id | default: pz_prev.slug }} — {{ pz_prev.title }}</a>
+          <a href="{{ pz_prev.url | relative_url }}">
+            ← Previous: {{ pz_prev.entry_id | default: pz_prev.slug }} — {{ pz_prev.title }}
+          </a>
         {% endif %}
       </div>
 
       <div class="pz-entry-nav-next">
         {% if pz_next %}
-          <a href="{{ pz_next.url | relative_url }}">Next: {{ pz_next.entry_id | default: pz_next.slug }} — {{ pz_next.title }} →</a>
+          <a href="{{ pz_next.url | relative_url }}">
+            Next: {{ pz_next.entry_id | default: pz_next.slug }} — {{ pz_next.title }} →
+          </a>
         {% endif %}
       </div>
+
     </nav>
   {% endif %}
 
   <footer class="pz-entry-footer">
+
     <div class="pz-citebox pz-citebox-bottom">
-      <div class="pz-citebox-label">Cite as</div>
+      <div class="pz-citebox-label">
+        Cite as
+      </div>
+
       <div class="pz-citebox-body">
-        {% if pz_author_text != "" %}{{ pz_author_text }}{% else %}Rubin Thomas{% endif %}, “{{ page.title }},” <em>ProofZoom</em>, Entry {{ pz_entry_display }}{% if pz_citation_year != "" %} ({{ pz_citation_year }}){% endif %}.<br>
+        {% if pz_author_text != "" %}{{ pz_author_text }}{% else %}Rubin Thomas{% endif %},
+        “{{ page.title }},”
+        <em>ProofZoom</em>,
+        Entry {{ pz_entry_display }}{% if pz_citation_year != "" %} ({{ pz_citation_year }}){% endif %}.<br>
         {{ page.url | absolute_url }}
       </div>
     </div>
+
   </footer>
 
 </article>
