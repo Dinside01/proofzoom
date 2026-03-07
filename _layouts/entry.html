@@ -51,7 +51,6 @@ Build a clean author string from common front-matter patterns:
 
 <article class="pz-entry">
 
-  <!-- Header block -->
   <header class="pz-entry-header">
 
     <div class="pz-entry-kicker">
@@ -68,8 +67,8 @@ Build a clean author string from common front-matter patterns:
       {% if page.difficulty %}<span>• Difficulty: {{ page.difficulty }}</span>{% endif %}
     </div>
 
-<!-- Future sponsor / announcement box -->
-<div class="pz-sponsor-placeholder"></div>
+    <!-- Future sponsor / announcement box -->
+    <div class="pz-sponsor-placeholder"></div>
 
     {% if page.abstract %}
       <div class="pz-abstract">
@@ -140,22 +139,20 @@ Build a clean author string from common front-matter patterns:
 
   <hr class="pz-rule" />
 
-  <!-- Future discussion space -->
   <section class="pz-entry-discussion">
     <h2>Discussion</h2>
 
     <p>
-    ProofZoom welcomes scholarly commentary, corrections,
-    and suggestions for improvement of this entry.
+      ProofZoom welcomes scholarly commentary, corrections,
+      and suggestions for improvement of this entry.
     </p>
 
     <p>
-    A discussion interface for individual entries will be
-    introduced in a future release of the site.
+      A discussion interface for individual entries will be
+      introduced in a future release of the site.
     </p>
   </section>
 
-  <!-- Previous / Next entry navigation -->
   {% assign pz_sorted_entries = site.entries | sort: "entry_id" %}
   {% assign pz_prev = nil %}
   {% assign pz_next = nil %}
@@ -192,13 +189,6 @@ Build a clean author string from common front-matter patterns:
     </nav>
   {% endif %}
 
-.pz-entry-footer {
-  border-top: 1px solid #cfcfcf;
-  margin-top: 30px;
-  padding-top: 14px;
-}
-
-  <!-- Cite as (BOTTOM) -->
   <footer class="pz-entry-footer">
     <div class="pz-citebox pz-citebox-bottom">
       <div class="pz-citebox-label">Cite as</div>
@@ -207,5 +197,6 @@ Build a clean author string from common front-matter patterns:
         {{ page.url | absolute_url }}
       </div>
     </div>
+  </footer>
 
 </article>
