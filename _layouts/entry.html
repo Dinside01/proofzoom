@@ -12,6 +12,7 @@ Revisions:
 - Citation URL now uses the actual entry page URL via:
   {{ page.url | absolute_url }}
 - Added future-proof "Discussion" placeholder section
+- Added previous / next entry navigation
 {%- endcomment -%}
 
 {%- comment -%}
@@ -159,6 +160,43 @@ Build a clean author string from common front-matter patterns:
     introduced in a future release of the site.
     </p>
   </section>
+
+  <!-- Previous / Next entry navigation -->
+  {% assign pz_sorted_entries = site.entries | sort: "entry_id" %}
+  {% assign pz_prev = nil %}
+  {% assign pz_next = nil %}
+
+  {% for p in pz_sorted_entries %}
+    {% if p.url == page.url %}
+      {% assign pz_index = forloop.index0 %}
+      {% assign pz_prev_index = pz_index | minus: 1 %}
+      {% assign pz_next_index = pz_index | plus: 1 %}
+
+      {% if pz_prev_index >= 0 %}
+        {% assign pz_prev = pz_sorted_entries[pz_prev_index] %}
+      {% endif %}
+
+      {% if pz_next_index < pz_sorted_entries.size %}
+        {% assign pz_next = pz_sorted_entries[pz_next_index] %}
+      {% endif %}
+    {% endif %}
+  {% endfor %}
+
+  {% if pz_prev or pz_next %}
+    <nav class="pz-entry-nav" aria-label="Entry navigation">
+      <div class="pz-entry-nav-prev">
+        {% if pz_prev %}
+          <a href="{{ pz_prev.url | relative_url }}">← Previous: {{ pz_prev.entry_id | default: pz_prev.slug }} — {{ pz_prev.title }}</a>
+        {% endif %}
+      </div>
+
+      <div class="pz-entry-nav-next">
+        {% if pz_next %}
+          <a href="{{ pz_next.url | relative_url }}">Next: {{ pz_next.entry_id | default: pz_next.slug }} — {{ pz_next.title }} →</a>
+        {% endif %}
+      </div>
+    </nav>
+  {% endif %}
 
   <!-- Cite as (BOTTOM) -->
   <footer class="pz-entry-footer">
