@@ -125,11 +125,11 @@ Build a clean author string from common front-matter patterns:
 
     {% endunless %}
 
-    {% if page.pdf %}
-      <div class="pz-entry-links">
-        <a class="pz-btn" href="{{ page.pdf | relative_url }}">Download PDF</a>
-      </div>
-    {% endif %}
+{% if page.pdf %}
+  <div class="pz-entry-links">
+    <a class="pz-btn" href="{{ page.pdf | relative_url }}" download>Download PDF File</a>
+  </div>
+{% endif %}
 
   </header>
 
