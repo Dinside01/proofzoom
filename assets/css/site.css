@@ -175,7 +175,13 @@ a:hover{
     grid-template-columns: 1fr;
   }
 }
-
+.entry-ad-box {
+  border: 1px solid #d6d6d6;
+  padding: 14px;
+  margin: 16px 0 20px 0;
+  min-height: 60px;
+  background: #fafafa;
+}
 /* Entry lists on area pages */
 
 .entry-list{

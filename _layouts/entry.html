@@ -68,14 +68,8 @@ Build a clean author string from common front-matter patterns:
       {% if page.difficulty %}<span>• Difficulty: {{ page.difficulty }}</span>{% endif %}
     </div>
 
-    <!-- Cite as (TOP) -->
-    <div class="pz-citebox pz-citebox-top">
-      <div class="pz-citebox-label">Cite as</div>
-      <div class="pz-citebox-body">
-        {% if pz_author_text != "" %}{{ pz_author_text }}{% else %}Rubin Thomas{% endif %}, “{{ page.title }},” <em>ProofZoom</em>, Entry {{ pz_entry_display }}{% if pz_citation_year != "" %} ({{ pz_citation_year }}){% endif %}.<br>
-        {{ page.url | absolute_url }}
-      </div>
-    </div>
+<!-- Future sponsor / announcement box -->
+<div class="pz-sponsor-placeholder"></div>
 
     {% if page.abstract %}
       <div class="pz-abstract">
@@ -198,6 +192,12 @@ Build a clean author string from common front-matter patterns:
     </nav>
   {% endif %}
 
+.pz-entry-footer {
+  border-top: 1px solid #cfcfcf;
+  margin-top: 30px;
+  padding-top: 14px;
+}
+
   <!-- Cite as (BOTTOM) -->
   <footer class="pz-entry-footer">
     <div class="pz-citebox pz-citebox-bottom">
@@ -207,12 +207,5 @@ Build a clean author string from common front-matter patterns:
         {{ page.url | absolute_url }}
       </div>
     </div>
-
-    {% if page.pdf %}
-      <div class="pz-footer-links">
-        <a href="{{ page.pdf | relative_url }}">PDF</a>
-      </div>
-    {% endif %}
-  </footer>
 
 </article>

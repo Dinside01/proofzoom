@@ -18,7 +18,7 @@ tags:
 difficulty: UG-Lower
 status: draft
 
-pdf: /entries/entry-0001-natural-numbers-smallest-inductive-structure/entry-0001-natural-numbers-smallest-inductive-structure.pdf
+pdf: /assets/pdfs/entry-0001-natural-numbers-smallest-inductive-structure.pdf
 
 created: 2026-02-28
 updated: 2026-02-28
