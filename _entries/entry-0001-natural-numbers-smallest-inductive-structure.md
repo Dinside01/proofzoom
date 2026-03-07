@@ -16,12 +16,12 @@ tags:
   - well-ordering
 
 difficulty: UG-Lower
-status: draft
+status: published
 
 pdf: /assets/pdfs/entry-0001-natural-numbers.pdf
 
 created: 2026-02-28
-updated: 2026-02-28
+updated: 2026-03-07
 
 authors:
   - name: Rubin Thomas
