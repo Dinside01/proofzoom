@@ -272,6 +272,13 @@ a:hover{
   text-decoration: none;
 }
 
+.pz-entry-download-note{
+  margin-top: 8px;
+  color: var(--muted);
+  font-size: 0.92rem;
+  line-height: 1.5;
+}
+
 .pz-entry-content{
   font-size: 1.08rem;
   line-height: 1.75;

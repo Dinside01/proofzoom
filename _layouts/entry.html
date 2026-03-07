@@ -13,6 +13,7 @@ Revisions:
   {{ page.url | absolute_url }}
 - Added future-proof "Discussion" placeholder section
 - Added previous / next entry navigation
+- Strengthened PDF download behavior for academic-site style delivery
 {%- endcomment -%}
 
 {%- comment -%}
@@ -47,6 +48,11 @@ Build a clean author string from common front-matter patterns:
   {% assign pz_citation_year = page.updated | slice: 0, 4 %}
 {% elsif page.date %}
   {% assign pz_citation_year = page.date | date: "%Y" %}
+{% endif %}
+
+{% assign pz_pdf_filename = "" %}
+{% if page.pdf %}
+  {% assign pz_pdf_filename = page.pdf | split: "/" | last %}
 {% endif %}
 
 <article class="pz-entry">
@@ -125,11 +131,24 @@ Build a clean author string from common front-matter patterns:
 
     {% endunless %}
 
-{% if page.pdf %}
-  <div class="pz-entry-links">
-    <a class="pz-btn" href="{{ page.pdf | relative_url }}" download>Download PDF File</a>
-  </div>
-{% endif %}
+    {% if page.pdf %}
+      <div class="pz-entry-links">
+        <a
+          class="pz-btn"
+          href="{{ page.pdf | relative_url }}"
+          download="{{ pz_pdf_filename }}"
+          type="application/pdf"
+          rel="noopener"
+          aria-label="Download article PDF">
+          Download Article (PDF)
+        </a>
+      </div>
+
+      <div class="pz-entry-download-note">
+        If your browser opens PDFs instead of downloading them, use right-click and choose
+        <em>Save link as…</em>
+      </div>
+    {% endif %}
 
   </header>
 
