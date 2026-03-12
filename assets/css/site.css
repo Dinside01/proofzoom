@@ -261,29 +261,46 @@ a.button:hover {
    Entries listing page
    ========================= */
 
-.entry-card {
+.entry-listing {
   margin: 0 0 34px 0;
 }
 
-.entry-card-title {
+.entry-listing-title {
   margin-bottom: 0.8rem;
 }
 
-.entry-card-title a {
+.entry-listing-title a {
   color: var(--pz-link);
   text-decoration: none;
 }
 
-.entry-card-title a:hover {
+.entry-listing-title a:hover {
   color: var(--pz-link-hover);
   text-decoration: underline;
 }
 
-/* listing page uses same metadata classes */
+.entry-listing-abstract {
+  margin-bottom: 0.8rem;
+}
 
-.entry-card .entry-meta,
-.entry-card .entry-dates {
-  margin: 0.35rem 0;
+.entry-listing-meta {
+  color: var(--pz-muted);
+  font-size: 0.95rem;
+  margin: 0.35rem 0 0.75rem 0;
+}
+
+.entry-listing-pdf {
+  margin-top: 0.5rem;
+}
+
+.entry-listing-pdf a {
+  color: var(--pz-link);
+  text-decoration: none;
+}
+
+.entry-listing-pdf a:hover {
+  color: var(--pz-link-hover);
+  text-decoration: underline;
 }
 
 /* =========================
