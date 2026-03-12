@@ -2,178 +2,42 @@
 layout: default
 ---
 
-{%- comment -%}
-ProofZoom Entry Layout
-Provides:
-• Entry header
-• Abstract
-• Sponsor placeholder
-• Download PDF button
-• Download note
-• Entry content
-• Discussion placeholder
-• Previous / Next navigation
-• Citation block
-{%- endcomment -%}
-
-{% assign pz_author_text = "" %}
-
-{% if page.authors %}
-  {% if page.authors.first %}
-    {% if page.authors.first.name %}
-      {% assign pz_author_text = page.authors | map: "name" | join: ", " %}
-    {% else %}
-      {% assign pz_author_text = page.authors | join: ", " %}
+<article class="entry-page">
+  <header class="entry-header">
+    {% if page.entry_id %}
+      <div class="entry-id">{{ page.entry_id | upcase }}</div>
     {% endif %}
-  {% else %}
-    {% assign pz_author_text = page.authors %}
-  {% endif %}
-{% endif %}
 
-{% assign pz_entry_label = page.entry_id | default: page.entry_number %}
-{% assign pz_entry_display = pz_entry_label | remove: "entry-" %}
-
-{% assign pz_area_label = page.primary_area | default: page.area %}
-{% assign pz_subarea_label = page.primary_subarea | default: page.subarea %}
-
-{% assign pz_citation_year = "" %}
-{% if page.updated %}
-  {% assign pz_citation_year = page.updated | slice: 0, 4 %}
-{% elsif page.date %}
-  {% assign pz_citation_year = page.date | date: "%Y" %}
-{% endif %}
-
-{% assign pz_pdf_filename = "" %}
-{% if page.pdf %}
-  {% assign pz_pdf_filename = page.pdf | split: "/" | last %}
-{% endif %}
-
-<article class="pz-entry">
-
-  <header class="pz-entry-header">
-
-    <div class="pz-entry-kicker">
-      {% if pz_entry_label %}<span class="pz-entry-number">Entry {{ pz_entry_display }}</span>{% endif %}
-      {% if page.status %}<span class="pz-pill">Status: {{ page.status }}</span>{% endif %}
-      {% if page.updated %}<span class="pz-pill">Updated: {{ page.updated }}</span>{% endif %}
-    </div>
-
-    <h1 class="pz-entry-title">{{ page.title }}</h1>
-
-    <div class="pz-entry-meta">
-      {% if pz_area_label %}<span>Area: {{ pz_area_label }}</span>{% endif %}
-      {% if pz_subarea_label %}<span> • Subarea: {{ pz_subarea_label }}</span>{% endif %}
-      {% if page.difficulty %}<span> • Difficulty: {{ page.difficulty }}</span>{% endif %}
-    </div>
-
-    <div class="pz-sponsor-placeholder"></div>
+    <h1 class="entry-title">{{ page.title }}</h1>
 
     {% if page.abstract %}
-      <div class="pz-abstract">
+      <div class="entry-abstract">
         <strong>Abstract.</strong> {{ page.abstract }}
       </div>
     {% endif %}
 
+    <p class="entry-meta">
+      Area: {{ page.primary_area }} &bull;
+      Subarea: {{ page.primary_subarea }} &bull;
+      Difficulty: {{ page.difficulty }} &bull;
+      Status: {{ page.status }}
+    </p>
+
+    <p class="entry-dates">
+      Published: {{ page.created }}
+      {% if page.updated and page.updated != page.created %}
+        &bull; Updated: {{ page.updated }}
+      {% endif %}
+    </p>
+
     {% if page.pdf %}
-      <div class="pz-entry-links">
-        <a
-          class="pz-btn"
-          href="{{ page.pdf | relative_url }}"
-          download="{{ pz_pdf_filename }}"
-          type="application/pdf"
-          rel="noopener"
-          aria-label="Download article PDF">
-          Download PDF
-        </a>
-      </div>
-
-      <div class="pz-entry-download-note">
-        For the best reading experience, use the web version.<br>
-        The PDF is provided for download, printing, and offline use.<br>
-        If your browser opens PDFs instead of downloading them, right-click and choose <em>Save link as…</em>
-      </div>
+      <p class="entry-download">
+        <a href="{{ page.pdf | relative_url }}">Download PDF</a>
+      </p>
     {% endif %}
-
   </header>
 
-  <div class="pz-entry-content">
+  <div class="entry-content">
     {{ content }}
   </div>
-
-  <hr class="pz-rule" />
-
-  <section class="pz-entry-discussion">
-    <h2>Discussion</h2>
-
-    <p>
-      ProofZoom welcomes scholarly commentary,
-      corrections, and suggestions for improvement.
-    </p>
-
-    <p>
-      A discussion interface for entries will be
-      introduced in a future release of the site.
-    </p>
-  </section>
-
-  {% assign pz_sorted_entries = site.entries | sort: "entry_id" %}
-  {% assign pz_prev = nil %}
-  {% assign pz_next = nil %}
-
-  {% for p in pz_sorted_entries %}
-    {% if p.url == page.url %}
-      {% assign pz_index = forloop.index0 %}
-      {% assign pz_prev_index = pz_index | minus: 1 %}
-      {% assign pz_next_index = pz_index | plus: 1 %}
-
-      {% if pz_prev_index >= 0 %}
-        {% assign pz_prev = pz_sorted_entries[pz_prev_index] %}
-      {% endif %}
-
-      {% if pz_next_index < pz_sorted_entries.size %}
-        {% assign pz_next = pz_sorted_entries[pz_next_index] %}
-      {% endif %}
-    {% endif %}
-  {% endfor %}
-
-  {% if pz_prev or pz_next %}
-    <nav class="pz-entry-nav" aria-label="Entry navigation">
-
-      <div class="pz-entry-nav-prev">
-        {% if pz_prev %}
-          <a href="{{ pz_prev.url | relative_url }}">
-            ← Previous: {{ pz_prev.entry_id | default: pz_prev.slug }} — {{ pz_prev.title }}
-          </a>
-        {% endif %}
-      </div>
-
-      <div class="pz-entry-nav-next">
-        {% if pz_next %}
-          <a href="{{ pz_next.url | relative_url }}">
-            Next: {{ pz_next.entry_id | default: pz_next.slug }} — {{ pz_next.title }} →
-          </a>
-        {% endif %}
-      </div>
-
-    </nav>
-  {% endif %}
-
-  <footer class="pz-entry-footer">
-
-    <div class="pz-citebox pz-citebox-bottom">
-      <div class="pz-citebox-label">
-        Cite as
-      </div>
-
-      <div class="pz-citebox-body">
-        {% if pz_author_text != "" %}{{ pz_author_text }}{% else %}Rubin Thomas{% endif %},
-        “{{ page.title }},”
-        <em>ProofZoom</em>,
-        Entry {{ pz_entry_display }}{% if pz_citation_year != "" %} ({{ pz_citation_year }}){% endif %}.<br>
-        {{ page.url | absolute_url }}
-      </div>
-    </div>
-
-  </footer>
-
 </article>
