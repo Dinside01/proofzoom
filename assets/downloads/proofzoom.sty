@@ -1,0 +1,148 @@
+% proofzoom.sty --- ProofZoom institutional style (v1.1)
+\NeedsTeXFormat{LaTeX2e}
+\ProvidesPackage{proofzoom}[2026/03/13 ProofZoom style v1.1]
+
+% ------------------------------------------------------------
+% Fonts / microtypography
+% ------------------------------------------------------------
+\RequirePackage[T1]{fontenc}
+\RequirePackage[utf8]{inputenc}
+\RequirePackage{microtype}
+\RequirePackage{newtxtext}
+\RequirePackage{newtxmath}
+
+% ------------------------------------------------------------
+% Core mathematics
+% ------------------------------------------------------------
+\RequirePackage{amsmath,amssymb,amsthm}
+\RequirePackage{mathtools}
+
+% ------------------------------------------------------------
+% Page layout and graphics
+% ------------------------------------------------------------
+\RequirePackage[margin=1in]{geometry}
+\RequirePackage{graphicx}
+\RequirePackage{tikz}
+\usetikzlibrary{arrows.meta,calc,decorations.markings,intersections,positioning}
+
+% ------------------------------------------------------------
+% Tables, lists, and captions
+% ------------------------------------------------------------
+\RequirePackage{booktabs}
+\RequirePackage{array}
+\RequirePackage{enumitem}
+\RequirePackage[font=small,labelfont=bf]{caption}
+\setlist{nosep}
+
+% ------------------------------------------------------------
+% Colors and links
+% ------------------------------------------------------------
+\RequirePackage{xcolor}
+\definecolor{pzmeta}{gray}{0.40}
+\definecolor{pzrule}{gray}{0.82}
+\definecolor{pzheading}{gray}{0.15}
+
+\RequirePackage{hyperref}
+\RequirePackage[nameinlink,noabbrev]{cleveref}
+\hypersetup{
+  colorlinks=true,
+  linkcolor=black,
+  citecolor=black,
+  urlcolor=black,
+  pdfauthor={},
+  pdftitle={ProofZoom Entry}
+}
+
+% ------------------------------------------------------------
+% Paragraphs and display spacing
+% ------------------------------------------------------------
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{6pt}
+\setlength{\abovedisplayskip}{8pt}
+\setlength{\belowdisplayskip}{8pt}
+\setlength{\abovedisplayshortskip}{6pt}
+\setlength{\belowdisplayshortskip}{6pt}
+
+% ------------------------------------------------------------
+% Section styling (light touch)
+% ------------------------------------------------------------
+\RequirePackage{titlesec}
+\titleformat{\section}
+  {\large\bfseries\color{pzheading}}
+  {\thesection.}{0.5em}{}
+\titleformat{\subsection}
+  {\normalsize\bfseries\color{pzheading}}
+  {\thesubsection.}{0.5em}{}
+\titlespacing*{\section}{0pt}{14pt}{6pt}
+\titlespacing*{\subsection}{0pt}{10pt}{4pt}
+
+% ------------------------------------------------------------
+% Theorem environments
+% ------------------------------------------------------------
+\newtheoremstyle{pzplain}
+  {6pt}{6pt}{\itshape}{} {\bfseries}{.}{0.5em}{}
+\newtheoremstyle{pzdef}
+  {6pt}{6pt}{}{} {\bfseries}{.}{0.5em}{}
+\newtheoremstyle{pzremark}
+  {6pt}{6pt}{}{} {\itshape}{.}{0.5em}{}
+
+\theoremstyle{pzplain}
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{corollary}[theorem]{Corollary}
+
+\theoremstyle{pzdef}
+\newtheorem{definition}[theorem]{Definition}
+\newtheorem{example}[theorem]{Example}
+
+\theoremstyle{pzremark}
+\newtheorem{remark}[theorem]{Remark}
+
+% ------------------------------------------------------------
+% Equation / figure / table numbering by section
+% ------------------------------------------------------------
+\numberwithin{equation}{section}
+\numberwithin{figure}{section}
+\numberwithin{table}{section}
+
+% ------------------------------------------------------------
+% ProofZoom entry header (catalog card)
+% ------------------------------------------------------------
+\newcommand{\PZEntryCard}[7]{%
+  \begingroup
+  \small
+  \noindent{\bfseries Entry~#1}\par
+  \vspace{4pt}
+  {\Large\bfseries #2}\par
+  \vspace{4pt}
+  \textcolor{pzmeta}{Area: #3 \quad\textbullet\quad Subarea: #4}\par
+  \textcolor{pzmeta}{Difficulty: #5 \quad\textbullet\quad Status: #6 \quad\textbullet\quad Updated: #7}\par
+  \vspace{6pt}
+  {\color{pzrule}\rule{\linewidth}{0.5pt}}\par
+  \vspace{10pt}
+  \endgroup
+}
+
+\newcommand{\PZCiteAs}[2]{%
+  \vspace{12pt}
+  \noindent\textcolor{pzmeta}{\small Cite as: ProofZoom Entry~#1 (#2).}
+}
+
+% ------------------------------------------------------------
+% Light-touch convenience macros
+% ------------------------------------------------------------
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\eps}{\varepsilon}
+
+% ------------------------------------------------------------
+% House-style defaults for figures
+% ------------------------------------------------------------
+\setlength{\abovecaptionskip}{6pt}
+\setlength{\belowcaptionskip}{0pt}
+
+\endinput
