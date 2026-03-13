@@ -4,7 +4,7 @@ title: Contributors
 permalink: /contributors/
 ---
 
-## Entry Template
+## ProofZoom Entry Template
 
 See the **[ProofZoom Entry Template](/contributors/template/)** for the
 recommended structure of entries and the LaTeX template used for
