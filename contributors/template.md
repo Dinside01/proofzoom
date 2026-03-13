@@ -57,14 +57,14 @@ cleanly in both the PDF and web versions.
 
 A starter LaTeX file for ProofZoom entries can be downloaded here:
 
-**proofzoom-template.tex**
+**[proofzoom-template.tex](/assets/downloads/proofzoom-template.tex)**
 
 This file already includes the ProofZoom style package and the
 recommended section structure.
 
 You will also need the ProofZoom style file:
 
-**proofzoom.sty**
+**[proofzoom.sty](/assets/downloads/proofzoom.sty)**
 
 Place both files in the same folder when preparing your entry.
 
