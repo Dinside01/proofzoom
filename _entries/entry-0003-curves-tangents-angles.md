@@ -7,7 +7,7 @@ title: "Curves, Tangents, and Angles in the Complex Plane"
 primary_area: complex-analysis
 primary_subarea: curves-and-conformality
 
-abstract: "This entry develops the geometric meaning of tangent direction for complex-valued curves, explains how angles between curves may be expressed through arguments of complex numbers, and shows how this leads naturally to conformality. Particular attention is given to the condition $z'(t_0)\neq 0$, whose meaning in the complex setting is subtler than in the real case."
+abstract: abstract: "This entry develops the geometric meaning of tangent direction for complex-valued curves, explains how angles between curves may be expressed through arguments of complex numbers, and shows how this leads naturally to conformality. Particular attention is given to the condition $z'(t_0)\neq 0$, whose meaning in the complex setting is subtler than in the real case."
 
 difficulty: UG-Upper
 published: 2026-03-14
@@ -15,9 +15,6 @@ updated:
 
 pdf: /assets/pdfs/entry-0003-curves-tangents-angles.pdf
 ---
-
-This entry develops the geometric meaning of tangent direction for complex-valued curves, explains how angles between curves may be expressed through arguments of complex numbers, and shows how this leads naturally to conformality. Particular attention is given to the condition $z'(t_0)\neq 0$, whose meaning in the complex setting is subtler than in the real case.
-
 ## 1. Overview
 
 A complex-valued curve carries both magnitude and direction at every point. The derivative of such a curve, when nonzero, gives a precise first-order direction of motion. This makes it possible to define tangent rays, angles between curves, and ultimately conformality in a natural geometric way.
@@ -315,8 +312,7 @@ Thus the tangent direction of the image curve is obtained from the tangent direc
 Multiplication by a nonzero complex number has a simple geometric effect:
 
 - a rotation through the angle $\operatorname{Arg}(f'(z_0))$,
-- a uniform scaling by the factor $|f'(z_0)|$.
-
+- a uniform scaling by the factor $\lvert f'(z_0)\rvert$.
 Now let $C_1$ and $C_2$ be two curves through $z_0$, and let $\Gamma_1,\Gamma_2$ be their images under $f$. Then
 
 
@@ -352,19 +348,17 @@ If $f$ is differentiable at $z_0$, then
 
 
 $$
-\lim_{z\to z_0}\left|
+\lim_{z\to z_0}
+\left\lvert
 \frac{f(z)-f(z_0)}{z-z_0}
-\right|
+\right\rvert
 =
-|f'(z_0)|.
+\lvert f'(z_0)\rvert .
 $$
 
-Thus, when $|z-z_0|$ is small,
+Thus, when $\lvert z-z_0\rvert$ is small,
 
-
-$$
-|f(z)-f(z_0)|\approx |f'(z_0)|\,|z-z_0|.
-$$
+$\lvert f(z)-f(z_0)\rvert \approx \lvert f'(z_0)\rvert\,\lvert z-z_0\rvert$.
 
 Combined with conformality, this shows that when $f'(z_0)\neq 0$, sufficiently small geometric figures near $z_0$ are mapped to approximately similar figures near $f(z_0)$.
 
@@ -568,7 +562,7 @@ f(z(t_0))
 +
 f'(z(t_0))(z(t_0+h)-z(t_0))
 +
-o(|z(t_0+h)-z(t_0)|).
+o(\lvert z(t_0+h)-z(t_0)\rvert).
 $$
 
 Thus, to first order, $f$ acts as multiplication by the nonzero complex number $f'(z(t_0))$, which preserves angles and orientation. Hence $f$ is conformal at $z(t_0)$ along the curve.
@@ -667,10 +661,10 @@ we may write
 $$
 \frac{1}{f'(z_0)}
 =
-\frac{\overline{f'(z_0)}}{|f'(z_0)|^2}.
+\frac{\overline{f'(z_0)}}{\lvert f'(z_0)\rvert^2}.
 $$
 
-Thus the derivative of the inverse is a real scalar multiple of the complex conjugate of $f'(z_0)$. Geometrically this means that the inverse mapping reverses the rotation produced by $f'(z_0)$ while scaling by the reciprocal factor $1/|f'(z_0)|$.
+Thus the derivative of the inverse is a real scalar multiple of the complex conjugate of $f'(z_0)$. Geometrically this means that the inverse mapping reverses the rotation produced by $f'(z_0)$ while scaling by the reciprocal factor $1/\lvert f'(z_0)\rvert$.
 
 ## 11. Globally Conformal Functions
 

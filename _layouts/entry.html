@@ -23,12 +23,12 @@ layout: default
       Status: {{ page.status }}
     </p>
 
-    <p class="entry-dates">
-      Published: {{ page.created }}
-      {% if page.updated and page.updated != page.created %}
-        &bull; Updated: {{ page.updated }}
-      {% endif %}
-    </p>
+<p class="entry-dates">
+  Published: {{ page.published }}
+  {% if page.updated and page.updated != page.published %}
+    &bull; Updated: {{ page.updated }}
+  {% endif %}
+</p>
 
     {% if page.pdf %}
       <p class="entry-download">
