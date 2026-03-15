@@ -238,12 +238,31 @@ a.button:hover {
 
 .entry-content {
   margin-top: 24px;
+  max-width: 760px;
+  line-height: 1.65;
+}
+
+.entry-content p {
+  margin-bottom: 1.05em;
 }
 
 .entry-content h2,
 .entry-content h3,
 .entry-content h4 {
   margin-top: 1.4em;
+}
+
+/* Improve section heading readability */
+
+.entry-content h2 {
+  margin-top: 2.2em;
+  margin-bottom: 0.6em;
+  font-weight: 600;
+}
+
+.entry-content h3 {
+  margin-top: 1.6em;
+  margin-bottom: 0.5em;
 }
 
 .entry-footer {
@@ -401,4 +420,35 @@ pre {
   .entry-title {
     font-size: 1.9rem;
   }
+
+  .entry-content {
+    max-width: 100%;
+  }
+}
+
+/* ProofZoom figure / web notes */
+
+.entry-note {
+  border-left: 4px solid #cfcfcf;
+  background: #f7f7f7;
+  padding: 12px 14px;
+  margin: 18px 0;
+  font-size: 0.96rem;
+}
+
+.entry-note strong {
+  display: block;
+  margin-bottom: 4px;
+}
+
+/* PDF diagram indicator */
+
+.pdf-diagram-note {
+  margin-top: 8px;
+  font-size: 0.92rem;
+  color: #555;
+}
+
+.pdf-diagram-note::before {
+  content: "🖼️ ";
 }
