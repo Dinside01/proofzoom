@@ -95,7 +95,7 @@ tangent direction at $z_0$ as $h \to 0$.
 </div>
 
 <div class="pdf-diagram-note">
-Illustrative diagrams are available in the PDF version of this entry.
+Illustrative diagrams are available in the <a href="/assets/pdfs/entry-0003-curves-tangents-angles.pdf">PDF version of this entry</a>.
 </div>
 
 <div class="entry-note">
@@ -107,7 +107,7 @@ approaches the tangent direction determined by $z'(t_0)$.
 </div>
 
 <div class="pdf-diagram-note">
-Illustrative diagrams are available in the PDF version of this entry.
+Illustrative diagrams are available in the <a href="/assets/pdfs/entry-0003-curves-tangents-angles.pdf">PDF version of this entry</a>.
 </div>
 
 ## 4. Tangent to a Curve
