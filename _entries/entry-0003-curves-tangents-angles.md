@@ -92,16 +92,25 @@ $z(t_0-h)$, $z_0=z(t_0)$, and $z(t_0+h)$.
 The secant segments illustrate the difference quotients
 $(z(t_0+h)-z_0)/h$ and $(z_0-z(t_0-h))/h$, which approach the
 tangent direction at $z_0$ as $h \to 0$.
-The illustrated diagram appears in the PDF version of this entry.
 </div>
+
+<div class="pdf-diagram-note">
+Illustrative diagrams are available in the PDF version of this entry.
+</div>
+
 <div class="entry-note">
 <strong>Figure 2 (diagram omitted in the web version).</strong>
 The diagram illustrates the geometric interpretation of the derivative
 of the curve $z(t)$ at the point $z_0=z(t_0)$.
 As $z(t_0+h)$ approaches $z_0$, the direction of the secant line
 approaches the tangent direction determined by $z'(t_0)$.
-The corresponding diagram appears in the PDF version of this entry.
-</div>## 4. Tangent to a Curve
+</div>
+
+<div class="pdf-diagram-note">
+Illustrative diagrams are available in the PDF version of this entry.
+</div>
+
+## 4. Tangent to a Curve
 
 Let
 
