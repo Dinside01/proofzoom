@@ -7,7 +7,7 @@ title: "Curves, Tangents, and Angles in the Complex Plane"
 primary_area: complex-analysis
 primary_subarea: curves-and-conformality
 
-abstract: abstract: "This entry develops the geometric meaning of tangent direction for complex-valued curves, explains how angles between curves may be expressed through arguments of complex numbers, and shows how this leads naturally to conformality. Particular attention is given to the condition $z'(t_0)\neq 0$, whose meaning in the complex setting is subtler than in the real case."
+abstract: "This entry develops the geometric meaning of tangent direction for complex-valued curves, explains how angles between curves may be expressed through arguments of complex numbers, and shows how this leads naturally to conformality. Particular attention is given to the condition $z'(t_0)\neq 0$, whose meaning in the complex setting is subtler than in the real case."
 
 difficulty: UG-Upper
 published: 2026-03-14
@@ -95,18 +95,6 @@ tangent direction at $z_0$ as $h \to 0$.
 Illustrative diagrams are available in the <a href="/assets/pdfs/entry-0003-curves-tangents-angles.pdf">PDF version of this entry</a>.
 </div>
 
-<div class="entry-note">
-<strong>Figure 2 (diagram omitted in the web version).</strong>
-The diagram illustrates the geometric interpretation of the derivative
-of the curve $z(t)$ at the point $z_0=z(t_0)$.
-As $z(t_0+h)$ approaches $z_0$, the direction of the secant line
-approaches the tangent direction determined by $z'(t_0)$.
-</div>
-
-<div class="pdf-diagram-note">
-Illustrative diagrams are available in the <a href="/assets/pdfs/entry-0003-curves-tangents-angles.pdf">PDF version of this entry</a>.
-</div>
-
 ## 4. Tangent to a Curve
 
 Let
@@ -151,6 +139,18 @@ $$
 as $h\to 0^+$.
 
 Similarly, the backward secant ray determined by $z(t_0-h)$ approaches the opposite ray. We call $T(z_0)$ the tangent ray, since its direction agrees with the direction of travel of the curve.
+
+<div class="entry-note">
+<strong>Figure 2 (diagram omitted in the web version).</strong>
+The diagram illustrates the geometric interpretation of the derivative
+of the curve $z(t)$ at the point $z_0=z(t_0)$.
+As $z(t_0+h)$ approaches $z_0$, the direction of the secant line
+approaches the tangent direction determined by $z'(t_0)$.
+</div>
+
+<div class="pdf-diagram-note">
+Illustrative diagrams are available in the <a href="/assets/pdfs/entry-0003-curves-tangents-angles.pdf">PDF version of this entry</a>.
+</div>
 
 Thus a curve with $z'(t_0)\neq 0$ possesses a well-defined local first-order direction.
 
@@ -380,7 +380,7 @@ $$
 So locally the mapping acts like:
 
 - a rotation through angle $\operatorname{Arg}(f'(z_0))$,
-- followed by a uniform scaling by the factor $|f'(z_0)|$.
+- followed by a uniform scaling by the factor $\lvert f'(z_0)\rvert$.
 
 Thus an analytic function with nonzero derivative behaves locally like the linear map
 
@@ -608,7 +608,7 @@ then
 
 
 $$
-f(z)=f(z_0)+\frac{f^{(m)}(z_0)}{m!}(z-z_0)^m+o(|z-z_0|^m).
+f(z)=f(z_0)+\frac{f^{(m)}(z_0)}{m!}(z-z_0)^m+o(\lvert z-z_0\rvert ^m).
 $$
 
 Geometrically, the mapping behaves locally like
