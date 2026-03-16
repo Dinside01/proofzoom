@@ -9,7 +9,7 @@ primary_area: complex-analysis
 primary_subarea: curves
 
 abstract: >-
-This entry develops the geometric meaning of tangent direction for complex-valued curves, explains how angles between curves may be expressed through arguments of complex numbers, and shows how this leads naturally to conformality. Particular attention is given to the condition $z'(t_0)\neq 0$, whose meaning in the complex setting is subtler than in the real case.
+  This entry develops the geometric meaning of tangent direction for complex-valued curves, explains how angles between curves may be expressed through arguments of complex numbers, and shows how this leads naturally to conformality. Particular attention is given to the condition $z'(t_0)\not= 0$, whose meaning in the complex setting is subtler than in the real case.
 
 difficulty: UG-Upper
 
