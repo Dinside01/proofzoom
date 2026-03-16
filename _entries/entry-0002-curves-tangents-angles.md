@@ -34,7 +34,9 @@ The central idea is simple: in the complex plane, a nonzero complex number repre
 
 ## 2\. Key Idea
 
-If two nonzero complex numbers $v$ and $w$ represent directions, then the angle from $v$ to $w$ is
+If two nonzero complex numbers $v$ and $w$ represent directions, then 
+
+the angle from $v$ to $w$ is
 
 
 
@@ -847,5 +849,11 @@ Together these formulas explain why analytic functions with nonzero derivative a
 4. C. Carathéodory, *Theory of Functions of a Complex Variable*, Vol. 1, Chelsea, 1954.
 5. E. M. Stein and R. Shakarchi, *Complex Analysis*, Princeton University Press, 2003.
 
-**Cite as:** ProofZoom Entry-0003: *Curves, Tangents, and Angles in the Complex Plane*.
+
+
+**Cite as: ProofZoom Entry-0002: Curves, Tangents, and Angles in the Complex Plane.**
+
+
+
+
 
