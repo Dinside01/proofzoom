@@ -1,20 +1,30 @@
 \---
 
 layout: entry
+
 entry\_id: entry-0002
+
 slug: entry-0002-curves-tangents-angles
+
 title: "Curves, Tangents, and Angles in the Complex Plane"
 
 primary\_area: complex-analysis
+
 primary\_subarea: curves-and-conformality
 
-abstract: "This entry develops the geometric meaning of tangent direction for complex-valued curves, explains how angles between curves may be expressed through arguments of complex numbers, and shows how this leads naturally to conformality. Particular attention is given to the condition $z'(t\_0)\\neq 0$, whose meaning in the complex setting is subtler than in the real case."
+abstract: "This entry develops the geometric meaning of tangent direction for complex-valued curves, explains how angles between curves may be expressed through arguments of complex numbers, and shows how this leads naturally to conformality. Particular attention is given to the condition \\( z'(t\_0)\\neq 0 \\), whose meaning in the complex setting is subtler than in the real case."
 
 difficulty: UG-Upper
+
 published: 2026-03-14
+
 updated:
 
-## pdf: /assets/pdfs/entry-0002-curves-tangents-angles.pdf
+pdf: /assets/pdfs/entry-0002-curves-tangents-angles.pdf
+
+\---
+
+
 
 ## 1\. Overview
 
