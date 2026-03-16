@@ -10,9 +10,11 @@ primary\_area: complex-analysis
 
 primary\_subarea: curves-and-conformality
 
-abstract: "This entry develops the geometric meaning of tangent direction for complex-valued curves, explains how angles between curves may be expressed through arguments of complex numbers, and shows how this leads naturally to conformality."
+abstract: "This entry develops the geometric meaning of tangent direction for complex-valued curves, explains how angles between curves may be expressed through arguments of complex numbers, and shows how this leads naturally to conformality. Particular attention is given to the condition $z'(t\_0)\\neq 0$, whose meaning in the complex setting is subtler than in the real case."
 
 difficulty: UG-Upper
+
+status: published
 
 published: 2026-03-14
 
@@ -22,7 +24,9 @@ pdf: /assets/pdfs/entry-0002-curves-tangents-angles.pdf
 
 \---
 
-## 1\. Overview
+
+
+1\. Overview
 
 A complex-valued curve carries both magnitude and direction at every point. The derivative of such a curve, when nonzero, gives a precise first-order direction of motion. This makes it possible to define tangent rays, angles between curves, and ultimately conformality in a natural geometric way.
 
