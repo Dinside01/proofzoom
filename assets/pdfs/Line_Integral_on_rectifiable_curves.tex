@@ -1,0 +1,493 @@
+\documentclass{article}
+\usepackage{proofzoom}
+
+\begin{document}
+
+\begin{center}
+
+{\Large \textbf{Line integrals on rectifiable curves}}\\[0.6em]
+{\normalsize \textbf{Entry-0003}}\\[1.0em]
+
+\textbf{Area:} Complex Analysis \quad $\bullet$ \quad
+\textbf{Subarea:} Regularity, rectifiability, functions on curves\\[0.35em]
+\textbf{Difficulty:} UG-Upper \quad $\bullet$ \quad
+\textbf{Published:} 2026-03-16 \quad $\bullet$ \quad
+\textbf{Updated:}
+
+\end{center}
+
+\vspace{1.2em}
+
+\noindent\textbf{Abstract.}
+\begin{center}
+\begin{minipage}{0.85\textwidth}
+\small
+We define the complex line integral of a continuous function on a rectifiable curve via Riemann-type sums and
+prove that the definition is well-posed, independent of the choice of tags. The existence of the integral rests on a
+fundamental balance between analytic control, via uniform continuity, and geometric control, via finite length.
+
+We then show that for piecewise \(C^1\) curves this definition agrees with the classical parametrized integral
+\[
+\int_a^b f(\gamma(t))\,\gamma'(t)\,dt,
+\]
+and derive the fundamental estimate
+\[
+\left|\int_C f(z)\,dz\right| \le \max_{z\in C}|f(z)|\,L(C).
+\]
+
+Finally, we establish the length formula for piecewise \(C^1\) curves and interpret the line integral as a construction
+combining analytic, geometric, and algebraic features. We indicate a structural connection with path independence and
+potential functions, preparing the ground for the fundamental theorems of complex analysis.
+\end{minipage}
+\end{center}
+
+\section{Overview}
+
+Line integrals extend the idea of integration from intervals to curves in the complex plane. In the classical setting, this is
+done using parametrizations and derivatives, but such definitions rely on smoothness of the curve.
+
+The aim of this entry is to define the line integral in a way that remains valid for general rectifiable curves, including
+those with sharp corners where derivatives may not exist. The construction is based on Riemann-type sums formed
+from increments along polygonal approximations of the curve.
+
+The key result is that these sums converge for continuous functions on rectifiable curves, and that the limit is independent
+of the choice of tags. The existence of the integral is governed by two complementary principles: uniform continuity
+controls oscillation of the function, while finite length controls the total size of increments.
+
+We then show that in the piecewise \(C^1\) case, this definition agrees with the classical parametrized integral, thereby
+reconciling the general theory with familiar formulas. The length of a curve emerges naturally as the geometric quantity
+underlying both the definition and its estimates.
+
+Finally, we interpret the line integral as a construction that unifies analytic, geometric, and algebraic features, and we
+indicate its connection with path independence and potential functions. These ideas form the conceptual bridge to the
+fundamental results of complex analysis.
+
+\section{Introduction}
+
+\subsection{Sharp Corners}
+Let $f$ be a function and let $x_0$ be a point in its domain.
+The graph of $f$ is said to have a \emph{sharp corner} at $x_0$ if the left-hand
+and right-hand derivatives at $x_0$ exist but are not equal:
+\[
+\lim_{x\to x_0^-}\frac{f(x)-f(x_0)}{x-x_0}
+\;\neq\;
+\lim_{x\to x_0^+}\frac{f(x)-f(x_0)}{x-x_0}.
+\]
+At such a point, there is no single tangent line and the graph changes
+direction abruptly.
+
+\subsection{$C^0$ and $C^1$}
+\begin{itemize}
+\item A function $f$ is \emph{$C^0$} if it is continuous.
+The graph has no breaks, but sharp corners are allowed.
+
+\item A function $f$ is \emph{$C^1$} if $f'$ exists everywhere and is continuous.
+The graph of $f$ has no sharp corners; slopes change smoothly.
+\end{itemize}
+
+\subsection{$C^k$ Smoothness}
+A function $f$ is said to be \emph{$C^k$} if its $k$-th derivative exists and is
+continuous.
+
+Geometrically, this means:
+\begin{quote}
+A function $f$ is in $C^k$ if and only if the graph of its $(k-1)$-st derivative
+has no sharp corners (equivalently, no jump discontinuities).
+\end{quote}
+
+Each increase in smoothness removes sharp corners one derivative level higher.
+
+\subsection{Takeaway}
+\begin{itemize}
+\item Continuity prevents breaks in the graph.
+\item Differentiability prevents sharp corners.
+\item Higher smoothness prevents sharp corners in higher-order derivatives.
+\end{itemize}
+The distinction between smooth and non-smooth curves will be essential when defining line integrals, since the definition must make sense even when no derivative $\gamma'(t)$ exists.
+\section{Existence of Line Integral}
+We approximate the curve $\gamma$ by polygonal segments and replace the differential $dz$ by $\Delta z$. The central difficulty is that the curve may not be smooth, so no derivative $\gamma'(t)$ is available. The key observation is that two independent mechanisms govern the sums:
+\begin{itemize}
+    \item \textbf{the oscillation of $f\cir \gamma$ is controlled by uniform continuity.}
+    \item \textbf{the total size of increments is controlled by the finite length of the curve}
+\end{itemize}
+Together, these ensure that different approximations produce nearly the same sum.
+\begin{theorem}[Existence of $\int_C f(z)\,dz$ for continuous $f$ on a rectifiable curve]
+Let $\gamma:[a,b]\to\mathbb C$ be continuous and rectifiable with length $L(\gamma)<\infty$,
+and let $f:\gamma([a,b])\to\mathbb C$ be continuous. For a partition
+$P:\ a=t_0<\cdots<t_n=b$ and tags $\xi_k\in[t_{k-1},t_k]$, set
+\[
+S(P,\xi):=\sum_{k=1}^n f(\gamma(\xi_k))\big(\gamma(t_k)-\gamma(t_{k-1})\big).
+\]
+Then $S(P,\xi)$ converges to a limit as $\|P\|\to 0$, independent of the choice of tags.
+This limit is denoted $\int_C f(z)\,dz$.
+\end{theorem}
+
+\begin{proof}
+Since $f\circ\gamma$ is continuous on the compact interval $[a,b]$, it is uniformly continuous.
+Fix $\varepsilon>0$ and choose $\delta>0$ such that
+\[
+|t-s|<\delta \ \Rightarrow\ |f(\gamma(t))-f(\gamma(s))|<\varepsilon/L(\gamma).
+\]
+Let $P$ be a partition with $\|P\|<\delta$ and let $\xi,\eta$ be two choices of tags.
+Then for each $k$ we have $|\xi_k-\eta_k|\le t_k-t_{k-1}<\delta$, hence
+$|f(\gamma(\xi_k))-f(\gamma(\eta_k))|<\varepsilon/L(\gamma)$. Therefore
+\[
+|S(P,\xi)-S(P,\eta)|
+\le \sum_{k=1}^n |f(\gamma(\xi_k))-f(\gamma(\eta_k))|\;|\gamma(t_k)-\gamma(t_{k-1})|
+< \frac{\varepsilon}{L(\gamma)}\sum_{k=1}^n |\gamma(t_k)-\gamma(t_{k-1})|.
+\]
+By definition of length, $\sum_{k=1}^n |\gamma(t_k)-\gamma(t_{k-1})|\le L(\gamma)$, so
+$|S(P,\xi)-S(P,\eta)|<\varepsilon$.
+
+Now let $(P,\xi)$ and $(Q,\eta)$ be tagged partitions with 
+$\|P\|,\|Q\|<\delta$, and let 
+$R:a=r_0<r_1<\cdots<r_m=b$ be a common refinement of $P$ and $Q$.
+For each subinterval $[r_{j-1},r_j]\subset[t_{k-1},t_k]$ of $P$, choose an arbitrary tag 
+$\tilde\xi_j\in[r_{j-1},r_j]$; similarly, for each 
+$[r_{j-1},r_j]\subset[s_{\ell-1},s_\ell]$ of $Q$, choose a tag 
+$\tilde\eta_j\in[r_{j-1},r_j]$.
+Then $(R,\tilde\xi)$ and $(R,\tilde\eta)$ are honest tagged partitions.
+
+Since $[r_{j-1},r_j]\subset[t_{k-1},t_k]$, both $\tilde\xi_j$ and $\xi_k$ lie in 
+$[t_{k-1},t_k]$. Therefore
+\[
+|\tilde\xi_j-\xi_k|
+\le t_k-t_{k-1}
+<\delta.
+\]
+Since $f\circ\gamma$ is uniformly continuous, it follows that
+\[
+|f(\gamma(\tilde\xi_j))-f(\gamma(\xi_k))|
+<\varepsilon/L(\gamma).
+\]
+
+
+Writing each curve increment additively,
+\[
+\gamma(t_k)-\gamma(t_{k-1})
+=
+\sum_{j\in J_k}
+\big(\gamma(r_j)-\gamma(r_{j-1})\big),
+\]
+where $J_k$ indexes those refined subintervals 
+$[r_{j-1},r_j]\subset[t_{k-1},t_k]$, we obtain
+\[
+\begin{aligned}
+\Big|\,S(P,\xi)-S(R,\tilde\xi)\,\Big|
+&=
+\Bigg|
+\sum_{k=1}^n
+f(\gamma(\xi_k))
+\sum_{j\in J_k}
+\big(\gamma(r_j)-\gamma(r_{j-1})\big)
+-
+\sum_{j=1}^m
+f(\gamma(\tilde\xi_j))
+\big(\gamma(r_j)-\gamma(r_{j-1})\big)
+\Bigg| \\[6pt]
+&\le
+\sum_{j=1}^m
+\big|f(\gamma(\xi_{k(j)}))-f(\gamma(\tilde\xi_j))\big|
+\,|\gamma(r_j)-\gamma(r_{j-1})| \\[6pt]
+&<
+\frac{\varepsilon}{L(\gamma)}
+\sum_{j=1}^m
+|\gamma(r_j)-\gamma(r_{j-1})|
+\le
+\varepsilon,
+\end{aligned}
+\]
+where $k(j)$ denotes the index such that 
+$[r_{j-1},r_j]\subset[t_{k(j)-1},t_{k(j)}]$.
+Hence
+\[
+|S(P,\xi)-S(R,\tilde\xi)|<\varepsilon.
+\]
+An identical argument gives
+\[
+|S(Q,\eta)-S(R,\tilde\eta)|<\varepsilon.
+\]
+
+Finally, by the triangle inequality,
+\[
+\begin{aligned}
+|S(P,\xi)-S(Q,\eta)|
+&\le
+|S(P,\xi)-S(R,\tilde\xi)|
++
+|S(R,\tilde\xi)-S(R,\tilde\eta)|
++
+|S(R,\tilde\eta)-S(Q,\eta)|.
+\end{aligned}
+\]
+Since $\|R\|<\delta$, the estimate proved earlier yields
+\[
+|S(R,\tilde\xi)-S(R,\tilde\eta)|<\varepsilon.
+\]
+Therefore,
+\[
+|S(P,\xi)-S(Q,\eta)|<3\varepsilon,
+\]
+which establishes the Cauchy criterion.
+
+
+ Hence $S(P,\xi)$ converges as $\|P\|\to 0$ to a limit
+independent of tags; define this limit to be $\int_C f(z)\,dz$.
+\end{proof}
+This limit defines the line integral of $f$ along $C$, without any assumption of differentiability of the curve.
+
+Having defined the integral for general rectifiable curves, we now show that in the smooth case this definition agrees with the classical parametrized integral. That is, under the stronger hypothes, $\gamma$ is $C^1$,  $\int_C f(z)\,dz=\int_a^b f(\gamma(t))\,\gamma'(t)\,dt$, coincides with the rectifiable/Riemann-sum definition above.
+
+\section{Smooth case: Classical formula}
+
+When the curve is smooth, increments satisfy
+
+\[
+\gamma(t_k) - \gamma(t_{k-1}) \approx \gamma'(\xi_k)(t_k - t_{k-1}).
+\]
+This shows that the geometric increments along the curve are governed by the derivative, so the Riemann-sum definition collapses to an ordinary integral.
+\begin{theorem}[Complex line integral for piecewise $C^1$ curves]
+Let $\gamma:[a,b]\to\mathbb C$ be piecewise $C^1$ and let $C=\gamma([a,b])$.
+If $f:C\to\mathbb C$ is continuous, then $\int_C f(z)\,dz$ exists and
+\[
+\int_C f(z)\,dz=\int_a^b f(\gamma(t))\,\gamma'(t)\,dt.
+\]
+In addition,
+\[
+\left|\int_C f(z)\,dz\right|\le \max_{z\in C}|f(z)|\,L(C),
+\]
+where $L(C)$ is the length of $C$.
+\end{theorem}
+
+\begin{proof}
+Since $f$ is continuous on $C$ and $\gamma$ is continuous, the composition
+$f\circ\gamma$ is continuous on $[a,b]$. On each subinterval where $\gamma$ is $C^1$,
+the function $t\mapsto f(\gamma(t))\gamma'(t)$ is continuous, hence Riemann integrable.
+Thus the (piecewise) real integral $\int_a^b f(\gamma(t))\gamma'(t)\,dt$ exists.
+
+Let $P:\ a=t_0<\cdots<t_n=b$ be a partition and choose tags $\xi_k\in[t_{k-1},t_k]$.
+Consider the Riemann sum for the real integral:
+\[
+R(P,\xi):=\sum_{k=1}^n f(\gamma(\xi_k))\,\gamma'(\xi_k)\,(t_k-t_{k-1}).
+\]
+For each $k$, by the (complex) mean value theorem applied to $\gamma$ on
+$[t_{k-1},t_k]$ (equivalently, the fundamental theorem of calculus for $\gamma$),
+we have
+\[
+\gamma(t_k)-\gamma(t_{k-1})=\int_{t_{k-1}}^{t_k}\gamma'(t)\,dt.
+\]
+Hence
+\[
+\gamma(t_k)-\gamma(t_{k-1})-\gamma'(\xi_k)(t_k-t_{k-1})
+=\int_{t_{k-1}}^{t_k}\big(\gamma'(t)-\gamma'(\xi_k)\big)\,dt.
+\]
+Taking moduli gives
+\[
+\Big|\gamma(t_k)-\gamma(t_{k-1})-\gamma'(\xi_k)(t_k-t_{k-1})\Big|
+\le \int_{t_{k-1}}^{t_k}\big|\gamma'(t)-\gamma'(\xi_k)\big|\,dt.
+\]
+Because $\gamma'$ is continuous on each smooth subinterval, it is uniformly continuous
+there; refining $P$ makes the right-hand side uniformly small on each subinterval.
+Multiplying by the bounded factor $|f(\gamma(\xi_k))|$ and summing over $k$ shows that
+\[
+\sum_{k=1}^n f(\gamma(\xi_k))\big(\gamma(t_k)-\gamma(t_{k-1})\big)
+\;-\;
+\sum_{k=1}^n f(\gamma(\xi_k))\,\gamma'(\xi_k)\,(t_k-t_{k-1})
+\longrightarrow 0
+\]
+as $\|P\|\to 0$.
+
+But the second sum is exactly the Riemann sum $R(P,\xi)$ for the real integral
+$\int_a^b f(\gamma(t))\gamma'(t)\,dt$, so it converges to that integral as $\|P\|\to 0$.
+Therefore the first sum (the defining sum for $\int_C f(z)\,dz$) converges to the same
+limit. This proves
+\[
+\int_C f(z)\,dz=\int_a^b f(\gamma(t))\,\gamma'(t)\,dt.
+\]
+
+Finally, using the bound
+\[
+\left|\int_a^b f(\gamma(t))\gamma'(t)\,dt\right|
+\le \int_a^b |f(\gamma(t))|\,|\gamma'(t)|\,dt
+\le \max_{z\in C}|f(z)|\int_a^b |\gamma'(t)|\,dt
+= \max_{z\in C}|f(z)|\,L(C),
+\]
+we obtain the desired estimate.
+\end{proof}
+We defined $\int_C f(z)\,dz$ for rectifiable curves via the tag sums $\sum f(z_k)\Delta z_k$, then the theorem says: in the smooth case, that definition collapses to the ordinary real integral $\int_a^b f(\gamma(t))\,\gamma'(t)\,dt$.
+\section{Length of a curve}
+The notion of length is fundamental to the theory of line integrals, since it controls both the definition and the estimates. Length is the supremum of polygonal approximations. For smooth curves, it equals the integral of speed.
+
+\begin{theorem}[Length of a piecewise $C^1$ curve]
+If $\gamma:[a,b]\to\mathbb C$ is piecewise $C^1$, then $\gamma$ is rectifiable and
+\[
+L(\gamma)=\int_a^b |\gamma'(t)|\,dt.
+\]
+\end{theorem}
+
+\begin{proof}
+Assume first that $\gamma\in C^1([a,b])$. For any partition
+$P:\ a=t_0<\cdots<t_n=b$ we have, by the fundamental theorem of calculus,
+\[
+\gamma(t_k)-\gamma(t_{k-1})=\int_{t_{k-1}}^{t_k}\gamma'(t)\,dt,
+\]
+hence by the triangle inequality,
+\[
+|\gamma(t_k)-\gamma(t_{k-1})|
+\le \int_{t_{k-1}}^{t_k}|\gamma'(t)|\,dt.
+\]
+Summing over $k$ gives
+\[
+\sum_{k=1}^n |\gamma(t_k)-\gamma(t_{k-1})|
+\le \int_a^b |\gamma'(t)|\,dt,
+\]
+so taking the supremum over all partitions yields
+\[
+L(\gamma)\le \int_a^b |\gamma'(t)|\,dt.
+\]
+
+For the reverse inequality, fix $\varepsilon>0$. Since $\gamma'$ is continuous on
+$[a,b]$, it is uniformly continuous. Choose $\delta>0$ such that
+$|t-s|<\delta \Rightarrow |\gamma'(t)-\gamma'(s)|<\varepsilon/(b-a)$.
+Take a partition $P$ with mesh $\|P\|<\delta$ and choose tags $\xi_k\in[t_{k-1},t_k]$.
+Then
+\[
+\int_{t_{k-1}}^{t_k}\gamma'(t)\,dt
+=\gamma'(\xi_k)(t_k-t_{k-1})+\int_{t_{k-1}}^{t_k}(\gamma'(t)-\gamma'(\xi_k))\,dt,
+\]
+so
+\[
+|\gamma(t_k)-\gamma(t_{k-1})|
+\ge |\gamma'(\xi_k)|(t_k-t_{k-1})-\int_{t_{k-1}}^{t_k}|\gamma'(t)-\gamma'(\xi_k)|\,dt.
+\]
+By our choice of $\delta$, the integrand is $<\varepsilon/(b-a)$ on each subinterval,
+so the error term is $<(\varepsilon/(b-a))(t_k-t_{k-1})$.
+Therefore
+\[
+|\gamma(t_k)-\gamma(t_{k-1})|
+\ge \left(|\gamma'(\xi_k)|-\frac{\varepsilon}{b-a}\right)(t_k-t_{k-1}).
+\]
+Summing gives
+\[
+\sum_{k=1}^n |\gamma(t_k)-\gamma(t_{k-1})|
+\ge \sum_{k=1}^n |\gamma'(\xi_k)|(t_k-t_{k-1})-\varepsilon.
+\]
+The sum $\sum |\gamma'(\xi_k)|(t_k-t_{k-1})$ is a Riemann sum for
+$\int_a^b |\gamma'(t)|\,dt$, hence for sufficiently fine $P$ it is within $\varepsilon$
+of the integral. Thus for fine enough partitions,
+\[
+\sum_{k=1}^n |\gamma(t_k)-\gamma(t_{k-1})|
+\ge \int_a^b |\gamma'(t)|\,dt -2\varepsilon.
+\]
+Taking the supremum over partitions yields $L(\gamma)\ge \int_a^b |\gamma'(t)|\,dt$.
+Combining with the earlier inequality gives equality.
+
+If $\gamma$ is piecewise $C^1$, apply the $C^1$ argument on each smooth subinterval
+and add the lengths; both $L(\gamma)$ and $\int |\gamma'(t)|dt$ are additive over such
+subdivisions.
+\end{proof}
+Thus rectifiability is equivalent, in the smooth case, to integrability of the speed $\lvert \gamma'(t)\rvert$.
+
+\section{Interpretation and Structural Consequences}
+
+\subsection{What the Line Integral Really Is}
+
+We defined the line integral
+\[
+\int_C f(z)\,dz
+\]
+through Riemann-type sums
+\[
+\sum f(z_k)\,\Delta z_k,
+\]
+without assuming that the curve is smooth.
+
+The results established in this entry show that:
+
+\begin{itemize}
+    \item the definition is intrinsic to the curve and does not depend on the choice of tags;
+    \item in the piecewise \(C^1\) case it reduces to the familiar integral
+    \[
+    \int_a^b f(\gamma(t))\,\gamma'(t)\,dt;
+    \]
+    \item the geometry of the curve enters through its length, which controls the size of the integral through the estimate
+    \[
+    \left|\int_C f(z)\,dz\right|
+    \le \max_{z\in C}|f(z)|\,L(C).
+    \]
+\end{itemize}
+
+Thus the line integral combines three features — and this interplay is what makes the theory robust beyond smooth curves:
+
+\begin{itemize}
+    \item \textbf{analysis}, through limits and uniform continuity;
+    \item \textbf{geometry}, through finite length;
+    \item \textbf{algebra}, through complex multiplication.
+\end{itemize}
+
+In this sense, the definition of
+\[
+\int_C f(z)\,dz
+\]
+for rectifiable curves is the canonical extension of the classical smooth theory.
+
+\subsection{Bridge: Path Independence and Potentials}
+
+A natural question now arises:
+
+\begin{quote}
+When does a line integral depend only on the endpoints of the curve?
+\end{quote}
+
+This leads to one of the central structural results connecting line integrals with potential functions.
+
+\begin{theorem}[Path independence criterion]
+Let \(\Omega \subset \mathbb{C} \simeq \mathbb{R}^2\), and consider the line integral
+\[
+\int_\gamma (p\,dx+q\,dy),
+\]
+where \(p\) and \(q\) are continuous functions on \(\Omega\).
+
+Then the integral depends only on the endpoints of \(\gamma\) if and only if there exists a function
+\[
+U:\Omega\to\mathbb{R}
+\]
+such that
+\[
+\frac{\partial U}{\partial x}=p,
+\qquad
+\frac{\partial U}{\partial y}=q.
+\]
+\end{theorem}
+
+This theorem says that path independence is equivalent to the existence of a potential function: the differential form \(p\,dx+q\,dy\) is then the differential \(dU\) of a scalar field \(U\). In that case,
+\[
+\int_\gamma (p\,dx+q\,dy)
+=
+U(\text{endpoint})-U(\text{starting point}).
+\]
+
+Thus line integrals are not merely geometric constructions; they also detect whether a field possesses an underlying scalar potential.
+
+In complex analysis this idea becomes central. Expressions of the form \(f(z)\,dz\) encode two real components \(p\,dx+q\,dy\), and the question of path independence leads naturally to exactness, holomorphicity, and ultimately to Cauchy's theorem.
+
+The next major step is to understand conditions under which integrals over closed curves vanish. That is the gateway to the fundamental theorems of complex analysis.
+\section*{References}
+
+\begin{itemize}
+
+\item A.-L. Cauchy, \emph{Cours d’Analyse de l’École Royale Polytechnique}, 1821.
+
+\item C. Jordan, \emph{Cours d’Analyse}, 1882.
+
+\item L. V. Ahlfors, \emph{Complex Analysis}, 3rd ed., McGraw–Hill, 1979.
+
+\item J. B. Conway, \emph{Functions of One Complex Variable I}, 2nd ed., Springer, 1978.
+
+\item T. M. Apostol, \emph{Mathematical Analysis}, 2nd ed., Addison–Wesley, 1974.
+
+\end{itemize}
+
+\bigskip
+\noindent\textbf{Cite as:} ProofZoom Entry-0003, \emph{Line integrals on rectifiable curves}, ProofZoom (2026).
+\end{document}
