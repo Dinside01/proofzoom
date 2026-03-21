@@ -1,0 +1,49 @@
+---
+layout: default
+---
+
+<article class="entry-page">
+  <header class="entry-header">
+    {% if page.entry_id %}
+      <div class="entry-id">{{ page.entry_id | upcase }}</div>
+    {% endif %}
+
+    <h1 class="entry-title">{{ page.title }}</h1>
+
+    {% if page.abstract %}
+      <div class="entry-abstract">
+        <strong>Abstract.</strong> {{ page.abstract }}
+      </div>
+    {% endif %}
+
+    <p class="entry-meta">
+      <strong>Area:</strong> {{ page.primary_area }}
+      <span class="meta-sep">•</span>
+      <strong>Subarea:</strong> {{ page.primary_subarea }}
+    </p>
+
+    <p class="entry-meta">
+      <strong>Difficulty:</strong> {{ page.difficulty }}
+      <span class="meta-sep">•</span>
+      <strong>Published:</strong> {{ page.published }}
+      {% if page.updated and page.updated != page.published %}
+        <span class="meta-sep">•</span>
+        <strong>Updated:</strong> {{ page.updated }}
+      {% endif %}
+    </p>
+
+    {% if page.pdf %}
+      <p class="entry-download">
+        <a href="{{ page.pdf | relative_url }}">Download PDF</a>
+      </p>
+    {% endif %}
+
+    <div class="pdf-diagram-note">
+      The PDF version of this entry contains the diagrams referenced in the text.
+    </div>
+  </header>
+
+  <div class="entry-content">
+    {{ content }}
+  </div>
+</article>

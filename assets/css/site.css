@@ -185,12 +185,17 @@ a.button:hover {
    Entry page
    ========================= */
 
+/* =========================
+   Entry page
+   ========================= */
+
 .entry-page {
   max-width: 860px;
 }
 
 .entry-header {
   margin-bottom: 28px;
+  text-align: center;
 }
 
 .entry-id {
@@ -206,34 +211,57 @@ a.button:hover {
   margin: 0 0 18px 0;
 }
 
-.entry-abstract {
-  margin: 18px 0 18px 0;
-  font-size: 1.06rem;
-}
-
-.entry-meta,
-.entry-dates {
-  margin: 0.35rem 0;
+.entry-meta-block {
+  margin: 0 auto 18px auto;
+  text-align: center;
+  line-height: 1.6;
 }
 
 .entry-meta {
-  color: var(--pz-text);
+  margin: 0.2rem 0;
+  color: #2f2f2f;
+  word-spacing: 0.12em;
 }
 
-.entry-dates {
-  color: var(--pz-muted);
-  font-size: 0.95rem;
+.entry-meta strong {
+  font-weight: 600;
+}
+
+.entry-meta .meta-sep {
+  display: inline-block;
+  padding-left: 1.2em;
+  padding-right: 0.35em;
+}
+
+.entry-abstract {
+  max-width: 720px;
+  margin: 18px auto 18px auto;
+  text-align: left;
+  font-size: 1.06rem;
+  line-height: 1.65;
 }
 
 .entry-download {
   margin: 16px 0 0 0;
 }
 
-.pdf-note {
-  display: inline-block;
-  margin-top: 6px;
-  color: var(--pz-muted);
-  font-size: 0.92rem;
+.eq-block {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin: 1.2em 0;
+}
+
+.eq-center {
+  flex: 1;
+  text-align: center;
+}
+
+.eq-number {
+  margin-left: 1em;
+  font-size: 0.95em;
+  color: #444;
+  white-space: nowrap;
 }
 
 .entry-content {
@@ -251,8 +279,6 @@ a.button:hover {
 .entry-content h4 {
   margin-top: 1.4em;
 }
-
-/* Improve section heading readability */
 
 .entry-content h2 {
   margin-top: 2.2em;
@@ -275,7 +301,6 @@ a.button:hover {
   color: var(--pz-muted);
   font-size: 0.95rem;
 }
-
 /* =========================
    Entries listing page
    ========================= */

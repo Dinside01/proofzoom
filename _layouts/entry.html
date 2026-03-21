@@ -3,43 +3,45 @@ layout: default
 ---
 
 <article class="entry-page">
-  <header class="entry-header">
-    {% if page.entry_id %}
-      <div class="entry-id">{{ page.entry_id | upcase }}</div>
-    {% endif %}
+<header class="entry-header">
+  {% if page.entry_id %}
+    <div class="entry-id">{{ page.entry_id | upcase }}</div>
+  {% endif %}
 
-    <h1 class="entry-title">{{ page.title }}</h1>
+  <h1 class="entry-title">{{ page.title }}</h1>
 
-    {% if page.abstract %}
-      <div class="entry-abstract">
-        <strong>Abstract.</strong> {{ page.abstract }}
-      </div>
-    {% endif %}
-
+  <div class="entry-meta-block">
     <p class="entry-meta">
-      Area: {{ page.primary_area }} &bull;
-      Subarea: {{ page.primary_subarea }} &bull;
-      Difficulty: {{ page.difficulty }} &bull;
-      Status: {{ page.status }}
+      <strong>Area:</strong> {{ page.primary_area }}
+      <span class="meta-sep">•</span>
+      <strong>Subarea:</strong> {{ page.primary_subarea }}
     </p>
 
-<p class="entry-dates">
-  Published: {{ page.published }}
-  {% if page.updated and page.updated != page.published %}
-    &bull; Updated: {{ page.updated }}
+    <p class="entry-meta">
+      <strong>Difficulty:</strong> {{ page.difficulty }}
+      <span class="meta-sep">•</span>
+      <strong>Published:</strong> {{ page.published }}
+      <span class="meta-sep">•</span>
+      <strong>Updated:</strong> {{ page.updated }}
+    </p>
+  </div>
+
+  {% if page.abstract %}
+    <div class="entry-abstract">
+      <strong>Abstract.</strong> {{ page.abstract }}
+    </div>
   {% endif %}
-</p>
 
-    {% if page.pdf %}
-      <p class="entry-download">
-        <a href="{{ page.pdf | relative_url }}">Download PDF</a>
-      </p>
-    {% endif %}
+  {% if page.pdf %}
+    <p class="entry-download">
+      <a href="{{ page.pdf | relative_url }}">Download PDF</a>
+    </p>
+  {% endif %}
 
-<div class="pdf-diagram-note">
-The PDF version of this entry contains the diagrams referenced in the text.
-</div>
-  </header>
+  <div class="pdf-diagram-note">
+    The PDF version of this entry contains the diagrams referenced in the text.
+  </div>
+</header>
 
   <div class="entry-content">
     {{ content }}
