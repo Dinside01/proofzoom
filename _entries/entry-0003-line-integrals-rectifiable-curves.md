@@ -5,27 +5,9 @@ entry_id: entry-0003
 primary_area: complex-analysis
 primary_subarea: regularity-rectifiability-functions-on-curves
 permalink: /entries/entry-0003-line-integrals-rectifiable-curves/
----
 
-### Abstract
-
-We define the complex line integral of a continuous function on a rectifiable curve via Riemann-type sums and prove that the definition is well-posed, independent of the choice of tags. The existence of the integral rests on a fundamental balance between analytic control, via uniform continuity, and geometric control, via finite length.
-
-We then show that for piecewise $C^1$ curves this definition agrees with the classical parametrized integral
-$$
-\int_a^b f(\gamma(t)) \gamma'(t)\,dt,
-$$
-and derive the fundamental estimate
-$$
-\left|
-\int_C f(z)\,dz
-\right|
-\le
-\max_{z \in C} |f(z)|\,L(C).
-$$
-
-Finally, we establish the length formula for piecewise $C^1$ curves and interpret the line integral as a construction combining analytic, geometric, and algebraic features. We indicate a structural connection with path independence and potential functions, preparing the ground for the fundamental theorems of complex analysis.
-
+pdf: /assets/pdfs/entry-0003-line-integrals-rectifiable-curves.pdf
+abstract: "We define the complex line integral of a continuous function on a rectifiable curve via Riemann-type sums and prove that the definition is well-posed, independent of the choice of tags. The existence of the integral rests on a fundamental balance between analytic control, via uniform continuity, and geometric control, via finite length. We then show that for piecewise C¹ curves this definition agrees with the classical parametrized integral from a to b of f(γ(t))γ'(t) dt, and derive the fundamental estimate that the magnitude of the integral over C is bounded by the maximum of |f(z)| on C times the length of C. Finally, we establish the length formula for piecewise C¹ curves and interpret the line integral as a construction combining analytic, geometric, and algebraic features."
 ---
 
 ## 1. Overview
@@ -87,6 +69,7 @@ Each increase in smoothness removes sharp corners one derivative level higher.
 - Continuity prevents breaks in the graph.  
 - Differentiability prevents sharp corners.  
 - Higher smoothness prevents sharp corners in higher-order derivatives.
+
 ---
 
 ## 3. Existence of Line Integral
@@ -135,7 +118,7 @@ $$
 |f(\gamma(t)) - f(\gamma(s))| < \frac{\varepsilon}{L(\gamma)}.
 $$
 
----
+***
 
 Let $P$ be a partition with $\|P\| < \delta$ and let $\xi, \eta$ be two choices of tags. Then for each $k$ we have
 
@@ -155,7 +138,7 @@ $$
 \frac{\varepsilon}{L(\gamma)}.
 $$
 
----
+***
 
 Therefore,
 
@@ -192,7 +175,7 @@ $$
 |S(P,\xi) - S(P,\eta)| < \varepsilon.
 $$
 
----
+***
 
 Now let $(P,\xi)$ and $(Q,\eta)$ be tagged partitions with $\|P\|, \|Q\| < \delta$, and let
 
@@ -202,27 +185,38 @@ $$
 
 be a common refinement of $P$ and $Q$.
 
----
+For each subinterval of $R$ contained in a subinterval of $P$, choose a tag as follows:
 
-For each subinterval $[r_{j-1}, r_j] \subset [t_{k-1}, t_k]$ of $P$, choose an arbitrary tag $\tilde{\xi}_j \in [r_{j-1}, r_j]$.
+$$
+[r_{j-1}, r_j] \subset [t_{k-1}, t_k]
+\qquad\Longrightarrow\qquad
+\tilde{\xi}_j \in [r_{j-1}, r_j].
+$$
 
-Similarly, for each $[r_{j-1}, r_j] \subset [s_{\ell-1}, s_\ell]$ of $Q$, choose a tag $\tilde{\eta}_j \in [r_{j-1}, r_j]$.
+Similarly, for each subinterval of $R$ contained in a subinterval of $Q$, choose a tag as follows:
+
+$$
+[r_{j-1}, r_j] \subset [s_{\ell-1}, s_\ell]
+\qquad\Longrightarrow\qquad
+\tilde{\eta}_j \in [r_{j-1}, r_j].
+$$
 
 Then $(R,\tilde{\xi})$ and $(R,\tilde{\eta})$ are honest tagged partitions.
 
----
-
-Since $[r_{j-1}, r_j] \subset [t_{k-1}, t_k]$, both $\tilde{\xi}_j$ and $\xi_k$ lie in $[t_{k-1}, t_k]$. Therefore
+Moreover,
 
 $$
-|\tilde{\xi}_j - \xi_k|
-\le
-t_k - t_{k-1}
-<
-\delta.
+[r_{j-1}, r_j] \subset [t_{k-1}, t_k]
+\qquad\Longrightarrow\qquad
+\tilde{\xi}_j,\ \xi_k \in [t_{k-1}, t_k],
 $$
 
-Since $f \circ \gamma$ is uniformly continuous, it follows that
+and therefore
+
+$$
+|\tilde{\xi}_j-\xi_k| \le t_k-t_{k-1} < \delta.
+$$
+ Since $f \circ \gamma$ is uniformly continuous, it follows that
 
 $$
 |f(\gamma(\tilde{\xi}_j)) - f(\gamma(\xi_k))|
@@ -230,7 +224,7 @@ $$
 \frac{\varepsilon}{L(\gamma)}.
 $$
 
----
+***
 
 Writing each curve increment additively,
 
@@ -279,7 +273,7 @@ $$
 
 where $k(j)$ denotes the index such that $[r_{j-1}, r_j] \subset [t_{k(j)-1}, t_{k(j)}]$.
 
----
+***
 
 An identical argument gives
 
@@ -287,7 +281,7 @@ $$
 |S(Q,\eta) - S(R,\tilde{\eta})| < \varepsilon.
 $$
 
----
+***
 
 Since $\|R\| < \delta$, the earlier estimate yields
 
@@ -295,7 +289,7 @@ $$
 |S(R,\tilde{\xi}) - S(R,\tilde{\eta})| < \varepsilon.
 $$
 
----
+***
 
 Finally, by the triangle inequality,
 
@@ -312,7 +306,7 @@ $$
 \end{aligned}
 $$
 
----
+***
 
 This establishes the Cauchy criterion. Hence $S(P,\xi)$ converges as $\|P\| \to 0$ to a limit independent of tags; define this limit to be
 
@@ -321,7 +315,6 @@ $$
 $$
 
 $\square$
----
 
 ## 4. Smooth Case: Classical Formula
 
@@ -451,7 +444,7 @@ $$
 
 ---
 
-Multiplying by $|f(\gamma(\xi_k))|$ and summing over $k$ shows that
+Multiplying by $\lvert f(\gamma(\xi_k))\rvert $ and summing over $k$ shows that
 
 $$
 \sum_{k=1}^n
