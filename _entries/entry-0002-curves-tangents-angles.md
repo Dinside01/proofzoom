@@ -314,7 +314,8 @@ $$
 
 except that this description is only local rather than global.
 
-## 9. Geometric Meaning of $z'(t_0) \neq 0${#sec-geomeaning}
+<span id="sec-geomeaning"></span>
+## 9. Geometric Meaning of $z'(t_0) \neq 0$
 
 The requirement
 
