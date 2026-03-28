@@ -30,13 +30,13 @@ permalink: /entries/
           </p>
         {% endif %}
 
-        <p class="entry-listing-meta">
-          {% if entry.primary_area %}<span>Area: {{ entry.primary_area }}</span>{% endif %}
-          {% if entry.primary_subarea %}<span> • Subarea: {{ entry.primary_subarea }}</span>{% endif %}
-          {% if entry.difficulty %}<span> • Difficulty: {{ entry.difficulty }}</span>{% endif %}
-          {% if entry.status %}<span> • Status: {{ entry.status }}</span>{% endif %}
-          {% if entry.updated %}<span> • Updated: {{ entry.updated }}</span>{% endif %}
-        </p>
+<p class="entry-listing-meta">
+  {% if entry.primary_area %}<span>Primary area: {{ entry.primary_area }}</span>{% endif %}
+  {% if entry.primary_subarea %}<span> • Primary subarea: {{ entry.primary_subarea }}</span>{% endif %}
+  {% if entry.difficulty %}<span> • Difficulty: {{ entry.difficulty }}</span>{% endif %}
+  {% if entry.published %}<span> • Published: {{ entry.published }}</span>{% endif %}
+  {% if entry.updated and entry.updated != "" %}<span> • Updated: {{ entry.updated }}</span>{% endif %}
+</p>
 
         {% if entry.pdf %}
           <p class="entry-listing-pdf">

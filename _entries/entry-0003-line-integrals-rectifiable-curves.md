@@ -4,9 +4,16 @@ title: "Line Integrals on Rectifiable Curves"
 entry_id: entry-0003
 primary_area: complex-analysis
 primary_subarea: regularity-rectifiability-functions-on-curves
+difficulty: UG-Upper
+
+published: 2026-03-16
+updated:
+
 permalink: /entries/entry-0003-line-integrals-rectifiable-curves/
 
+
 pdf: /assets/pdfs/entry-0003-line-integrals-rectifiable-curves.pdf
+
 abstract: "We define the complex line integral of a continuous function on a rectifiable curve via Riemann-type sums and prove that the definition is well-posed, independent of the choice of tags. The existence of the integral rests on a fundamental balance between analytic control, via uniform continuity, and geometric control, via finite length. We then show that for piecewise C¹ curves this definition agrees with the classical parametrized integral from a to b of f(γ(t))γ'(t) dt, and derive the fundamental estimate that the magnitude of the integral over C is bounded by the maximum of |f(z)| on C times the length of C. Finally, we establish the length formula for piecewise C¹ curves and interpret the line integral as a construction combining analytic, geometric, and algebraic features."
 ---
 

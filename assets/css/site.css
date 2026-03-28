@@ -265,30 +265,75 @@ a.button:hover {
 }
 
 .entry-content {
-  margin-top: 24px;
-  max-width: 760px;
-  line-height: 1.65;
+  margin-top: 20px;
+  max-width: 720px;
+  line-height: 1.68;
 }
 
 .entry-content p {
-  margin-bottom: 1.05em;
-}
-
-.entry-content h2,
-.entry-content h3,
-.entry-content h4 {
-  margin-top: 1.4em;
+  margin-top: 0.55em;
+  margin-bottom: 0.55em;
 }
 
 .entry-content h2 {
-  margin-top: 2.2em;
-  margin-bottom: 0.6em;
+  margin-top: 1em;
+  margin-bottom: 0.3em;
   font-weight: 600;
+  font-size: 1.45rem;
+  line-height: 1.22;
 }
 
 .entry-content h3 {
-  margin-top: 1.6em;
-  margin-bottom: 0.5em;
+  margin-top: 1.15em;
+  margin-bottom: 0.32em;
+  font-weight: 600;
+  font-size: 1.2rem;
+  line-height: 1.24;
+}
+
+.entry-content h4 {
+  margin-top: 0.95em;
+  margin-bottom: 0.28em;
+  font-weight: 600;
+  font-size: 1.08rem;
+  line-height: 1.25;
+}
+
+.entry-content strong {
+  font-weight: 600;
+}
+
+.entry-content blockquote {
+  margin: 0.9em 0;
+  padding-left: 1em;
+  border-left: 3px solid var(--pz-rule);
+  color: #333;
+}
+
+.entry-content .entry-citation {
+  margin-top: 0.8em;
+}
+
+.entry-content ul,
+.entry-content ol {
+  margin-top: 0.4em;
+  margin-bottom: 0.6em;
+  padding-left: 1.4em;
+}
+
+.entry-content li {
+  margin-bottom: 0.2em;
+}
+
+.entry-content hr {
+  margin-top: 1.2em;
+  margin-bottom: 1.2em;
+}
+
+.entry-content .MathJax_Display,
+.entry-content mjx-container[display="true"] {
+  margin-top: 0.5em !important;
+  margin-bottom: 0.5em !important;
 }
 
 .entry-footer {
@@ -301,6 +346,7 @@ a.button:hover {
   color: var(--pz-muted);
   font-size: 0.95rem;
 }
+
 /* =========================
    Entries listing page
    ========================= */
@@ -448,6 +494,7 @@ pre {
 
   .entry-content {
     max-width: 100%;
+    line-height: 1.66;
   }
 }
 

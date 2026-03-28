@@ -3,13 +3,12 @@ layout: page
 title: About
 permalink: /about/
 ---
----
-layout: page
-title: About
-permalink: /about/
----
 
 ## About ProofZoom
+
+*When something almost makes sense—but not quite.*
+
+ProofZoom was created for that moment.
 
 ProofZoom is a curated collection of concise expository essays explaining the central ideas behind important mathematical proofs.
 
