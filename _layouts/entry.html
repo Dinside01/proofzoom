@@ -25,12 +25,12 @@ layout: default
       <strong>Updated:</strong> {{ page.updated }}
     </p>
   </div>
-
-  {% if page.abstract %}
-    <div class="entry-abstract">
-      <strong>Abstract.</strong> {{ page.abstract }}
-    </div>
-  {% endif %}
+{% if page.abstract %}
+  <p class="entry-abstract-label"><strong>Abstract.</strong></p>
+  <div class="entry-abstract">
+    {{ page.abstract }}
+  </div>
+{% endif %}
 
   {% if page.pdf %}
     <p class="entry-download">

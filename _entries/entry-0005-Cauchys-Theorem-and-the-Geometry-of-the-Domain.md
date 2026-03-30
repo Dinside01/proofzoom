@@ -4,12 +4,12 @@ title: "Cauchy’s Theorem and the Geometry of the Domain"
 entry_id: entry-0005
 primary_area: Complex Analysis
 primary_subarea: Cauchy Theory
-permalink: /entries/entry-0005-cauchy-s-theorem-and-the-geometry-of-the-domain/
+permalink: /entries/entry-0005-cauchys-theorem-and-the-geometry-of-the-domain/
 
-pdf: /assets/pdfs/entry-0005-Cauchy’s-Theorem-and-the-Geometry-of-the-Domain.pdf
+pdf: /assets/pdfs/entry-0005-Cauchys-Theorem-and-the-Geometry-of-the-Domain.pdf
 
-abstract: "Cauchy’s theorem asserts that the integral of a holomorphic function around a closed curve vanishes. Beyond this striking phenomenon lies a deeper truth: the theorem reflects a fundamental property of the domain itself. In simply connected regions, holomorphic functions behave as global derivatives, and their integrals detect no circulation. Conversely, any failure of such integrals to vanish reveals the presence of a hole. Thus complex integration encodes the topology of the plane."
-
+abstract: >
+  Cauchy’s theorem asserts that the integral of a holomorphic function around a closed curve vanishes. Beyond this striking phenomenon lies a deeper truth: the theorem reflects a fundamental property of the domain itself. In simply connected regions, holomorphic functions behave as global derivatives, and their integrals detect no circulation. Conversely, any failure of such behavior reveals the presence of a hole. Thus complex integration encodes the topology of the plane.
 difficulty: UG-Upper
 published: 2026-03-30
 updated:

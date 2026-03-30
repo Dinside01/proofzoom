@@ -232,15 +232,23 @@ a.button:hover {
   padding-left: 1.2em;
   padding-right: 0.35em;
 }
-
+.entry-abstract-label {
+  max-width: 720px;
+  margin: 18px auto 6px auto;
+  text-align: left;
+}
 .entry-abstract {
   max-width: 720px;
-  margin: 18px auto 18px auto;
+  margin: 0 auto 18px auto;
   text-align: left;
   font-size: 1.06rem;
   line-height: 1.65;
 }
 
+.abstract {
+  max-width: 850px;
+  margin: 0 auto;
+}
 .entry-download {
   margin: 16px 0 0 0;
 }
