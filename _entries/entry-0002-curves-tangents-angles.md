@@ -633,12 +633,15 @@ $$
 
 Together these formulas explain why analytic functions with nonzero derivative are conformal.
 
+---
+
 ## References
 
 1. A.-L. Cauchy, *Cours d’Analyse de l’École Royale Polytechnique*, 1821.  
 2. C. Carathéodory, *Theory of Functions of a Complex Variable*, Vol. 1, Chelsea, 1954.  
 3. L. V. Ahlfors, *Complex Analysis*, 3rd ed., McGraw–Hill, 1979.  
 4. T. Needham, *Visual Complex Analysis*, Oxford University Press, 1997.
-<br>
+
+---
 
 **Cite as:** ProofZoom Entry-0002: *Curves, Tangents, and Angles in the Complex Plane*.

@@ -309,6 +309,9 @@ Thus a minimal local assumption—complex differentiability at each point—forc
 What appears at first as a vanishing phenomenon is, in truth, a statement about the geometry of the domain. In regions without holes, there is nowhere for circulation to arise, and holomorphic functions behave as global derivatives.
 
 What begins as a statement about integrals reveals itself, on closer inspection, as a statement about the absence of holes.
+
+---
+
 ## References
 
 • A.-L. Cauchy, Sur les intégrales définies, Comptes Rendus de l’Académie des Sciences, 1846.
@@ -320,6 +323,8 @@ What begins as a statement about integrals reveals itself, on closer inspection,
 • L. Ahlfors, Complex Analysis, 3rd ed., McGraw–Hill, 1979.
 
 • T. W. Gamelin, Complex Analysis, Springer, 2001.
+
+---
 
 Cite as: ProofZoom Entry-0005, Cauchy’s Theorem and the Geometry of the Domain, ProofZoom (2026).
 
