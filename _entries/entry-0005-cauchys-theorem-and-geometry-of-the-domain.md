@@ -1,31 +1,37 @@
 ---
 layout: entry
-title: "Cauchy’s Theorem and the Geometry of the Domain"
+title: "Cauchy’s Integral Theorem and Geometry of the Domain"
 entry_id: entry-0005
 primary_area: Complex Analysis
 primary_subarea: Cauchy Theory
-permalink: /entries/entry-0005-cauchys-theorem-and-the-geometry-of-the-domain/
-
-pdf: /assets/pdfs/entry-0005-Cauchys-Theorem-and-the-Geometry-of-the-Domain.pdf
-
-abstract: >
-  Cauchy’s theorem asserts that the integral of a holomorphic function around a closed curve vanishes. Beyond this striking phenomenon lies a deeper truth: the theorem reflects a fundamental property of the domain itself. In simply connected regions, holomorphic functions behave as global derivatives, and their integrals detect no circulation. Conversely, any failure of such behavior reveals the presence of a hole. Thus complex integration encodes the topology of the plane.
 difficulty: UG-Upper
+
 published: 2026-03-30
 updated:
+
+permalink: /entries/entry-0005-cauchys-theorem-and-geometry-of-the-domain/
+
+pdf: /assets/pdfs/entry-0005-cauchys-theorem-and-geometry-of-the-domain.pdf
+
+abstract:  "Cauchy’s theorem asserts that the integral of a holomorphic function around a closed curve vanishes. Beyond this striking phenomenon lies a deeper truth: the theorem reflects a fundamental property of the domain itself. In simply connected regions, holomorphic functions behave as global derivatives, and their integrals detect no circulation. Conversely, any failure of such behavior reveals the presence of a hole. Thus complex integration encodes the topology of the plane."
+
 ---
 
 ## 1. The phenomenon
 
-Suppose $f$ is holomorphic on a region (open subset which is connected, namely a polygonal path exists between any two points) $D \subset C$. A remarkable property of complex analysis is that integrals of holomorphic functions along curves depend only on the endpoints of the curve, and not on the path taken in $D$.
+A function possessing a complex derivative at every point of its domain is called \emph{holomorphic} (or \emph{analytic}). Let $f$ be holomorphic on a region $D \subset \mathbb{C}$ (that is, a connected open set — equivalently, any two points in $D$ can be joined by a polygonal path lying entirely in $D$). 
 
-In particular, if $\gamma$ is a closed curve in $D$, then
+In real-variable calculus, the definite integral of a derivative over an interval depends only on the endpoints. In complex analysis, a similar phenomenon occurs — but under subtler conditions.
 
+If a function $f$ admits a primitive $F$ on $D$, then integrals of $f$ along curves depend only on the endpoints. More strikingly, even without assuming a primitive, this path-independence holds for every holomorphic function provided the domain $D$ has no holes (that is, is simply connected).
+
+Equivalently, in such domains, the integral of a holomorphic function around any closed curve vanishes:
 $$
 \int_\gamma f(z)\,dz = 0.
 $$
 
-This is Cauchy’s theorem. It is the starting point for many of the deepest results of complex analysis.
+This is Cauchy’s theorem. Thus Cauchy’s theorem is not only about holomorphic functions, but about the geometry of the domain itself.
+
 
 ## 2. Cauchy’s theorem (Goursat’s proof)
 
@@ -104,13 +110,13 @@ $$
 z_0 = x_0 + i y_0.
 $$
 
-(For unicity, it is sufficient that the intersection of the compact sets is nonempty; the nonempty set is forced to be a singleton set. For if $w$ is another point in $\bigcap_{n=1}^{\infty} T^{(n)}$, then for every $n$ both $z_0$ and $w$ lie in $T^{(n)}$, so
+(For uniqueness, it is sufficient that the intersection of the compact sets is nonempty; the nonempty set is forced to be a singleton set. For if $w$ is another point in $\bigcap_{n=1}^{\infty} T^{(n)}$, then for every $n$ both $z_0$ and $w$ lie in $T^{(n)}$, so
 
 $$
 |z_0 - w| \le \operatorname{diam}(T^{(n)}).
 $$
 
-Since $\operatorname{diam}(T^{(n)}) \to 0$, it follows that $|z_0 - w| = 0$, hence $w = z_0$. Therefore
+Since $\operatorname{diam}(T^{(n)}) \to 0$, it follows that $\lvert z_0 - w\rvert                                                                                                                 = 0$, hence $w = z_0$. Therefore
 
 $$
 \bigcap_{n=1}^{\infty} T^{(n)} = \{z_0\}.
@@ -189,7 +195,7 @@ Letting $n \to \infty$ forces $I(T) = 0$.
 
 $\square$
 
-From triangles to rectangles and then to closed curves
+**From triangles to rectangles and then to closed curves**
 
 The triangular case immediately implies the theorem for rectangles, since every rectangle can be divided into two triangles by a diagonal. Hence the integral of $f$ around the boundary of any rectangle in the domain is zero.
 
@@ -198,6 +204,10 @@ Now let a region be tiled by finitely many rectangles. Since the integral around
 Finally, a simple closed curve can be approximated by boundaries of unions of rectangles lying inside the region. Passing to the limit gives Cauchy’s theorem for simple closed curves.
 
 Thus the triangular form proved by Goursat implies the full statement of Cauchy’s theorem for simple closed curves.
+
+
+**Remark.**
+There is a shorter proof of Cauchy’s theorem via Green’s theorem, reducing the result to the vanishing of certain partial derivatives. This approach, however, requires additional smoothness assumptions on the real and imaginary parts of $f$. Goursat’s argument is more subtle: it shows that complex differentiability alone suffices, with no prior assumption of continuity of the derivative. In this sense, the strength of Cauchy’s theorem lies not in the method of proof, but in the minimal nature of its hypotheses.
 
 ## 3. Simply connected domains
 
@@ -213,7 +223,7 @@ This condition captures the absence of holes in a precise topological sense.
 
 We now arrive at the central result which shows that Cauchy’s theorem is not merely a property of functions, but a characterization of the domain on which they are defined.
 
-**Theorem.** Let $D \subset C$ be a domain. The following are equivalent:
+**Theorem.** Let $D \subset \mathbb{C}$ be a domain. The following are equivalent:
 
 1. $D$ is simply connected,  
 2. every holomorphic function on $D$ has a primitive,  
@@ -223,7 +233,7 @@ $$
 \int_\gamma f(z)\,dz = 0.
 $$
 
-## 5. Proof of equivalence
+**Proof.** 
 
 (2) ⇒ (3). If $f = F'$, then by the fundamental theorem of calculus,
 
@@ -292,7 +302,7 @@ Thus $D$ must be simply connected.
 
 $\square$
 
-## 6. Geometric meaning
+## 5. Geometric meaning
 
 Cauchy’s theorem reveals that holomorphic functions cannot produce circulation in regions without holes.
 
@@ -300,15 +310,15 @@ Any nonzero integral around a closed curve must arise not from the function itse
 
 In this sense, complex integration detects the presence of holes, and all holomorphic functions behave alike: none carries intrinsic circulation.
 
-## 7. Closing perspective
+## 6. Closing perspective
 
-A remarkable feature of Cauchy’s theorem is that it requires only the existence of the complex derivative. No continuity of the derivative is assumed. Yet, through the Cauchy integral formula, one finds that every holomorphic function possesses derivatives of all orders, and that these derivatives are themselves continuous. This phenomenon finds its precise expression in the Cauchy integral formula, which shows that the values of a holomorphic function inside a curve are completely determined by its values on the curve.
+A remarkable feature of Cauchy’s theorem is that it requires only the existence of the complex derivative. No continuity of the derivative is assumed. Yet, through the Cauchy integral formula - a deeper result closely related to Cauchy's Integral theorem, expressing a holomorphic function in the interior of a simple closed curve in a terms of the values of the function on the curve - one finds that every holomorphic function possesses derivatives of all orders, and that these derivatives are themselves continuous, since each in turn admits a derivative. 
 
-Thus a minimal local assumption—complex differentiability at each point—forces a strong global conclusion: complete analytic regularity. There is no room for irregular behavior.
+Thus a minimal local assumption — complex differentiability at each point — forces a strong global conclusion: the function is infinitely differentiable.
 
-What appears at first as a vanishing phenomenon is, in truth, a statement about the geometry of the domain. In regions without holes, there is nowhere for circulation to arise, and holomorphic functions behave as global derivatives.
+What appears at first as a vanishing phenomenon is, in truth, a statement about the geometry of the domain. In regions without holes, there is nowhere for nonzero circulation to arise, and holomorphic functions behave as global derivatives.
 
-What begins as a statement about integrals reveals itself, on closer inspection, as a statement about the absence of holes.
+What begins as a statement about integrals reveals itself, on closer inspection, as a statement about the geometry of the domain itself.
 
 ---
 
