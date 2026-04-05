@@ -207,7 +207,10 @@ Thus the triangular form proved by Goursat implies the full statement of Cauchy�
 
 
 **Remark.**
+
 There is a shorter proof of Cauchy’s theorem via Green’s theorem, reducing the result to the vanishing of certain partial derivatives. This approach, however, requires additional smoothness assumptions on the real and imaginary parts of $f$. Goursat’s argument is more subtle: it shows that complex differentiability alone suffices, with no prior assumption of continuity of the derivative. In this sense, the strength of Cauchy’s theorem lies not in the method of proof, but in the minimal nature of its hypotheses.
+
+It is also worth noting that the theorem holds under weaker assumptions than those stated here. If $\Gamma$ is a simple closed curve in $D$, it suffices that $f$ be continuous on $\Gamma \cup \Gamma^i$ and holomorphic in the interior $\Gamma^i$ in order to conclude that $\int_\Gamma f(z)\,dz = 0$. This refinement, sometimes referred to as Pollard’s form, is rarely needed in applications.
 
 ## 3. Simply connected domains
 
@@ -302,23 +305,23 @@ Thus $D$ must be simply connected.
 
 $\square$
 
+
 ## 5. Geometric meaning
 
-Cauchy’s theorem reveals that holomorphic functions cannot produce circulation in regions without holes.
+Cauchy’s theorem reveals that holomorphic functions cannot produce a nonzero integral along closed curves in regions without holes. Conversely, when a domain contains a hole, some holomorphic functions do produce nonzero integrals around closed curves.
 
-Any nonzero integral around a closed curve must arise not from the function itself, but from the topology of the domain in which it is defined.
+Thus nonzero integrals reflect not a special feature of the function, but the topology of the domain in which it is defined. Complex integration thereby detects the presence of holes, and all holomorphic functions behave alike in regions without holes.
 
-In this sense, complex integration detects the presence of holes, and all holomorphic functions behave alike: none carries intrinsic circulation.
+In the presence of holes, however,  holomorphic functions begin to distinguish themselves. Their integrals around closed curves need no longer agree, and different functions may produce different values on the same loop. Thus each function carries a global signature, detectable through integration. This is the starting point of residue theory, where such signatures are quantified and classified.
+
 
 ## 6. Closing perspective
 
-A remarkable feature of Cauchy’s theorem is that it requires only the existence of the complex derivative. No continuity of the derivative is assumed. Yet, through the Cauchy integral formula - a deeper result closely related to Cauchy's Integral theorem, expressing a holomorphic function in the interior of a simple closed curve in a terms of the values of the function on the curve - one finds that every holomorphic function possesses derivatives of all orders, and that these derivatives are themselves continuous, since each in turn admits a derivative. 
+A remarkable feature of Cauchy’s theorem is that it requires only the existence of the complex derivative. No continuity of the derivative is assumed.
+
+Yet, through the Cauchy integral formula — a deeper result closely related to Cauchy’s theorem, expressing a holomorphic function in terms of its values on a surrounding curve — one finds that every holomorphic function possesses derivatives of all orders, and that these derivatives are themselves continuous, since each in turn admits a derivative.
 
 Thus a minimal local assumption — complex differentiability at each point — forces a strong global conclusion: the function is infinitely differentiable.
-
-What appears at first as a vanishing phenomenon is, in truth, a statement about the geometry of the domain. In regions without holes, there is nowhere for nonzero circulation to arise, and holomorphic functions behave as global derivatives.
-
-What begins as a statement about integrals reveals itself, on closer inspection, as a statement about the geometry of the domain itself.
 
 ---
 
