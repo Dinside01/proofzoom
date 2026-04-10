@@ -19,7 +19,7 @@ abstract:  "Cauchy’s theorem asserts that the integral of a holomorphic functi
 
 ## 1. The phenomenon
 
-A function possessing a complex derivative at every point of its domain is called \emph{holomorphic} (or \emph{analytic}). Let $f$ be holomorphic on a region $D \subset \mathbb{C}$ (that is, a connected open set — equivalently, any two points in $D$ can be joined by a polygonal path lying entirely in $D$). 
+A function possessing a complex derivative at every point of its domain is called *holomorphic* (or *analytic*). Let $f$ be holomorphic on a region $D \subset \mathbb{C}$ (that is, a connected open set — equivalently, any two points in $D$ can be joined by a polygonal path lying entirely in $D$). 
 
 In real-variable calculus, the definite integral of a derivative over an interval depends only on the endpoints. In complex analysis, a similar phenomenon occurs — but under subtler conditions.
 
