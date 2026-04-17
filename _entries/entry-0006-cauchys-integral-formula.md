@@ -25,14 +25,13 @@ We call an open subset $D$ of the complex plane a region if any two points of $D
 
 We begin by extending Cauchy’s theorem from a single scp to configurations involving several such paths. This extension will allow us to isolate points inside a curve and ultimately lead to the integral formula.
 
----
 
 ## 2. Cauchy's Theorem for a sum of simple closed paths
 
 A configuration comprising an scp $\Gamma$ and one or more scp's $\Gamma_j$ with each $\Gamma_j$ inside $\Gamma$ but outside the other $\Gamma_k$ (that is, $\Gamma_j \subset \Gamma_k^e \cap \Gamma^i$) can be represented as a single scp that is a sum of all the scp's, as would become clear in the proof of the theorem below.
 
 **Theorem 2.1.**  
-Let $C$ and $\Gamma$ be positively oriented scp's with $C \subset \Gamma^i$. Let $f \in H(D)$ and $D$ contain the closure of the region $\Gamma^i \cap C^e$. Then
+*Let $C$ and $\Gamma$ be positively oriented scp's with $C \subset \Gamma^i$. Let $f \in H(D)$ and $D$ contain the closure of the region $\Gamma^i \cap C^e$. Then*
 
 $$
 \int_{\Gamma} f(z)\,dz = \int_{C} f(z)\,dz.
@@ -56,14 +55,13 @@ $$
 
 (The proof proceeds by induction on $n$, repeatedly applying Theorem 2.1 to remove one inner curve at a time. We omit the details.)
 
----
 
 ## 3. An extension of Cauchy's theorem
 
 Here we consider the multi-curve version of Cauchy's theorem. This allows us to remove small neighborhoods of finitely many points inside $\Gamma$, reducing the study of integrals to arbitrarily small contours around those points.
 
 **Lemma 3.1.**  
-Let $\Gamma$ be a simple closed path such that $\Gamma \cup \Gamma^i$ is contained in a region $D \subset \mathbb{C}$. Let $z_1,\dots, z_n$ be points in $\Gamma^i$ and let $D^\ast$ be the region obtained by deleting these points from $D$. Let $f \in H(D^\ast)$ and suppose that there exists $\delta > 0$ such that $f$ is bounded in a deleted neighborhood $N'_{\delta}(z_j)$ for each $z_j$. Then
+*Let $\Gamma$ be a simple closed path such that $\Gamma \cup \Gamma^i$ is contained in a region $D \subset \mathbb{C}$. Let $z_1,\dots, z_n$ be points in $\Gamma^i$ and let $D^\ast$ be the region obtained by deleting these points from $D.$ Let $f \in H(D^\ast)$ and suppose that there exists $\delta > 0$ such that $f$ is bounded in a deleted neighborhood $N'_{\delta}(z_j)$ for each $z_j$. Then*
 
 $$
 \int_{\Gamma} f(z)\,dz = 0.
@@ -106,23 +104,22 @@ Consequently, the study of contour integrals is reduced to understanding the con
 The preceding lemma uses boundedness near the deleted points. A related and useful condition is that $(z - z_j) f(z) \to 0$, which ensures that the contribution from small circles vanishes.
 
 **Lemma 3.2**  
-Let $D$ be a region, and let $\Gamma$ be a positively oriented simple closed path such that $\Gamma \cup \Gamma_i \subset D$. Let $z_1,\dots,z_n$ be points in $\Gamma_i$, and set
+*Let $D$ be a region, and let $\Gamma$ be a positively oriented simple closed path such that $\Gamma \cup \Gamma_i \subset D$. Let $z_1,\dots,z_n$ be points in $\Gamma_i$, and set*
 
 $$
-D^* = D \setminus \{z_1,\dots,z_n\}.
+D^\ast = D \setminus \{z_1,\dots,z_n\}.
 $$
 
-Suppose $f \in H(D^*)$, and assume that for each $j = 1,\dots,n$,
+*Suppose $f \in H(D^\ast)$, and assume that for each $j = 1,\dots,n$,*
 
 $$
 \lim_{z \to z_j} (z - z_j) f(z) = 0.
 $$
 
-Then
+*Then*
 
 $$
-\int_\Gamma f(z)\,dz = 0.
-$$
+\int_\Gamma f(z)\,dz = 0.$$
 
 **Idea of the proof.**  
 We remove small circles around each deleted point and apply the multi-curve version of Cauchy’s theorem. The hypothesis implies that $f(z)$ grows more slowly than $1/|z - z_j|$, so the contribution from each small circle tends to zero.
@@ -185,18 +182,89 @@ $$
 \int_\Gamma f(z)\,dz = 0.
 $$
 
----
 
-## 4. Cauchy's Integral
+## 4. Index of a point relative to a closed curve
+For a point that is not on a closed curve, index is a notion making precise the number of times the closed curve winds around the point. For piecewise smooth curves, the definition of index is based on the following lemma.
+
+**Lemma 4.1** 
+*If a smooth closed curve $\Gamma$ does not pass through the point $a$ , then $\int_{\Gamma}\frac{dz}{z-a}$ is a multiple of $2\pi i$.*
+
+
+**Proof.**  
+Let $\Gamma : z(t), \alpha\le t\le\beta$ be a smooth closed curve. That is, $z'(t)$ exists and $z'(t)$ is continuous.
+Now
+$$\int_{\Gamma}\frac{dz}{z-a}= \int_{\Gamma}\frac{z'(t)}{z(t)-a}dt.$$
+Let $$g(t)=\int_{\alpha}^t\frac{z'(s)}{z(s)-a}ds.$$
+Since $\frac{z'(s)}{z(s)-a}$ is continuous, $g$ is differentiable. For, if $\frac{z'(s)}{z(s)-a}=f(s)$, then $\frac{g(t+\delta)-g(t)}{\delta}=\frac{\int_t^{t+\delta}f(s)ds}{\delta}$ so that taking $\lim_{\delta\to 0}$ gives $g'(t)=f(t)$ due to continuity of 
+$f$. This is the Fundamental theorem of calculus.
+
+But the derivative of $e^{-g(t)}(z(t)-a)$ vanishes. Therefore $e^{-g(t)}(z(t)-a)$ is a constant $K$ for $\alpha\le t\le\beta$. 
+
+Since $\Gamma$ is a closed curve, $z(\alpha)=z(\beta)$. Hence
+$$
+K e^{g(\alpha)} = z(\alpha)-a = z(\beta)-a = K e^{g(\beta)}.
+$$
+Since $z(\alpha)\neq a$, we have $K\neq 0$, and therefore
+$$
+e^{g(\alpha)} = e^{g(\beta)}.
+$$
+It follows that there exists $n \in \mathbb{Z}$ such that
+$$
+g(\beta) = g(\alpha) + 2\pi i n.
+$$
+Since $g(\alpha)=0$, we obtain
+$$
+g(\beta)=2\pi i n.
+$$
+□
+
+
+This result shows that the integral measures the net change in the argument of $z(t)-a$ along the curve.
+
+**Remark 4.2**
+If $\Gamma$ is a piecewise smooth closed curve, write $\Gamma$ as a finite union of smooth curves
+$$
+\Gamma = \gamma_1 \cup \gamma_2 \cup \cdots \cup \gamma_n,
+$$
+where each $\gamma_i$ is defined on $[a_i,b_i]$ and $b_i=a_{i+1}$.
+
+On each segment $\gamma_i$, the argument above applies and shows that
+$$
+e^{-g(t)}(z(t)-a)
+$$
+is constant. Since $g$ is continuous on the whole interval and the endpoints match
+$$
+z(b_i)=z(a_{i+1}),
+$$
+these constants must agree across adjacent segments.
+
+Thus the same constant holds along the entire curve, and the conclusion
+$$
+g(\beta)=2\pi i n
+$$
+follows exactly as in the smooth case.
+
+
+**Definition 4.3**
+In view of $\int_\Gamma \frac{dz}{z-a} = 2\pi i n$, the index of $a$ relative to $\Gamma$ is defined as
+$$
+n(\Gamma,a) = \frac{1}{2\pi i}\int_\Gamma \frac{dz}{z-a}.
+$$
+
+The integer $n(\Gamma,a)$ counts, with sign, the number of times the curve $\Gamma$ winds around the point $a$. It depends only on the continuous deformation class of the curve avoiding $a$.
+
+
+
+## 5. Cauchy's Integral
 
 Let $f \in H(D)$, and let $\Gamma$ be a simple closed curve in $D$. Let $a$ lie inside $\Gamma$. Define
 
 $$
 F(z)=\frac{f(z)-f(a)}{z-a},
-\qquad z \in D \setminus \{a\}.
+\qquad z \in D \backslash \{a\}.
 $$
 
-Since $f$ is analytic in $D$, the function $F$ is analytic on $D \setminus \{a\}$.
+Since $f$ is analytic in $D$, the function $F$ is analytic on $D \backslash \{a\}$.
 
 Moreover,
 
@@ -213,7 +281,7 @@ $$
 =0.
 $$
 
-Thus $F \in H(D \setminus \{a\})$, and the condition
+But $F \in H(D \setminus \{a\})$, and the condition
 
 $$
 \lim_{z \to a}(z-a)F(z)=0
@@ -247,20 +315,20 @@ $$
 =
 f(a)\int_{\Gamma}\frac{1}{z-a}\,dz.
 $$
-
-By the evaluation of the basic integral,
-
+By Lemma 4.1, the integral $\int_\Gamma \frac{dz}{z-a}$ depends only on how the curve winds around $a$, and is given by
 $$
-\int_{\Gamma}\frac{1}{z-a}\,dz=2\pi i.
+\int_{\Gamma}\frac{1}{z-a}\,dz=2\pi in.
 $$
 
-Substituting this gives
+Thus the entire integral is determined by the value of $f$ at the point $a$ and the number of times the curve $\Gamma$ winds around $a$. If $\Gamma$ winds once positively around $a$, so that $n(\Gamma,a)=1$, this yields
 
 $$
 \boxed{
 f(a)=\frac{1}{2\pi i}\int_{\Gamma}\frac{f(z)}{z-a}\,dz.
 }
 $$
+
+This is Cauchy's integral formula. It shows that the contribution of the point $a$ to the integral is completely local, and is detected through the winding of the curve around $a$.
 
 **Key idea.**  
 The auxiliary function
@@ -269,20 +337,18 @@ $$
 F(z)=\frac{f(z)-f(a)}{z-a}
 $$
 
-may fail to be defined at $a$, but its singularity there is mild enough that Lemma 3.2 applies: the quantity $(z-a)F(z)$ tends to $0$. Thus the integral of $F$ around $\Gamma$ vanishes, and this isolates the desired formula for $f(a)$.
+may fail to be defined at $a$, but its singularity there is mild enough that Lemma 3.2 applies: the quantity $(z-a)F(z)$ tends to $0$. 
 
----
-
-**Remark (Alternative proof via Lemma 3.1).**  
+**Remark 5.1 (Alternative proof).**  
 There is a second route to Cauchy’s integral formula using the removable singularity result (Lemma 3.1).
 
 Define
 
 $$
-F(z)=\frac{f(z)-f(a)}{z-a}, \qquad z \in D \setminus \{a\}.
+F(z)=\frac{f(z)-f(a)}{z-a}, \qquad z \in D \backslash \{a\}.
 $$
 
-Then $F \in H(D \setminus \{a\})$, and
+Then $F \in H(D \\backslash \\{a\\})$, and
 
 $$
 \lim_{z \to a} F(z)=f'(a).
@@ -321,24 +387,53 @@ $$
 **Comparison.**  
 This proof uses boundedness near the singularity to conclude that its contribution to the integral vanishes. In contrast, the proof using Lemma 3.2 replaces boundedness by the sharper condition $(z-a)F(z)\to 0$, avoiding even this estimate. The latter approach is therefore more economical.
 
----
+## 6. Consequences
 
-## 5. Closing perspective
+The integral formula allows us to analyze the behavior of analytic functions at points inside the curve $\Gamma$. One of its most remarkable consequences is that a function that is once complex differentiable is in fact infinitely differentiable.
 
-Cauchy’s integral formula reveals a remarkable principle: the value of an analytic function inside a curve is completely determined by its values on the curve. The function carries no hidden interior freedom.
+To make this precise, we study a family of integral operators associated with a curve.
+
+**Lemma 6.1**  
+*Suppose that $\phi(\zeta)$ is continuous on the arc $\gamma$. Then the function
+$$F_n(z)=\int_{\gamma} \frac{\phi(\zeta) d\zeta}{(\zeta-z)^n}$$
+is analytic in each region determined by $\gamma$, and its derivative is}* $$F_n'(z)=nF_{n+1}(z).$$
+
+Proof omitted; the result follows by differentiating under the integral sign. See [2] for details. Now, applying the Integral formula with $\phi(\zeta)= f(\zeta)$ and $F_1(z)=f(z)$, we have that $f(z)$ is differentiable:
+
+$$f'(z)=\frac{1}{2\pi i}\int_{\Gamma}\frac{f(\zeta)d\zeta}{(\zeta-z)^2}$$
+and
+$$f^{(n)}(z)=\frac{n!}{2\pi i}\int_{\Gamma}\frac{f(\zeta)d\zeta}{(\zeta-z)^{n+1}}.$$
+
+Thus a function that is once complex differentiable admits derivatives of all orders. While this conclusion is obtained via an integral representation over a curve $\Gamma$ enclosing the point, the differentiability is a local property of the function itself; the curve serves only as a device through which this structure is revealed.
+
+From this we obtain a partial converse of Cauchy’s theorem. Cauchy’s theorem asserts that analytic functions have vanishing integrals over closed curves. Morera’s theorem shows that the converse holds under an additional hypothesis: if a function is continuous and its integral over every closed curve vanishes, then it is analytic. The continuity assumption is essential; without it, the vanishing of all such integrals does not in general guarantee analyticity.
+
+**Theorem 6.2 (Morera's theorem)** 
+*Let $f$ be continuous in the region $D$ and satisfy $\int_{\Gamma}f(z)dz=0$ for every scp in $D$. Then $f\in H(D)$.*
+
+Indeed, the vanishing of integrals over closed curves suggests that the integral of $f$ depends only on the endpoints of a path. This allows one to define a local primitive, from which differentiability follows.
+
+A consequence of infinite differentiability of analytic functions is the following,
+**Theorem 6.3 (Liouville's theorem)**
+*A function which is analytic and bounded in the whole plane must reduce to a constant*.
+
+And Liouville's theorem implies the fundamental theorem of algebra: a polynomial P(z) of degree >0 has a root. 
+
+
+## 7. Closing perspective
+Above all, Cauchy’s integral formula reveals a remarkable principle: the value of an analytic function inside a curve is completely determined by its values on the boundary. There is no hidden interior freedom.
 
 At the same time, the proof isolates a deeper phenomenon. The behavior of the function
-
 $$
 \frac{f(z)}{z-a}
 $$
+in an arbitrarily small neighborhood of the point \(a\) governs the entire integral. In particular, the contribution of a single point is detected through a contour integral.
 
-near the point $a$ governs the entire integral. In particular, the contribution of a single point can be detected through a contour integral.
+Thus local behavior and global structure are inseparably linked: what happens near a point controls what is measured along the curve.
 
-This perspective leads naturally to the classification of isolated singularities and residues.
+This viewpoint leads naturally to the classification of isolated singularities and the theory of residues.
 
 ---
-
 ## References
 
 - A.-L. Cauchy, *Sur les intégrales définies*, Comptes Rendus de l’Académie des Sciences, 1846.  
