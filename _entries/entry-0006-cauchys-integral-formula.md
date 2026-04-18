@@ -372,7 +372,7 @@ $$
 
 Thus $F$ is bounded in a deleted neighborhood of $a$.
 
-Since $F \in H(D \setminus \{a\})$ and is bounded near $a$, Lemma 3.1 applies, and we conclude that
+Since $F \in H(D \\backslash \\{a\\})$ and is bounded near $a$, Lemma 3.1 applies, and we conclude that
 
 $$
 \int_{\Gamma} F(z)\,dz=0.

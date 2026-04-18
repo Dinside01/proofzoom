@@ -241,11 +241,11 @@ What is special in complex analysis is that, in domains without holes, every hol
 
 We now arrive at the central result which shows that Cauchy’s theorem is not merely a property of functions, but a characterization of the domain on which they are defined.
 
-**Theorem 4.1.**  *Let $D \subset \mathbb{C}$ be a domain. The following are equivalent:
+**Theorem 4.1.**  *Let $D \subset \mathbb{C}$ be a domain. The following are equivalent:*
 
-1. $D$ is simply connected,  
-2. every holomorphic function on $D$ has a primitive,  
-3. for every holomorphic $f$ on $D$ and every closed curve $\gamma \subset D$,*
+1. *$D$ is simply connected,*  
+2. *every holomorphic function on $D$ has a primitive,*  
+3. *for every holomorphic $f$ on $D$ and every closed curve $\gamma \subset D$,*
 
 $$
 \int_\gamma f(z)\,dz = 0.
