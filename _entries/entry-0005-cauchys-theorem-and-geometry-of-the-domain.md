@@ -37,7 +37,7 @@ This is Cauchy’s theorem. Thus Cauchy’s theorem is not only about holomorphi
 
 We present a proof that assumes only complex differentiability.
 
-**Theorem.** Let $T$ be a triangle together with its interior, and let $f$ be holomorphic on an open set containing $T$. Then
+**Theorem 2.1.** Let $T$ be a triangle together with its interior, and let $f$ be holomorphic on an open set containing $T$. Then
 
 $$
 \int_{\partial T} f(z)\,dz = 0.
@@ -206,7 +206,7 @@ Finally, a simple closed curve can be approximated by boundaries of unions of re
 Thus the triangular form proved by Goursat implies the full statement of Cauchy’s theorem for simple closed curves.
 
 
-**Remark.**
+**Remark 2.1.**
 
 There is a shorter proof of Cauchy’s theorem via Green’s theorem, reducing the result to the vanishing of certain partial derivatives. This approach, however, requires additional smoothness assumptions on the real and imaginary parts of $f$. Goursat’s argument is more subtle: it shows that complex differentiability alone suffices, with no prior assumption of continuity of the derivative. In this sense, the strength of Cauchy’s theorem lies not in the method of proof, but in the minimal nature of its hypotheses.
 
@@ -222,15 +222,30 @@ Formal definition. A domain $D$ is simply connected if every closed curve in $D$
 
 This condition captures the absence of holes in a precise topological sense.
 
+**Remark 3.1** (Path-independence and primitives).  
+The relation between path-independence and primitives is not peculiar to holomorphic functions. Let $f$ be continuous on a domain $D$. Then the following are equivalent:
+
+(a) the integral $\int_C f(z)\,dz$ is independent of path in $D$,
+
+(b) $f$ admits a primitive in $D$.
+
+In this case, a primitive is given by
+
+$$
+F(z) = \int_{z_0}^{z} f(s)\,ds.
+$$
+
+What is special in complex analysis is that, in domains without holes, every holomorphic function automatically satisfies this condition. Thus Cauchy’s theorem may be viewed as the statement that holomorphic functions in simply connected domains behave like global derivatives.
+
 ## 4. The structural theorem
 
 We now arrive at the central result which shows that Cauchy’s theorem is not merely a property of functions, but a characterization of the domain on which they are defined.
 
-**Theorem.** Let $D \subset \mathbb{C}$ be a domain. The following are equivalent:
+**Theorem 4.1.**  *Let $D \subset \mathbb{C}$ be a domain. The following are equivalent:
 
 1. $D$ is simply connected,  
 2. every holomorphic function on $D$ has a primitive,  
-3. for every holomorphic $f$ on $D$ and every closed curve $\gamma \subset D$,
+3. for every holomorphic $f$ on $D$ and every closed curve $\gamma \subset D$,*
 
 $$
 \int_\gamma f(z)\,dz = 0.
@@ -327,15 +342,15 @@ Thus a minimal local assumption — complex differentiability at each point — 
 
 ## References
 
-• A.-L. Cauchy, Sur les intégrales définies, Comptes Rendus de l’Académie des Sciences, 1846.
+[1] A.-L. Cauchy, Sur les intégrales définies, Comptes Rendus de l’Académie des Sciences, 1846.
 
-• E. Goursat, Sur la définition générale des fonctions analytiques, Annales Scientifiques de l’École Normale Supérieure, 1891.
+[2] E. Goursat, Sur la définition générale des fonctions analytiques, Annales Scientifiques de l’École Normale Supérieure, 1891.
 
-• H. Haucha-Olsen, On Goursat’s proof of Cauchy’s integral theorem, American Mathematical Monthly, 115 (2008), 585–591.
+[3] H. Haucha-Olsen, On Goursat’s proof of Cauchy’s integral theorem, American Mathematical Monthly, 115 (2008), 585–591.
 
-• L. Ahlfors, Complex Analysis, 3rd ed., McGraw–Hill, 1979.
+[4] L. Ahlfors, Complex Analysis, 3rd ed., McGraw–Hill, 1979.
 
-• T. W. Gamelin, Complex Analysis, Springer, 2001.
+[5] T. W. Gamelin, Complex Analysis, Springer, 2001.
 
 ---
 
