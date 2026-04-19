@@ -12,8 +12,7 @@ updated:
 permalink: /entries/entry-0006-cauchys-integral-formula/
 
 pdf: /assets/pdfs/entry-0006-cauchys-integral-formula.pdf
-
-abstract: "Cauchy’s integral formula expresses the value of an analytic function at a point in terms of its values on a surrounding curve. The proof proceeds by isolating the contribution of a single interior point: an auxiliary function is constructed so that its contour integral vanishes, either by boundedness near the point or by a sharper decay condition. This reveals that the entire integral is governed by the local behavior of the integrand near that point. Consequently, analytic functions are determined by their boundary values and exhibit strong regularity properties."
+abstract: "Cauchy’s integral formula expresses the value of an analytic function at a point in terms of its values on a surrounding curve. The proof proceeds by isolating the contribution of a single interior point: an auxiliary function is constructed so that its contour integral vanishes, either by boundedness near the point or by a sharper decay condition. This reveals that the entire integral is governed by the local behavior of the integrand near that point. Consequently, analytic functions are completely determined by their boundary values, possess derivatives of all orders, and admit power series expansions."
 
 ---
 
@@ -420,16 +419,18 @@ A consequence of infinite differentiability of analytic functions is the followi
 And Liouville's theorem implies the fundamental theorem of algebra: a polynomial P(z) of degree >0 has a root. 
 
 
+
 ## 7. Closing perspective
+
 Above all, Cauchy’s integral formula reveals a remarkable principle: the value of an analytic function inside a curve is completely determined by its values on the boundary. There is no hidden interior freedom.
 
 At the same time, the proof isolates a deeper phenomenon. The behavior of the function
 $$
 \frac{f(z)}{z-a}
 $$
-in an arbitrarily small neighborhood of the point \(a\) governs the entire integral. In particular, the contribution of a single point is detected through a contour integral.
+in an arbitrarily small neighborhood of the point \(a\), enclosed by the curve, determines the value of the integral. In particular, the contribution of a single point is detected through a contour integral.
 
-Thus local behavior and global structure are inseparably linked: what happens near a point controls what is measured along the curve.
+Thus local behavior and global structure are inseparably linked: what happens near a point controls what is measured along the curve. This principle has far-reaching consequences: analytic functions possess derivatives of all orders and admit power series expansions, both determined by their boundary values.
 
 This viewpoint leads naturally to the classification of isolated singularities and the theory of residues.
 
