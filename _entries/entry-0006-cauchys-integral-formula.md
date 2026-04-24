@@ -263,7 +263,7 @@ F(z)=\frac{f(z)-f(a)}{z-a},
 \qquad z \in D \backslash \{a\}.
 $$
 
-Since $f$ is analytic in $D$, the function $F$ is analytic on $D \backslash \{a\}$.
+Since $f$ is analytic in $D$, the function $F$ is analytic on $D \\backslash \\{a\\}$.
 
 Moreover,
 
@@ -280,7 +280,7 @@ $$
 =0.
 $$
 
-But $F \in H(D \setminus \{a\})$, and the condition
+But $F \in H(D \\backslash \\{a\\})$, and the condition
 
 $$
 \lim_{z \to a}(z-a)F(z)=0
