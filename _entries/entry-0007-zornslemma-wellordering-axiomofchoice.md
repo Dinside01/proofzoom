@@ -132,7 +132,7 @@ $(M, \prec) \preceq (M \cup \lbrace x\rbrace, \prec')$,
 
 so that $(M, \prec)$ is a proper initial segment of $(M \cup \lbrace x\rbrace, \prec')$ in $\mathcal{W}$, contradicting the maximality of $(M, \prec)$.
 
-Therefore $M = X$, and $\prec$ is a well-ordering of $X$ (the relation $\preceq$ was only an auxiliary order on $\mathcal{W}$, whereas $\prec$ is the induced order on $X$).
+Therefore $M = X$, and $\prec$ is a well-ordering of $X$ (the relation $\preceq$ was only an auxiliary order on $\mathcal{W}$, whereas $\prec$ is the resulting order on $X$, corresponding to the maximal element $(X,\prec)$ of $\mathcal{W}$).
 
 ---
 
