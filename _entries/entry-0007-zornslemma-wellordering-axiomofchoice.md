@@ -35,13 +35,21 @@ Thus, what begins as a question about maximal elements leads to a global orderin
 
 **Theorem 2.1.** Every set can be well ordered.
 
-*Idea of proof.* We construct a well-ordering on $X$ using Zorn's lemma.
+*Idea of proof.* 
+The proof rests on a single principle: a well-order can be extended without altering what has already been ordered.
+
+We consider all well-ordered subsets of $X$, ordered by inclusion as initial segments. Two kinds of extension are possible. First, given a chain of such subsets, their union carries a natural well-order because all the orders agree on overlaps. Second, if a well-ordered subset does not yet contain all elements of $X$, one can adjoin a new element and place it strictly above all existing elements, extending the order without disturbing previous comparisons.
+
+Zorn’s Lemma guarantees the existence of a maximal well-ordered subset under these extensions. The key point is that maximality forbids any further extension. But the second construction shows that any proper subset can always be extended by adjoining a new element. Therefore, the maximal well-ordered subset must already be the whole set.
+
+Thus, $X$ admits a well-ordering.
+
 
 **Proof.** Let $X$ be a set. Let
 $$
-\mathcal{W} = \{(A,R_A): A\in P(X),\quad R_A\subseteq A\times A,\quad R_A \text{ is a well-ordering of } A\}.
+\mathcal{W} = \lbrace(A,R_A): A\in P(X),\quad R_A\subseteq A\times A,\quad R_A \text{ is a well-ordering of } A\rbrace.
 $$
-$\mathcal{W}\ne \emptyset$ since $(\{x\}, =)\in \mathcal{W}$ for every $x\in X$.
+$\mathcal{W}\ne \emptyset$ since $(\lbrace x\rbrace, =)\in \mathcal{W}$ for every $x\in X$.
 
 We define a partial order $\preceq$ on $\mathcal{W}$ as follows. For $(A,R_A)$ and $(B,R_B)$ in $\mathcal{W}$,
 $$
@@ -54,13 +62,14 @@ which is to say that
 $$
 a \in A\text{ and } b \in B\setminus A,\text{ then } aR_B b.
 $$
-(Equivalently, given $b\in B$ and $a\in A,\quad bR_Ba \implies b\in A$.)
+(This is saying that $A$ is an initial segment of $B$ in a well-ordered set $X$ if 
+$A=\lbrace x\in B : x\,R_B\, b \text{ for every } b\in B\setminus A\rbrace$.)
 
 Thus, $(A, R_A)$ sits inside $(B, R_B)$ exactly as an initial segment — no new elements appear before those of $A$. Then $\preceq$ is evidently a partial order on $\mathcal{W}$.
 
 **Claim:** Every chain in $\mathcal{W}$ has an upper bound.
 
-Let $C=\{(A_i,R_{A_i})\}_{i \in I}$ be a chain in $(\mathcal{W},\preceq)$.
+Let $C=\lbrace(A_i,R_{A_i})\rbrace_{i \in I}$ be a chain in $(\mathcal{W},\preceq)$.
 
 Since $C$ is totally ordered, the sets $A_i$ are nested by virtue of the definition of $\preceq$. Indeed, if $(A_i,R_{A_i})$ and $(A_j,R_{A_j})$ lie in the chain, then either $(A_i,R_{A_i})\preceq (A_j,R_{A_j})$ or the reverse holds, and hence either $A_i\subseteq A_j$ or $A_j\subseteq A_i$. Let
 $$
@@ -94,35 +103,36 @@ If $s\notin A_i$, then $s\in A_j$ for some $A_j\in C$. Since $C$ is a chain and 
 
 Thus $(Y,R_Y)$ is well-ordered and hence $(Y,R_Y)\in \mathcal{W}$. But $(Y,R_Y)$ is an upper bound of the chain $C$. Since $C$ is an arbitrary chain in $\mathcal{W}$, we conclude that every chain in $\mathcal{W}$ has an upper bound.
 
-By Zorn's lemma, $\mathcal{W}$ has a maximal element, say $(M,\preceq)$.
+By Zorn's lemma, $\mathcal{W}$ has a maximal element, say $(M,\prec)$.
 
 **Claim:** The maximal element is all of $X$.
 
 Suppose $M \ne X$. Let $x \in X \setminus M$.
 
-Define a relation $\prec'$ on $M \cup \{x\}$ by:
-- $a \prec' b$ if $a,b \in M$ and $a \preceq b$,
-- $a \prec' x$ for all $a \in M$.
+Define a relation $\prec'$ on $M \cup \lbrace x\rbrace$ by:
+- it agrees with $\prec$ on $M$, and  
+- for every $a \in M$, $a \prec' x$.
 
-Intuitively, we are placing the new element $x$ strictly above all elements of $M$, thereby extending the well-order without disturbing its structure.
+Thus, $\prec'$ extends the order $\prec$ without altering any of its existing comparisons, and places the new element $x$ strictly above all elements of $M$. This is analogous to the construction of upper bounds for chains, where the order is extended while preserving agreement on overlaps.
 
-We claim that $(M \cup \{x\}, \prec')$ is a well-ordered set.
+We claim that $(M \cup \lbrace x\rbrace, \prec')$ is a well-ordered set.
 
-First, $\prec'$ is a total order. If $a,b \in M$, they are comparable under $\preceq$. If one of them is $x$, say $a \in M$, then $a \prec' x$ by definition.
+First, $\prec'$ is a total order. If $a, b \in M$, they are comparable under $\prec$. If one of them is $x$, say $a \in M$, then $a \prec' x$ by definition.
 
-Next, let $S \subseteq M \cup \{x\}$ be nonempty. If $x \notin S$, then $S \subseteq M$ and has a least element since $(M,\preceq)$ is well-ordered.
+Next, let $S \subseteq M \cup \lbrace x\rbrace$ be nonempty. If $x \notin S$, then $S \subseteq M$ and has a least element since 
+$(M, \prec)$ is well-ordered.
 
-If $x \in S$, then either $S = \{x\}$, in which case $x$ is least, or $S$ contains an element of $M$. In that case, $S \cap M$ is nonempty and has a least element $m$, and since every element of $M$ precedes $x$, this $m$ is the least element of $S$.
+If $x \in S$, then either $S = \lbrace x\rbrace$, in which case $x$ is least, or $S$ contains an element of $M$. In that case, $S \cap M$ is nonempty and has a least element $m$, and since every element of $M$ precedes $x$, this $m$ precedes every element of $S$, and hence is the least element of $S$.
 
-Thus $(M \cup \{x\}, \prec')$ is well-ordered.
+Thus $(M \cup \lbrace x\rbrace, \prec')$ is well-ordered.
 
-Moreover, $M$ is an initial segment of $M \cup \{x\}$ under $\prec'$. Hence
-$$
-(M,\prec) \prec (M \cup \{x\}, \prec')
-$$
-so that $(M,\prec)$ is a proper initial segment of $(M \cup \{x\}, \prec')$, contradicting the maximality of $(M,\prec)$.
+Therefore, by the definition of the partial order $\preceq$ on $\mathcal{W}$, we have
 
-Therefore $M = X$, and $\prec$ is a well-ordering of $X$.
+$(M, \prec) \preceq (M \cup \lbrace x\rbrace, \prec')$,
+
+so that $(M, \prec)$ is a proper initial segment of $(M \cup \lbrace x\rbrace, \prec')$ in $\mathcal{W}$, contradicting the maximality of $(M, \prec)$.
+
+Therefore $M = X$, and $\prec$ is a well-ordering of $X$ (the relation $\preceq$ was only an auxiliary order on $\mathcal{W}$, whereas $\prec$ is the induced order on $X$).
 
 ---
 
@@ -144,7 +154,7 @@ $$
 f(i) = \text{the least element of } X_i \text{ with respect to } \prec.
 $$
 
-Then $f(i) \in X_i$ for every $i \in I$. Hence $f$ is a choice function for the family $\{X_i\}_{i \in I}$.
+Then $f(i) \in X_i$ for every $i \in I$. Hence $f$ is a choice function for the family $\lbrace X_i\rbrace_{i \in I}$.
 
 This establishes the Axiom of Choice.
 
