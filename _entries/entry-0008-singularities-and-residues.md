@@ -7,8 +7,8 @@ primary_subarea: "Singularities and Residues"
 difficulty: "UG-Upper"
 published: 2026-04-22
 updated:
-permalink: /entries/entry-0008-singularities-residues/
-pdf: /assets/pdfs/entry-0008-singularities-residues.pdf
+permalink: /entries/entry-0008-singularities-and-residues/
+pdf: /assets/pdfs/entry-0008-singularities-and-residues.pdf
 abstract: "Singularities encode precise structural information about analytic functions. We classify isolated singularities using boundedness via Riemann's removable singularity theorem, explain how Taylor and Laurent expansions arise from this viewpoint, and show why residues are the part of a singularity detected by contour integration."
 ---
 
