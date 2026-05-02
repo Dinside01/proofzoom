@@ -3,50 +3,56 @@ layout: default
 ---
 
 <article class="entry-page">
-<header class="entry-header">
-  {% if page.entry_id %}
-    <div class="entry-id">{{ page.entry_id | upcase }}</div>
-  {% endif %}
+  <header class="entry-header">
+    {% if page.entry_id %}
+      <div class="entry-id">{{ page.entry_id | upcase }}</div>
+    {% endif %}
 
-  <h1 class="entry-title">{{ page.title }}</h1>
+    <h1 class="entry-title">{{ page.title }}</h1>
 
-  <div class="entry-meta-block">
-    <p class="entry-meta">
-      <strong>Area:</strong> {{ page.primary_area }}
-      <span class="meta-sep">•</span>
-      <strong>Subarea:</strong> {{ page.primary_subarea }}
-    </p>
+    <div class="entry-meta-block">
+      <p class="entry-meta">
+        <strong>Area:</strong> {{ page.primary_area }}
+        <span class="meta-sep">•</span>
+        <strong>Subarea:</strong> {{ page.primary_subarea }}
+      </p>
 
-    <p class="entry-meta">
-      <strong>Difficulty:</strong> {{ page.difficulty }}
-      <span class="meta-sep">•</span>
-      <strong>Published:</strong> {{ page.published }}
-      <span class="meta-sep">•</span>
-      <strong>Updated:</strong> {{ page.updated }}
-    </p>
-  </div>
-
-  {% if page.abstract %}
-    <div class="entry-abstract-wrap">
-      <div class="entry-abstract-label">Abstract</div>
-      <div class="entry-abstract">
-        {{ page.abstract }}
-      </div>
+      <p class="entry-meta">
+        <strong>Difficulty:</strong> {{ page.difficulty }}
+        <span class="meta-sep">•</span>
+        <strong>Published:</strong> {{ page.published }}
+        <span class="meta-sep">•</span>
+        <strong>Updated:</strong> {{ page.updated }}
+      </p>
     </div>
-  {% endif %}
 
-  {% if page.pdf %}
-    <p class="entry-download">
-       <a href="{{ page.pdf | relative_url }}" target="_blank">View PDF ↗</a>
-    </p>
-  {% endif %}
+    {% if page.abstract %}
+      <div class="entry-abstract-wrap">
+        <div class="entry-abstract-label">Abstract</div>
+        <div class="entry-abstract">
+          {{ page.abstract }}
+        </div>
+      </div>
+    {% endif %}
 
-  <div class="pdf-diagram-note">
-    The PDF version of this entry contains the diagrams referenced.
-  </div>
-</header>
+    {% if page.pdf %}
+      <p class="entry-download">
+        <a href="{{ page.pdf | relative_url }}" target="_blank" rel="noopener">View PDF ↗</a>
+      </p>
+    {% endif %}
+
+    <div class="pdf-diagram-note">
+      The PDF version of this entry contains the diagrams referenced.
+    </div>
+  </header>
 
   <div class="entry-content">
     {{ content }}
   </div>
+
+  <footer class="entry-footer">
+    <p class="entry-attribution">
+      {{ page.attribution | default: "Rubin Thomas and Team" }}
+    </p>
+  </footer>
 </article>
