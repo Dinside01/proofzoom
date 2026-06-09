@@ -29,7 +29,7 @@ Let $f$ be analytic in a region except at certain points where it fails to be de
 A singularity at a point $a$ is called *isolated* if there exists a small disk around $a$, say
 
 $$
-0<|z-a|<r,
+0<\lvert z-a\rvert <r,
 $$
 
 in which $f$ is analytic everywhere except possibly at $a$ itself.
@@ -61,15 +61,15 @@ Here we focus on isolated singularities, since they admit a precise and useful c
 Let $a$ be a point in the complex plane, and suppose that $f$ is defined in a punctured disk
 
 $$
-0<|z-a|<r.
+0<\lvert z-a\rvert <r.
 $$
 
 We say that $f$ is *locally bounded at $a$* if there are constants $M>0$ and $\delta>0$ such that
 
 $$
-|f(z)|\le M
+\lvert f(z)\rvert \le M
 \quad\text{whenever}\quad
-0<|z-a|<\delta.
+0<\lvert z-a \rvert <\delta.
 $$
 
 For an arbitrary function, local boundedness immediately implies
@@ -78,10 +78,10 @@ $$
 \lim_{z\to a}(z-a)f(z)=0.
 $$
 
-Indeed, if $\lbrace f(z)\rbrace\le M$ for $0<\lbrace z-a\rbrace <\delta$, then
+Indeed, if $\lvert f(z)\rvert \le M$ for $0< \lvert z-a\rvert <\delta$, then
 
 $$
-\lbrace (z-a)f(z)\rbrace \le M|z-a|,
+\lvert(z-a)f(z)\rvert \le M\lvert z-a\rvert,
 $$
 
 and the right-hand side tends to $0$ as $z\to a$.
@@ -89,13 +89,13 @@ and the right-hand side tends to $0$ as $z\to a$.
 The converse is not true for arbitrary functions. For example,
 
 $$
-f(z)=\frac{1}{\sqrt{\lbrace z-a\rbrace }}
+f(z)=\frac{1}{\sqrt{z-a}}
 $$
 
 is unbounded near $a$, but
 
 $$
-|(z-a)f(z)|=\sqrt{|z-a|}\to 0.
+\lvert(z-a)f(z)\rvert=\sqrt{\lvert z-a\rvert}\to 0.
 $$
 
 Thus, for general functions, the condition
@@ -124,11 +124,11 @@ We now prove the theorem that makes this precise.
 
 Let $f$ be holomorphic in a punctured disk
 $$
-0 < |z-a| < r.
+0 < \lvert z-a\rvert < r.
 $$
-If $f$ is locally bounded at $a$, then there exists a holomorphic function $F$ on the full disk $|z-a|<r$ such that
+If $f$ is locally bounded at $a$, then there exists a holomorphic function $F$ on the full disk $\lvert z-a\rvert <r$ such that
 $$
-F(z)=f(z) \quad \text{for } 0<|z-a|<r.
+F(z)=f(z) \quad \text{for } 0<\lvert z-a\rvert <r.
 $$
 
 
@@ -136,14 +136,14 @@ $$
 
 Choose $0<\rho<r$, and let
 $$
-C=\{w : |w-a|=\rho\}
+C=\{w : \lvert w-a\rvert =\rho\}
 $$
 be the positively oriented circle centered at $a$.
 
-Fix a point $z$ with $0<|z-a|<\rho$. Throughout the proof, $w$ denotes the variable of integration along contours.
-Let $0<\varepsilon<|z-a|/2$, and consider the inner circle
+Fix a point $z$ with $0<\lvert z-a\rvert<\rho$. Throughout the proof, $w$ denotes the variable of integration along contours.
+Let $0<\varepsilon<\lvert z-a\rvert/2$, and consider the inner circle
 $$
-C_\varepsilon=\{w : |w-a|=\varepsilon\},
+C_\varepsilon=\{w : \lvert w-a\rvert =\varepsilon\},
 $$
 oriented positively. Then $z$ lies outside $C_\varepsilon$ and inside $C$.
 
@@ -164,16 +164,16 @@ $$
 
 We now estimate the second integral. Since $f$ is locally bounded at $a$, there exist constants $M>0$ and $\delta>0$ such that
 $$
-|f(w)| \le M \quad \text{whenever } 0<|w-a|<\delta.
+|f(w)| \le M \quad \text{whenever } 0<\lvert w-a\lvert <\delta.
 $$
 
-Fix $z$ with $0<|z-a|<\rho$, and choose
+Fix $z$ with $0<\lvert z-a\lvert <\rho$, and choose
 $$
-0<\varepsilon<\min\left\{\delta,\;\frac{|z-a|}{2}\right\}.
+0<\varepsilon<\min\left\{\delta,\;\frac{\lvert z-a\rvert}{2}\right\}.
 $$
-Then the circle $C_\varepsilon=\{w:|w-a|=\varepsilon\}$ lies entirely within the region $0<|w-a|<\delta$, and for all $w\in C_\varepsilon$,
+Then the circle $C_\varepsilon=\{w:\lvert w-a\rvert=\varepsilon\}$ lies entirely within the region $0<\lvert w-a\rvert <\delta$, and for all $w\in C_\varepsilon$,
 $$
-|w-z| \ge |z-a| - |w-a| > \frac{|z-a|}{2}.
+|w-z| \ge \lvert z-a\rvert - |w-a| > \frac{\lvert z-a\rvert}{2}.
 $$
 Hence
 $$
@@ -188,31 +188,31 @@ $$
 \int_{C_\varepsilon} \frac{f(w)}{w-z}\,dw
 \right|
 \le
-(2\pi \varepsilon)\cdot \frac{2M}{|z-a|}
+(2\pi \varepsilon)\cdot \frac{2M}{\lvert z-a\rvert}
 =
-\frac{4\pi M \varepsilon}{|z-a|}.
+\frac{4\pi M \varepsilon}{\lvert z-a \rvert}.
 $$
 
 As $\varepsilon \to 0$, this tends to $0$. Thus,
 $$
 f(z)
 =
-\frac{1}{2\pi i}\int_C \frac{f(w)}{w-z}\,dw.
+\frac{1}{2\pi i}\int_C \frac{f(w)}{w-z}\,dw
 $$
-for every $z$ with $0<|z-a|<\rho$.
+for every $z$ with $0<\lvert z-a\rvert<\rho$.
 Now define
 $$
 F(z)
 =
 \frac{1}{2\pi i}\int_C \frac{f(w)}{w-z}\,dw
-\quad \text{for } \lbrace z-a\rbrace <\rho.
+\quad \text{for } \lvert z-a\rvert<\rho.
 $$
 
-Since $z$ lies strictly inside $C$, the integrand is holomorphic in $z$, and therefore $F$ is holomorphic on the disk $\lbrace z-a\rbrace <\rho$.
+Since $z$ lies strictly inside $C$, the integrand is holomorphic in $z$, and therefore $F$ is holomorphic on the disk $\lvert z-a\rvert <\rho$.
 
 For $z\neq a$, we have already shown that $F(z)=f(z)$. Thus $F$ extends $f$ holomorphically across $a$.
 
-Since $\rho<r$ was arbitrary, the extension exists on the full disk $|z-a|<r$.
+Since $\rho<r$ was arbitrary, the extension exists on the full disk $\lvert z-a\rvert <r$.
 $\square$
 
 ### The Riemann extension principle
@@ -270,10 +270,10 @@ Thus $f$ agrees near $a$, except possibly at $a$ itself, with a holomorphic func
 **Remark (Uniqueness of the extension).**  
 The holomorphic extension in Riemann's theorem is unique.
 
-Indeed, suppose $F$ and $G$ are both holomorphic on $\lbrace z-a\rbrace <r$ and both agree with $f$ on the punctured disk
+Indeed, suppose $F$ and $G$ are both holomorphic on $\lvert z-a\rvert <r$ and both agree with $f$ on the punctured disk
 
 $$
-0<|z-a|<r.
+0<\lvert z-a\rvert<r.
 $$
 
 Then
@@ -281,7 +281,7 @@ Then
 $$
 F(z)-G(z)=0
 \quad\text{for}\quad
-0<|z-a|<r.
+0<\lvert z-a\rvert<r.
 $$
 
 Since $F-G$ is continuous at $a$, we get
@@ -302,7 +302,7 @@ So a removable singularity is not removed by making an arbitrary choice. Holomor
 Let $f$ be holomorphic in a punctured disk
 
 $$
-0<|z-a|<r.
+0<\lvert z-a\rvert<r.
 $$
 
 Then $a$ is an isolated singularity of $f$. Riemann's theorem gives the first possible type.
@@ -330,7 +330,7 @@ $$
 The singularity at $a$ is called a *pole* if
 
 $$
-|f(z)|\to \infty
+\lvert f(z)\rvert \to \infty
 \quad\text{as}\quad
 z\to a.
 $$
@@ -393,7 +393,7 @@ We record a useful characterization.
 
 Let $f$ be holomorphic in a punctured disk
 $$
-0<|z-a|<r.
+0<\lvert z-a\rvert <r.
 $$
 Then the isolated singularity at $a$ is removable if and only if
 $$
@@ -407,11 +407,11 @@ If the singularity is removable, then $f$ extends holomorphically to $a$. In par
 $$
 |f(z)|\le M
 \quad\text{whenever}\quad
-0<|z-a|<\delta.
+0<\lvert z-a\rvert<\delta.
 $$
 Therefore
 $$
-|(z-a)f(z)|\le M|z-a|,
+\lvert (z-a)f(z)\rvert \le M\lvert z-a\rvert,
 $$
 and so
 $$
@@ -572,18 +572,18 @@ Then there exist unique complex numbers $c_n$, $n\in\mathbb Z$, such that
 $$
 f(z)=\sum_{n=-\infty}^{\infty}c_n(z-a)^n
 $$
-for $0<|z-a|<R$.
+for $0<\lvert z-a\rvert <R$.
 
 Moreover, for any positively oriented circle
 $$
-|\zeta-a|=\rho,
+\lvert \zeta-a\rvert =\rho,
 \qquad 0<\rho<R,
 $$
 the coefficients are given by
 $$
 c_n=
 \frac{1}{2\pi i}
-\int_{|\zeta-a|=\rho}
+\int_{\lvert \zeta-a\rvert =\rho}
 \frac{f(\zeta)}{(\zeta-a)^{n+1}}\,d\zeta.
 $$
 
