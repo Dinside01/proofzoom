@@ -23,7 +23,9 @@ abstract: "This historical entry republishes L. Bolton’s 1921 prize-winning Sc
 <h2>ProofZoom Editorial Note</h2>
 
 <p>
-This entry is a historical republication. It is included not as a modern textbook account of relativity, but as a classic example of mathematical exposition.
+
+This entry is a historical republication. It is included not as a modern textbook account of relativity, but as a classic example of clarity of exposition.
+
 </p>
 
 <p>
@@ -312,3 +314,4 @@ Since light is subject to gravitation it follows that the constancy of the veloc
 <hr>
 
 <p><strong>Cite as:</strong> L. Bolton, “Relativity,” ProofZoom Entry-0010, ProofZoom (2026). Originally published in <em>Scientific American</em>, February 5, 1921.</p>
+
