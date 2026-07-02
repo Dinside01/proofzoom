@@ -5,7 +5,8 @@ title: "Ordinal Numbers and the Shape of Order (Part I)"
 primary_area: "Foundations"
 primary_subarea: "Set Theory"
 difficulty: "UG-Upper"
-published: 2026-06-30
+date: 2026-06-30
+published: true
 pdf: "/assets/pdfs/entry-0009/entry-0009-ordinals-part-i.pdf"
 abstract: "Cardinal numbers measure size. Ordinal numbers measure order. This essay explains why mathematics needs ordinal numbers, why well-ordered sets have order types, and why the von Neumann construction gives a canonical representative for each well-ordered order type."
 ---
