@@ -1,0 +1,103 @@
+\NeedsTeXFormat{LaTeX2e}
+\ProvidesPackage{proofzoom}[2026/06/29 ProofZoom Complete Structural Package]
+
+% Core Mathematics Infrastructure
+\RequirePackage{amsmath}
+\RequirePackage{amssymb}
+\RequirePackage{amsthm}
+\RequirePackage{hyperref}
+
+% Visual Styling Infrastructure
+\RequirePackage{xcolor}
+\RequirePackage{tcolorbox}
+\RequirePackage{keyval}
+\RequirePackage{fancyhdr}
+
+% Core Mathematical Environments
+\theoremstyle{plain}
+\newtheorem{theorem}{Theorem}
+\newtheorem{proposition}{Proposition}
+\newtheorem{lemma}{Lemma}
+\newtheorem{corollary}{Corollary}
+
+\theoremstyle{definition}
+\newtheorem{definition}{Definition}
+\newtheorem{remark}{Remark}
+
+% Define the signature Classroom Sage Green palette
+\definecolor{pzframe}{HTML}{4F7942} % Fern Green
+\definecolor{pzback}{HTML}{F1F8F1}  % Soothing Mint Tint
+\definecolor{pzfaintgray}{gray}{0.8} % Faint gray for the line above the slogan
+
+% =========================================================================
+% Dynamic Deployment Base URL Configuration
+% =========================================================================
+% Active for local server development testing:
+\newcommand{\pzbaseUrl}{http://127.0.0.1:4000}
+
+% Active for live deployment (Uncomment this and comment the local one when pushing to GitHub):
+% \newcommand{\pzbaseUrl}{https://yourusername.github.io/yourrepository}
+
+% Set up keyval parsing for the Goal option
+\define@key{pzoom}{Goal}{\def\zp@goal{#1}}
+
+% =========================================================================
+% The Unified PZoom Macro Engine (Option B: Nested Scale-Safe Pathing)
+% =========================================================================
+\newcommand{\pzoom}[3][Goal={Verify missing steps}]{%
+  \setkeys{pzoom}{#1}%
+  %
+  % 1. Render the high-level macro narrative text perfectly inline
+  #3%
+  %
+  % 2. Create the PZoom placeholder box pointing to the nested folder structure
+  \nopagebreak[4]\medskip
+  \filename@parse{#2}%
+  \edef\pzfilename{\filename@base}%          % e.g., "entry-0009.1"
+  \edef\pzfolder{\@car #2.1234567890\@nil}% % Extracts the master name "entry-0009"
+  
+  % CRITICAL FIX: Plants the anchor target hook (e.g., body:entry-0009-1) for incoming links
+  \hypertarget{body:#2}{}
+  
+  \begin{tcolorbox}[
+    colframe=pzframe,
+    colback=pzback,
+    coltitle=white,
+    arc=4pt,
+    boxrule=1pt,
+    % Prepended \pzbaseUrl ensures the browser resolves an absolute target path
+    title={\href{\pzbaseUrl/assets/pdfs/entry-0009/#2.pdf}{\ensuremath{\blacktriangleright}\ \textbf{\color{white}PZoom:} \color{white}\textbf{\mathversion{bold}\zp@goal}}},
+    fonttitle=\small\bfseries\sffamily,
+    size=small,
+    top=5pt,
+    bottom=5pt,
+    left=8pt,
+    right=8pt
+  ]
+    %\small \sffamily \color{black!80} Sub-proof file targeted: #2
+  \end{tcolorbox}
+  \medskip
+}
+
+% =========================================================================
+% Global Layout & Page Numbering Configuration
+% =========================================================================
+\pagestyle{fancy}
+\fancyhf{} % Clear default layout decorations
+
+\renewcommand{\headrulewidth}{0pt} % Strip default header rule
+\renewcommand{\footrulewidth}{0pt} % Strip default footer rule
+
+\fancyfoot[C]{\fontsize{10}{12}\selectfont\sffamily\thepage} % Standard centered page numbers
+
+% =========================================================================
+% Automated Inline Slogan Hook (Appears immediately at the text end)
+% =========================================================================
+\AtEndDocument{
+  \vspace{1.5cm} % Blank line equivalent space below the citation block
+  \begin{center}
+    {\color{pzfaintgray}\hrule width \textwidth height 0.4pt}
+    \vspace*{12pt} % Blank line equivalent space below the line
+    {\fontsize{9}{11}\selectfont\sffamily ProofZoom $\cdot$ Mathematical narrative. Details on standby.}
+  \end{center}
+}

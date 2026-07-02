@@ -1,0 +1,14 @@
+
+% entry-0009.1.tex
+% Goal: Verify that \beta is a transitive set.
+To show that $\beta$ is transitive, we assume $x \in y$ and $y \in \beta$. We must deduce that $x \in \beta$.
+
+Because $\beta$ is an element of the ordinal $\alpha$, and $\alpha$ is a transitive set, every element of $\alpha$ is also a subset of $\alpha$. Thus, $\beta \in \alpha$ implies $\beta \subseteq \alpha$. Since $y \in \beta$, it follows that $y \in \alpha$. 
+
+Applying transitivity to $\alpha$ once more, since $y \in \alpha$, we have $y \subseteq \alpha$. Because $x \in y$, it follows that $x \in \alpha$.
+
+We now have three elements ($x$, $y$, and $\beta$) all belonging to the ordinal $\alpha$. On $\alpha$, the membership relation $\in$ serves as a strict total ordering. The statements $x \in y$ and $y \in \beta$ are definitionally equivalent to $x < y$ and $y < \beta$. By the transitivity of the strict total order $<$ on $\alpha$, we conclude that $x < \beta$, which translates back to:
+\[
+x \in \beta.
+\]
+Since $x$ was an arbitrary element of $y$, this proves $y \subseteq \beta$. Thus, $\beta$ is a transitive set.

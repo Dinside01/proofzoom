@@ -1,0 +1,11 @@
+% Entry-0009.5.tex
+% Goal: Verify that \alpha is a transitive set of ordinals.
+To prove that $\alpha = \{\alpha_x : x \in A\}$ is an ordinal, we show it is a transitive set of ordinals. By construction, every element of $\alpha$ is an ordinal $\alpha_x$, so it is a set of ordinals. 
+
+To prove transitivity, let $\gamma \in \alpha$. This means $\gamma = \alpha_x$ for some specific $x \in A$. We must show $\gamma \subseteq \alpha$. Let $\delta \in \gamma = \alpha_x$. 
+
+Under the unique order-isomorphism between the initial segment $A_x$ and the ordinal $\alpha_x$, the element $\delta$ corresponds to some $z \in A_x$, meaning $z < x$. The restriction of this mapping yields an isomorphism between $A_z$ and the initial segment of $\alpha_x$ determined by $\delta$. Because $\alpha_x$ is an ordinal, its initial segment determined by $\delta$ is exactly $\delta$ itself. Thus, $A_z \cong \delta$.
+
+By the uniqueness of ordinal representatives, because $\alpha_z$ is the unique ordinal isomorphic to $A_z$, we must have $\delta = \alpha_z$. Since $z \in A$, its representative $\alpha_z$ belongs to $\alpha$ by definition. Therefore, $\delta \in \alpha$. 
+
+Since $\delta$ was an arbitrary element of $\gamma$, this proves $\gamma \subseteq \alpha$. Thus, $\alpha$ is a transitive set of ordinals, which satisfies the conditions of Proposition 2 to be an ordinal itself.

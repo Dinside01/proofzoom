@@ -1,0 +1,19 @@
+% entry-0009.3.tex
+% Goal: Exhaust the contradiction where \gamma is a proper subset of both \alpha and \beta.
+Assume for contradiction that $\gamma \neq \alpha$ and $\gamma \neq \beta$. 
+
+Because $\gamma = \alpha \cap \beta$, we know that $\gamma \subseteq \alpha$ and $\gamma \subseteq \beta$. Since we are assuming $\gamma$ is unequal to both, it must be a strict proper subset of both:
+\[
+\gamma \subsetneq \alpha \quad \text{and} \quad \gamma \subsetneq \beta.
+\]
+By Lemma 1 (Structure of Transitive Subsets), since $\gamma$ is a transitive proper subset of the ordinal $\alpha$, it must be an element of $\alpha$. Similarly, since $\gamma$ is a transitive proper subset of the ordinal $\beta$, it must be an element of $\beta$:
+\[
+\gamma \in \alpha \quad \text{and} \quad \gamma \in \beta.
+\]
+By definition of the intersection, an object belonging to both sets must belong to their intersection. Therefore:
+\[
+\gamma \in (\alpha \cap \beta) \implies \gamma \in \gamma.
+\]
+This states that $\gamma$ is a member of itself. We can now construct the singleton set $K = \{\gamma\}$. Because $\gamma \in \gamma$, the set $K$ has no $\in$-minimal element: its only member shares an element with $K$. This directly violates the Axiom of Regularity, which states that every nonempty set must contain an element disjoint from it under membership. 
+
+Thus, the assumption that $\gamma$ is a proper subset of both ordinals is untenable. One of the sets must match $\gamma$ entirely.

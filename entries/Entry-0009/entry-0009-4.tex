@@ -1,0 +1,19 @@
+Select any element $\gamma \in S$ such that $\gamma \neq \alpha$. Because $S \subseteq X$ and $X$ is a transitive set of ordinals, both $\alpha$ and $\gamma$ are valid von Neumann ordinals. 
+
+By the Trichotomy Theorem, exactly one of the following conditions must hold:
+\[
+\alpha \in \beta, \qquad \beta \in \alpha, \qquad \alpha = \beta
+\]
+Since we specified $\gamma \neq \alpha$, we must eliminate the case $\gamma \in \alpha$ to prove absolute minimality.
+
+Suppose for contradiction that $\gamma \in \alpha$. Since we originally chose $\gamma$ as a member of the subset $S$, this membership statement immediately forces:
+\[
+\gamma \in \alpha \quad \text{and} \quad \gamma \in S \implies \gamma \in (\alpha \cap S)
+\]
+However, this explicitly states that the intersection $\alpha \cap S$ is non-empty, directly contradicting our foundational Regularity selection which established $\alpha \cap S = \emptyset$. 
+
+By contradiction, the case $\gamma \in \alpha$ is impossible. By geometric elimination under trichotomy, it must be the case that:
+\[
+\alpha \in \gamma
+\]
+Because $\alpha \in \gamma$ holds universally for every element $\gamma \in S$ distinct from $\alpha$, the element $\alpha$ strictly precedes every other member of $S$. Therefore, $\alpha$ is the unique least element of $S$.

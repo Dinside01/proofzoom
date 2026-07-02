@@ -1,0 +1,8 @@
+Let $x\in S$. We analyze the placement of $\phi(x)$ relative to $\psi(a)$ by partitioning the domain $S$ around the minimal element $a$:
+\begin{itemize}
+    \item \textbf{Case 1 ($x < a$):} The minimality of $a$ ensures that $\phi(x)=\psi(x)$. Since $\psi$ strictly preserves order, $x < a \implies \psi(x) <' \psi(a)$.Substituting $\phi(x)$ for $\psi(x)$, we obtain:$$\phi(x) <' \psi(a) \implies \phi(x) \neq \psi(a)$$ 
+    \item \textbf{Case 2 ($x = a$):} By our initial asymmetric assumption, we have directly that $\phi(a) >' \psi(a)$.
+    \item \textbf{Case 3 ($a < x$):} Since $\phi$ strictly preserves order, $a < x \implies \phi(a) <' \phi(x)$. Combining this with our assumption $\psi(a) <' \phi(a)$ yields $\psi(a) <' \phi(x) $ by transitivity of the order in $S'$.
+\end{itemize}
+Since $x$ was arbitrary, $\phi(x) \neq \psi(a)$ for all $x \in S$.
+

@@ -1,5 +1,5 @@
 ---
-layout: page
+layout: default
 title: Contributors
 permalink: /contributors/
 ---
@@ -62,29 +62,41 @@ Whenever possible:
 
 ---
 
-## Audience
+## Technical Guidelines for Preparing Entries
 
-ProofZoom is written for **mathematicians**, but not necessarily specialists in the topic.
+To ensure that entries render correctly on the ProofZoom website, contributors should observe the following technical requirements.
 
-An entry should ideally be understandable by a graduate-level mathematician working in a different area.
-
----
-
-## Length
-
-Entries should focus on a single concept or theorem. Most entries will typically range from **3–8 pages**.
+### File Format
+- Files must be saved as `.md`
+- Encoding: UTF-8
+- The file must begin exactly with: `---` (No blank line before it.)
 
 ---
 
-## Citation Format
-
-Each entry should include a citation line such as:
-
-**Cite as:**  
-ProofZoom Entry-XXXX, *Title*, ProofZoom (Year).
+### YAML Front Matter
+- Copy the header from a working entry
+- Modify only necessary fields
+- Ensure both opening and closing `---` are present
 
 ---
 
-## Guiding Principle
+### Math Rendering
+- Inline math: `$...$`
+- Display math: `$$...$$`
+- Avoid `\(...\)` and `\[...\]`
 
-**Show the idea first, and make the proof steps clear.**
+---
+
+### Filenames and Links
+- Use consistent naming: `entry-000X-topic-name.md`
+- PDF filename must match the `.md` filename
+
+---
+
+### Local Testing
+
+After adding an entry, run:
+
+```bash
+rmdir /s /q _site
+bundle exec jekyll serve
