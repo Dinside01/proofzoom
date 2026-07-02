@@ -1,17 +1,13 @@
 ---
 layout: entry
-title: "Ordinal Numbers and the Shape of Order"
-area: "Foundations"
-subarea: "Set Theory"
+entry_id: "entry-0009"
+title: "Ordinal Numbers and the Shape of Order (Part I)"
+primary_area: "Foundations"
+primary_subarea: "Set Theory"
 difficulty: "UG-Upper"
 published: 2026-06-30
-pdf: "/assets/pdfs/entry-0009-ordinals-part-i.pdf"
----
-
-Cardinal numbers measure size. Ordinal numbers measure order. This essay explains why mathematics needs ordinal numbers, why well-ordered sets have order types, and why the von Neumann construction gives a canonical representative for each well-ordered order type. The guiding idea is simple but profound: an ordinal is a number that records position in a well-ordering.
-
-In Part I, we develop the structural foundations of von Neumann ordinals, establish their rigid linearity under Trichotomy, and prove the fundamental Representation Theorem: every well-ordered set is structurally identical to a unique ordinal.
-
+pdf: "/assets/pdfs/entry-0009/entry-0009-ordinals-part-i.pdf"
+abstract: "Cardinal numbers measure size. Ordinal numbers measure order. This essay explains why mathematics needs ordinal numbers, why well-ordered sets have order types, and why the von Neumann construction gives a canonical representative for each well-ordered order type."
 ---
 
 ## 1. Two Questions: How Many, and In What Order?
