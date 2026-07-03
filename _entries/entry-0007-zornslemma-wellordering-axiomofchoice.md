@@ -26,9 +26,8 @@ Historically, the equivalence of these principles emerged gradually. Ernst Zerme
 In this entry, we present the implication from Zorn’s Lemma to the Well-Ordering Theorem, followed by the deduction of the Axiom of Choice from the existence of well-orderings. Together with the converse implication already established in a previous entry, this completes the equivalence of the three principles.
 
 The proof that Zorn’s Lemma implies the Well-Ordering Theorem proceeds by considering the collection of all well-ordered subsets of a given set and extending them as far as possible. The central idea is that a maximal well-ordered subset must in fact include every element of the set. Once a well-ordering is obtained, the Axiom of Choice follows naturally: one simply selects, from each set in a family, its least element with respect to a single global well-ordering.
-
+-->
 Thus, what begins as a question about maximal elements leads to a global ordering of arbitrary sets, and ultimately to the ability to make consistent selections across infinite collections.
-
 
 ---
 
@@ -157,8 +156,6 @@ $$
 Then $f(i) \in X_i$ for every $i \in I$. Hence $f$ is a choice function for the family $\lbrace X_i\rbrace_{i \in I}$.
 
 This establishes the Axiom of Choice.
--->
-
 ---
 
 ## 4. Closing perspective
