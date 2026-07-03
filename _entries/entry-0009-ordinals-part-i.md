@@ -10,13 +10,8 @@ updated:
 
 permalink: /entries/entry-0009-ordinals-part-i/
 
-<<<<<<< HEAD
 pdf: /assets/pdfs/entry-0009/entry-0009-ordinals-part-i.pdf
 abstract: "Cardinal numbers measure size. Ordinal numbers measure order. This essay explains why."
-=======
-pdf: /assets/pdfs/entry-0009-ordinals-part-i.pdf
-abstract: "Cardinal numbers measure size. Ordinal numbers measure order. This essay explains why "
->>>>>>> bc90d71ff726a509b00bfb494c95635aaf809f61
 ---
 
 ## 1. Two Questions: How Many, and In What Order?
