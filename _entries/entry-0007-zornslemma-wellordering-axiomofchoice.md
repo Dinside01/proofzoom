@@ -27,7 +27,7 @@ In this entry, we present the implication from Zorn’s Lemma to the Well-Orderi
 
 The proof that Zorn’s Lemma implies the Well-Ordering Theorem proceeds by considering the collection of all well-ordered subsets of a given set and extending them as far as possible. The central idea is that a maximal well-ordered subset must in fact include every element of the set. Once a well-ordering is obtained, the Axiom of Choice follows naturally: one simply selects, from each set in a family, its least element with respect to a single global well-ordering.
 
-Thus, what begins as a question about maximal elements leads to a global ordering of arbitrary sets, and ultimately to the ability to make consistent selections across infinite collections.
+Thus, what begins as a question about maximal elements leads to a global ordering of arbitrary sets, and ultimately to the ability to make consistent selections across infinite collections. 
 
 ---
 
@@ -89,7 +89,7 @@ First, $R_Y$ is a total order. Indeed, if $s,t \in Y$, then $s,t \in A_i$ for so
 
 Next, let $S \subseteq Y$ be nonempty. Since $S\subseteq Y=\cup A_i$, every element of $S$ lies in some $A_i$, so for at least one index $i$, $S\cap A_i\ne\emptyset.$ Let
 $$
-u = \text{min}_{R_{A_i}} (S\cap A_i),
+u = \mathrm{min}_{R_{A_i}} (S\cap A_i),
 $$
 where the minimum is with respect to $R_{A_i}$.
 
@@ -128,12 +128,13 @@ Thus $(M \cup \lbrace x\rbrace, \prec')$ is well-ordered.
 
 Therefore, by the definition of the partial order $\preceq$ on $\mathcal{W}$, we have
 
-$(M, \prec) \preceq (M \cup \lbrace x\rbrace, \prec')$,
+$$
+(M, \prec) \preceq (M \cup \lbrace x\rbrace, \prec'),
+$$
 
 so that $(M, \prec)$ is a proper initial segment of $(M \cup \lbrace x\rbrace, \prec')$ in $\mathcal{W}$, contradicting the maximality of $(M, \prec)$.
 
 Therefore $M = X$, and $\prec$ is a well-ordering of $X$ (the relation $\preceq$ was only an auxiliary order on $\mathcal{W}$, whereas $\prec$ is the resulting order on $X$, corresponding to the maximal element $(X,\prec)$ of $\mathcal{W}$).
-
 ---
 
 ## 3. Well-Ordering implies the Axiom of Choice
@@ -157,7 +158,6 @@ $$
 Then $f(i) \in X_i$ for every $i \in I$. Hence $f$ is a choice function for the family $\lbrace X_i\rbrace_{i \in I}$.
 
 This establishes the Axiom of Choice.
-
 ---
 
 ## 4. Closing perspective
