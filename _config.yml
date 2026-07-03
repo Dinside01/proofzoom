@@ -10,3 +10,8 @@ collections:
   entries:
     output: true
     permalink: /entries/:name/
+
+exclude:
+  - Gemfile
+  - Gemfile.lock
+  - PROOFZOOM-MANUAL-FINAL.md
