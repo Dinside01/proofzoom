@@ -5,8 +5,9 @@ title: "Ordinal Numbers and the Shape of Order (Part I)"
 primary_area: "Foundations"
 primary_subarea: "Set Theory"
 difficulty: "UG-Upper"
-date: 2026-06-30
+date: "2026-06-30"
 published: true
+permalink: /entries/entry-0009-ordinals-part-i/
 pdf: "/assets/pdfs/entry-0009/entry-0009-ordinals-part-i.pdf"
 abstract: "Cardinal numbers measure size. Ordinal numbers measure order. This essay explains why mathematics needs ordinal numbers, why well-ordered sets have order types, and why the von Neumann construction gives a canonical representative for each well-ordered order type."
 ---
@@ -274,6 +275,7 @@ $$0 \in 1 \in \{1\}, \quad \text{but} \quad 0 \notin \{1\}.$$
 
 This highlights a foundational paradigm:
 $$\boxed{\text{A set of ordinals is an ordinal exactly when it contains no gaps.}}$$
+<br>
 It cannot contain isolated values; it must systematically encompass both its members and the exhaustive collection of their predecessors.
 
 ---
