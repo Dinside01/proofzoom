@@ -134,7 +134,6 @@ $(M, \prec) \preceq (M \cup \lbrace x\rbrace, \prec')$,
 so that $(M, \prec)$ is a proper initial segment of $(M \cup \lbrace x\rbrace, \prec')$ in $\mathcal{W}$, contradicting the maximality of $(M, \prec)$.
 
 Therefore $M = X$, and $\prec$ is a well-ordering of $X$ (the relation $\preceq$ was only an auxiliary order on $\mathcal{W}$, whereas $\prec$ is the resulting order on $X$, corresponding to the maximal element $(X,\prec)$ of $\mathcal{W}$).
--->
 ---
 
 ## 3. Well-Ordering implies the Axiom of Choice
@@ -158,6 +157,7 @@ $$
 Then $f(i) \in X_i$ for every $i \in I$. Hence $f$ is a choice function for the family $\lbrace X_i\rbrace_{i \in I}$.
 
 This establishes the Axiom of Choice.
+-->
 
 ---
 
