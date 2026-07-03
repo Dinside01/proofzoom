@@ -14,7 +14,7 @@ pdf: /assets/pdfs/entry-0007-zornslemma-wellordering-axiomofchoice.pdf
 abstract: "We prove that Zorn’s Lemma implies the Well-Ordering Theorem, and show how a well-ordering yields the Axiom of Choice. The proof constructs a well-ordering by extending partial well-orderings to a maximal one, which must include every element of the set. Once such a global order is available, each set in a family acquires a canonical choice as its least element. Together with the converse implication, this establishes the equivalence of the Axiom of Choice, Zorn’s Lemma, and the Well-Ordering Theorem, revealing a common principle underlying selection, maximality, and order."
 
 ---
-
+<!--
 ## 1. Introduction
 
 The Axiom of Choice, Zorn’s Lemma, and the Well-Ordering Theorem are among the most important principles in modern mathematics. Although they appear to express very different ideas, it is a fundamental fact that they are logically equivalent.
