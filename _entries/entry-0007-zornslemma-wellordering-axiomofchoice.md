@@ -90,7 +90,7 @@ First, $R_Y$ is a total order. Indeed, if $s,t \in Y$, then $s,t \in A_i$ for so
 
 Next, let $S \subseteq Y$ be nonempty. Since $S\subseteq Y=\cup A_i$, every element of $S$ lies in some $A_i$, so for at least one index $i$, $S\cap A_i\ne\emptyset.$ Let
 $$
-u = \text{min}_{R_{A_i}} (S\cap A_i),
+u = \mathrm{min}_{R_{A_i}} (S\cap A_i),
 $$
 where the minimum is with respect to $R_{A_i}$.
 
@@ -129,7 +129,9 @@ Thus $(M \cup \lbrace x\rbrace, \prec')$ is well-ordered.
 
 Therefore, by the definition of the partial order $\preceq$ on $\mathcal{W}$, we have
 
-$(M, \prec) \preceq (M \cup \lbrace x\rbrace, \prec')$,
+$$
+(M, \prec) \preceq (M \cup \lbrace x\rbrace, \prec'),
+$$
 
 so that $(M, \prec)$ is a proper initial segment of $(M \cup \lbrace x\rbrace, \prec')$ in $\mathcal{W}$, contradicting the maximality of $(M, \prec)$.
 
