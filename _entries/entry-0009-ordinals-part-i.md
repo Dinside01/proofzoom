@@ -5,7 +5,7 @@ title: "Ordinal Numbers and the Shape of Order (Part I)"
 primary_area: "Foundations"
 primary_subarea: "Set Theory"
 difficulty: "UG-Upper"
-date: "2026-06-30"
+date: "2026-07-02"
 published: true
 permalink: /entries/entry-0009-ordinals-part-i/
 pdf: "/assets/pdfs/entry-0009/entry-0009-ordinals-part-i.pdf"
