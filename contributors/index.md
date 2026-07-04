@@ -4,99 +4,95 @@ title: Contributors
 permalink: /contributors/
 ---
 
-## ProofZoom Entry Template
-
-See the **[ProofZoom Entry Template](/contributors/template/)** for the
-recommended structure of entries and the LaTeX template used for
-ProofZoom essays.
-
 ## Contributors
 
-ProofZoom welcomes contributions from mathematicians who share the goal of making the **central ideas behind important proofs visible to mathematicians outside the specialty**.
+ProofZoom welcomes essays from mathematicians who want to make foundational mathematical concepts and important proofs clearer to a broad mathematical audience.
 
-Entries should emphasize conceptual clarity while presenting proofs with enough intermediate steps to make the logical derivation completely clear.
+A ProofZoom essay should explain a foundational concept, present a main result, include supporting results leading to it, and give clear proofs. The main exposition should aim for elegance and readability, while optional zoom-ins may be used to resolve local pain points in the proofs.
 
-ProofZoom serves as **a conceptual guide to important mathematical proofs**.
+Contributors do not need to prepare web pages, Markdown files, YAML headers, HTML, or site formatting. ProofZoom will handle the web presentation.
 
----
+To submit an essay, send the following two files:
 
-## Mission
+1. A LaTeX file of the essay.
+2. A PDF compiled from that LaTeX file.
 
-**ProofZoom aims to make the central idea behind a proof visible to mathematicians outside the specialty and to include intermediate steps where necessary so that the derivation of the proof is clear.**
+Submissions may be sent to:
 
-Mathematical papers often present proofs in full technical detail, but the conceptual mechanism driving the argument may not be immediately visible to readers outside the field. ProofZoom entries aim to reveal that mechanism clearly while presenting proofs in a logically transparent way.
-
----
-
-## Structure of an Entry
-
-### Central Idea
-
-Explain the **key conceptual insight of the result** and its **relevance within the subject area**, including connections to major results in the theory.
-
-### Proof Idea
-
-Describe the **mechanism that makes the proof work**. The reader should be able to understand why the theorem is true before encountering the full technical details.
-
-### Proof
-
-Present the **rigorous mathematical proof**, including intermediate steps where necessary so that the logical derivation is clear.
+**editor@proofzoom.org**
 
 ---
 
-## Style Guidelines
+## What a ProofZoom Essay Should Contain
 
-Entries should aim for:
+A submitted essay should include the following parts.
 
-- conceptual clarity  
-- concise exposition  
-- precise mathematics  
-- clear logical derivations  
+### Title
 
-Whenever possible:
+The title should identify the foundational concept or main result clearly.
 
-- emphasize ideas before calculations  
-- include diagrams when they clarify structure  
-- highlight the mechanism behind the proof  
-- include intermediate steps when they help illuminate the argument
+### Abstract
 
----
+The abstract should briefly explain the central idea of the essay and the result or proof being clarified.
 
-## Technical Guidelines for Preparing Entries
+### Body
 
-To ensure that entries render correctly on the ProofZoom website, contributors should observe the following technical requirements.
+The body of the essay should develop the concept carefully and present the main result, supporting results, and proofs.
 
-### File Format
-- Files must be saved as `.md`
-- Encoding: UTF-8
-- The file must begin exactly with: `---` (No blank line before it.)
+A ProofZoom essay is not merely a statement of a theorem and proof. It should help the reader see why the result matters, what idea drives the proof, and where the proof’s difficult steps occur.
 
----
+### References
 
-### YAML Front Matter
-- Copy the header from a working entry
-- Modify only necessary fields
-- Ensure both opening and closing `---` are present
+References should include both historical and modern sources where appropriate.
+
+Historical references help show where the idea came from or how it first emerged. Modern references help the reader locate clear contemporary treatments or standard formulations.
+
+A short, well-chosen list of references is preferred over a long bibliography.
 
 ---
 
-### Math Rendering
-- Inline math: `$...$`
-- Display math: `$$...$$`
-- Avoid `\(...\)` and `\[...\]`
+## PZoom Boxes and Pain Points
+
+ProofZoom entries may include optional zoom-ins for proof pain points.
+
+A pain point is a step in a proof where a reader may reasonably pause and ask:
+
+- Why does this follow?
+- What hidden lemma is being used?
+- What calculation or comparison is being compressed?
+- What sub-proof would make this step transparent?
+
+When submitting an essay, the author may identify such pain points and provide the corresponding sub-proofs.
+
+These pain points and sub-proofs should be submitted as a separate document, also prepared in LaTeX, together with a compiled PDF.
+
+Thus a full submission may include:
+
+1. The main essay as a LaTeX file.
+2. The main essay as a PDF.
+3. A separate LaTeX file containing the proposed pain points and sub-proofs.
+4. A PDF compiled from the pain-points and sub-proofs file.
+
+The author may decide initially which proof steps should be treated as pain points. These optional zoom-ins should not clutter the main proof. Their purpose is to keep the main exposition elegant while making difficult local steps available to readers who want them.
 
 ---
 
-### Filenames and Links
-- Use consistent naming: `entry-000X-topic-name.md`
-- PDF filename must match the `.md` filename
+## Length
+
+Essays should ideally be under 15 pages.
+
+If a foundational concept requires more space, it may be split into more than one ProofZoom essay.
 
 ---
 
-### Local Testing
+## Author Identification
 
-After adding an entry, run:
+To respect author privacy, ProofZoom does not list institutional affiliation.
 
-```bash
-rmdir /s /q _site
-bundle exec jekyll serve
+Published essays will identify the author by a string formed from the first letters of the parts of the author's name.
+
+---
+
+## Guiding Principle
+
+Present foundational concepts elegantly. Provide optional zoom-ins where proofs become painful.
