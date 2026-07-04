@@ -6,41 +6,60 @@ permalink: /about/
 
 ## About ProofZoom
 
-*When something almost makes sense—but not quite.*
+*Foundational concepts, with optional zoom-ins to resolve pain points in proofs.*
 
-ProofZoom was created for that moment.
+ProofZoom was created for the moment when a proof almost makes sense—but not quite.
 
-ProofZoom is a curated collection of concise expository essays explaining the central ideas behind important mathematical proofs.
+ProofZoom is a free platform offering concise expository essays on foundational mathematical concepts and important proofs. Entries are freely readable online, and many include downloadable PDF versions for study, teaching, or offline reading.
 
-Mathematical papers often present proofs in full technical detail, but the conceptual mechanism driving the argument may not be immediately visible to readers outside the specialty. ProofZoom aims to make those ideas accessible.
+Each essay has two aims: to present the main idea with elegance and clarity, and to provide optional zoom-ins at the points where readers are most likely to stumble.
 
-Each entry focuses on revealing the **central idea behind a proof** and presenting the argument with enough intermediate steps so that the logical derivation is clear.
+Many mathematical proofs are correct but compressed. The central idea may be hidden behind technical detail, or a crucial local step may be passed over too quickly. ProofZoom addresses both problems.
 
-ProofZoom therefore serves as **a conceptual guide to important mathematical proofs**.
+Each entry explains a **foundational concept**, presents a **main result**, includes supporting results leading to it, and gives clear proofs. When a proof contains a local pain point, a **PZoom box** may provide an optional zoom-in: a hidden sub-proof that readers can open when they want the missing detail.
+
+Thus ProofZoom serves as both a conceptual guide and a proof companion. It keeps the main argument readable while making the difficult steps available exactly where they are needed.
 
 ---
 
 ## Mission
 
-**ProofZoom aims to make the central idea behind a proof visible to mathematicians outside the specialty and to include intermediate steps where necessary so that the derivation of the proof is clear.**
+**ProofZoom presents foundational mathematical concepts through elegant expository essays, with optional zoom-ins that resolve the pain points hidden inside concise proofs.**
 
 ---
 
 ## How ProofZoom Entries Are Written
 
-Each entry highlights three essential components:
+Each entry highlights four essential components:
+
+**Foundational Concept**  
+The mathematical idea or result at the center of the entry.
 
 **Central Idea**  
 The key insight behind the result and its role within the subject.
 
-**Proof Idea**  
-The mechanism that makes the proof work.
-
 **Proof**  
-A clear and rigorous derivation including intermediate steps where helpful.
+A clear and rigorous derivation, written to preserve the main flow of the argument.
+
+**PZoom Boxes**  
+Optional zoom-ins at proof pain points. These boxes supply local sub-proofs or missing intermediate steps without cluttering the main proof.
+
+---
+
+## Submissions
+
+ProofZoom welcomes essays written by mathematicians for curation and posting on ProofZoom.org.
+
+A submitted essay should explain a foundational mathematical concept and include a main result, supporting results leading to it, and proofs. Essays should ideally be under 15 pages. Concepts requiring more space may be split into more than one essay.
+
+To respect author privacy, published essays will identify the author by a string formed from the first letters of the parts of the author's name. No institutional affiliation will be listed.
+
+Submissions may be sent to:
+
+**editor@proofzoom.org**
 
 ---
 
 ## Guiding Principle
 
-**Show the idea first, and make the proof steps clear.**
+**Present foundational concepts elegantly. Provide optional zoom-ins where proofs become painful.**
