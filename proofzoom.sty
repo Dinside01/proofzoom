@@ -30,53 +30,75 @@
 \definecolor{pzfaintgray}{gray}{0.8} % Faint gray for the line above the slogan
 
 % =========================================================================
-% Dynamic Deployment Base URL Configuration
+% PZoom Link Configuration
 % =========================================================================
-% Active for local server development testing:
-\newcommand{\pzbaseUrl}{http://127.0.0.1:4000}
-
-% Active for live deployment (Uncomment this and comment the local one when pushing to GitHub):
-% \newcommand{\pzbaseUrl}{https://yourusername.github.io/yourrepository}
+% This file is global. It must not hard-code any particular entry number,
+% folder, web host, or local server address.
+%
+% Each essay may override these in its own .tex file or wrapper, for example:
+%
+%   \renewcommand{\pzpdfbase}{}
+%   \renewcommand{\pzmainpdf}{main-essay.pdf}
+%
+% If the main PDF and PZoom companion PDFs sit in the same folder,
+% the default empty \pzpdfbase is usually best. For a website folder,
+% an essay may instead set \pzpdfbase to that folder URL.
+\providecommand{\pzpdfbase}{}
+\providecommand{\pzmainpdf}{}
 
 % Set up keyval parsing for the Goal option
 \define@key{pzoom}{Goal}{\def\zp@goal{#1}}
 
 % =========================================================================
-% The Unified PZoom Macro Engine (Option B: Nested Scale-Safe Pathing)
+% The Unified PZoom Macro Engine
 % =========================================================================
+% Usage in the main essay:
+%
+%   \pzoom[Goal={Prove the missing step}]{pzoom-1}{}
+%
+% This creates a named target body:pzoom-1 in the main PDF and links to
+% pzoom-1.pdf, using \pzpdfbase as an optional prefix.
 \newcommand{\pzoom}[3][Goal={Verify missing steps}]{%
   \setkeys{pzoom}{#1}%
   %
-  % 1. Render the high-level macro narrative text perfectly inline
+  % 1. Render any inline narrative text supplied as the third argument.
   #3%
   %
-  % 2. Create the PZoom placeholder box pointing to the nested folder structure
+  % 2. Plant the return target in the main PDF at the PZoom box.
+  \hypertarget{body:#2}{}%
+  %
+  % 3. Render the PZoom placeholder box.
+  % The visible PZoom line is placed inside the box body and is the hyperlink.
+  % This avoids the less reliable pattern of putting \href inside a tcolorbox title.
   \nopagebreak[4]\medskip
-  \filename@parse{#2}%
-  \edef\pzfilename{\filename@base}%          % e.g., "entry-0009.1"
-  \edef\pzfolder{\@car #2.1234567890\@nil}% % Extracts the master name "entry-0009"
-  
-  % CRITICAL FIX: Plants the anchor target hook (e.g., body:entry-0009-1) for incoming links
-  \hypertarget{body:#2}{}
-  
   \begin{tcolorbox}[
     colframe=pzframe,
     colback=pzback,
-    coltitle=white,
     arc=4pt,
     boxrule=1pt,
-    % Prepended \pzbaseUrl ensures the browser resolves an absolute target path
-    title={\href{\pzbaseUrl/assets/pdfs/entry-0009/#2.pdf}{\ensuremath{\blacktriangleright}\ \textbf{\color{white}PZoom:} \color{white}\textbf{\mathversion{bold}\zp@goal}}},
-    fonttitle=\small\bfseries\sffamily,
     size=small,
     top=5pt,
     bottom=5pt,
     left=8pt,
     right=8pt
   ]
-    %\small \sffamily \color{black!80} Sub-proof file targeted: #2
+    \noindent\href{\pzpdfbase#2.pdf}{%
+      \textbf{\ensuremath{\blacktriangleright}\ PZoom: \zp@goal}%
+    }%
   \end{tcolorbox}
   \medskip
+}
+
+% Usage in a PZoom companion PDF:
+%
+%   \pzoomreturn{pzoom-1}
+%
+% The link returns to the named target body:pzoom-1 in the main PDF.
+% The essay-specific wrapper should define \pzmainpdf before using this.
+\newcommand{\pzoomreturn}[1]{%
+  \par\vspace{0.8cm}%
+  \noindent
+  \href{\pzpdfbase\pzmainpdf\#nameddest=body:#1}{\textbf{\ensuremath{\blacktriangleleft} Return to Main Text}}%
 }
 
 % =========================================================================
@@ -98,6 +120,6 @@
   \begin{center}
     {\color{pzfaintgray}\hrule width \textwidth height 0.4pt}
     \vspace*{12pt} % Blank line equivalent space below the line
-    {\fontsize{9}{11}\selectfont\sffamily ProofZoom $\cdot$ Mathematical narrative. Details on standby.}
+    {\fontsize{9}{11}\selectfont\sffamily ProofZoom $\cdot$ Foundational concepts. Bridging logical leaps with zoom-ins.}
   \end{center}
 }

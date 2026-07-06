@@ -10,8 +10,9 @@
 % (Uncomment the one you want; comment out the other with a %)
 % =========================================================================
 % 1. LOCAL DEVELOPMENT:
-\newcommand{\pzoomserver}{http://127.0.0.1:4000}
-
+%\newcommand{\pzoomserver}{http://127.0.0.1:4000}
+%\renewcommand{\pzpdfbase}{http://127.0.0.1:4000/assets/pdfs/entry-0009/}
+\renewcommand{\pzpdfbase}{https://proofzoom.org/assets/pdfs/entry-0009/}
 % 2. GITHUB PAGES PRODUCTION:
 % \newcommand{\pzoomserver}{https://YOUR-USERNAME.github.io/YOUR-REPO}
 \hypersetup{hidelinks}
@@ -102,8 +103,8 @@ is nonempty. Because \(S\) is well-ordered, \(D\) must contain a unique least el
 Since \(S'\) is totally ordered, trichotomy implies that either $\psi(a)<'\phi(a)$ or $\phi(a)<'\psi(a)$. Because the cases are symmetric, we assume without loss of generality that $\psi(a)<'\phi(a)$.
 
 We will show that \(\psi(a)\) cannot lie in the range of \(\phi\). By analyzing the placement of an arbitrary element $x \in S$ relative to $a$, the strict order-preserving properties of our isomorphisms yield that $\phi(x) \neq \psi(a)$ for all $x$.
-\hypertarget{body:entry-0009-1}{}
-\pzoom[Goal={Prove that \(\psi(a)\) escapes the image of \(\phi\)}]{entry-0009-1}{}
+
+\pzoom[Goal={Prove that \(\psi(a)\) escapes the image of \(\phi\)}]{/assets/pdf/entry-0009/entry-0009-1.pdf}{}
 
 So $\psi(a) \notin \text{im}(\phi)$. This directly contradicts the fact that $\phi$ is a surjective order-isomorphism onto $S'$. Thus, our initial assumption that a point of disagreement exists must be false, proving that $\phi = \psi$.
 \end{proof}
@@ -227,8 +228,7 @@ Since $\beta$ is a subset of $\alpha$, the membership relation on $\beta$ is pre
 \noindent\textbf{Step 2: $\beta$ is transitive.}\\
 To show that $\beta$ is transitive, we must establish that any element belonging to $\beta$ is also a subset of $\beta$. By leveraging the transitivity of the parent ordinal $\alpha$ and the properties of its strict total membership ordering, the relation $x \in y \in \beta$ forces $x \in \beta$.
 
-\hypertarget{body:entry-0009-2}{}
-\pzoom[Goal={Verify that \(\beta\) is a transitive set}]{entry-0009-2}{}
+\pzoom[Goal={Verify that \(\beta\) is a transitive set}]{/assets/pdf/entry-0009/entry-0009-2.pdf}{}
 
 \medskip
 \noindent\textbf{Conclusion:}\\
@@ -310,8 +310,7 @@ If $\gamma = \beta$, then $\beta \subseteq \alpha$, meaning either $\beta = \alp
 \medskip
 Assume for contradiction that $\gamma \neq \alpha$ and $\gamma \neq \beta$. By applying our structural lemmas to this joint proper subset condition, we force a membership configuration that directly violates the Axiom of Regularity.
 
-\hypertarget{body:entry-0009-3}{}
-\pzoom[Goal={Exhaust the contradiction where \(\gamma\) is a proper subset of both}]{entry-0009-3}{}
+\pzoom[Goal={Exhaust the contradiction where \(\gamma\) is a proper subset of both}]{/assets/pdf/entry-0009/entry-0009-3.pdf}{}
 
 \end{proof}
 
@@ -354,8 +353,7 @@ We claim that $\alpha$ is the required least element of $S$.
 \medskip
 To verify this, we select any distinct element $\gamma \in S$. By utilizing Trichotomy on these two ordinals, assuming $\gamma \in \alpha$ forces an intersection with $S$ that directly violates our Regularity condition, leaving $\alpha \in \gamma$ as the only logical outcome.
 
-\hypertarget{body:entry-0009-4}{}
-\pzoom[Goal={Exhaust the Regularity contradiction to prove \(\alpha\) is minimal}]{entry-0009-4}{}
+\pzoom[Goal={Exhaust the Regularity contradiction to prove \(\alpha\) is minimal}]{/assets/pdf/entry-0009/entry-0009-4.pdf}{}
 
 \medskip
 \noindent\textbf{Conclusion:}\\
@@ -456,8 +454,7 @@ By the principle of well-ordered induction, every element in $A$ is good. Every 
 \medskip
 Finally, we define the full ordinal representative for the entire set $A$: $\alpha = \{\alpha_x : x \in A\}$. Replicating the exact structural argument used for $\beta$, $\alpha$ is a transitive set of ordinals and is therefore an ordinal.
 
-\hypertarget{body:entry-0009-5}{}
-\pzoom[Goal={Verify that \(\alpha\) is a transitive set of ordinals}]{entry-0009-5}{}
+\pzoom[Goal={Verify that \(\alpha\) is a transitive set of ordinals}]{/assets/pdf/entry-0009/entry-0009-5.pdf}{}
 
 The map $G : A \to \alpha$ given by $G(x) = \alpha_x$ yields a total order-isomorphism from $A$ onto $\alpha$.
 Thus, $A$ is order-isomorphic to a unique ordinal.
