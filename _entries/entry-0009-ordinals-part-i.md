@@ -63,11 +63,6 @@ Since $S'$ is totally ordered, trichotomy implies that either $\psi(a)<'\phi(a)$
         <span style="display: inline-block; transition: transform 0.2s; margin-right: 8px;">▶</span>
         PZoom: Prove that $\psi(a)$ escapes the image of $\phi$
     </summary>
-   <details style="background-color: #F1F8F1; border-left: 4px solid #4F7942; padding: 12px; margin: 20px 0; border-radius: 4px; cursor: pointer;">
-    <summary style="list-style: none; outline: none; font-weight: bold; color: #4F7942;">
-        <span style="display: inline-block; transition: transform 0.2s; margin-right: 8px;">▶</span>
-        PZoom: Prove that $\psi(a)$ escapes the image of $\phi$
-    </summary>
     <div style="margin-top: 10px; cursor: default; color: #333333; line-height: 1.6;">
 
 Let $x \in S$. We show that $\phi(x) \neq \psi(a)$ by cases:
