@@ -6,13 +6,19 @@ permalink: /contributors/
 
 ## Contributors
 
+## Contributors
+
 ProofZoom welcomes essays from mathematicians who want to make foundational mathematical concepts and important proofs clearer to a broad mathematical audience.
 
 A ProofZoom essay should explain a foundational concept, present a main result, include supporting results leading to it, and give clear proofs. The main exposition should aim for elegance and readability, while optional zoom-ins may be used to resolve local pain points in the proofs.
 
+One source to begin the essay is your own carefully written class notes on a foundational topic. Clearly, you can also begin the essay on a topic you feel is fundamental for mathematics in your area of specialty.
+
+Contributions are of two kinds: one is a complete essay on a foundational topic. The other is Peer Review—a comment or revision on an essay that is already published on ProofZoom; in this case, please refer to the essay number—for example, entry-0009. Your initials and date of submission will be posted in the 'Updated' section above the abstract.
+
 Contributors do not need to prepare web pages, Markdown files, YAML headers, HTML, or site formatting. ProofZoom will handle the web presentation.
 
-To submit an essay, send the following two files:
+To submit an essay or peer review, send the following two files:
 
 1. A LaTeX file of the essay.
 2. A PDF compiled from that LaTeX file.
