@@ -63,19 +63,19 @@ Since $S'$ is totally ordered, trichotomy implies that either $\psi(a)<'\phi(a)$
         <span style="display: inline-block; transition: transform 0.2s; margin-right: 8px;">▶</span>
         PZoom: Prove that $\psi(a)$ escapes the image of $\phi$
     </summary>
-    <div style="margin-top: 10px; cursor: default; color: #333333;">
-      Let $x \in S$. We show that $\phi(x) \neq \psi(a)$:
+    <div style="margin-top: 10px; cursor: default; color: #333333; line-height: 1.6;">
 
-* If **$x < a$**, the minimality of $a$ ensures that $\phi(x) = \psi(x)$. Since $\psi$ is order-preserving and $x < a$, we get:
-  $$\phi(x) = \psi(x) <' \psi(a)$$
-  Thus, $\phi(x) \neq \psi(a)$.
-* If **$x = a$**, then $\phi(a) \neq \psi(a)$ by the choice of $a$.
-* If **$a < x$**, then since $\phi$ is order-preserving:
-  $$\phi(a) <' \phi(x)$$
-  Combining this with our assumption $\psi(a) <' \phi(a)$ yields $\psi(a) <' \phi(x)$ by transitivity of the order in $S'$. Thus again, $\phi(x) \neq \psi(a)$.
+Let $x \in S$. We show that $\phi(x) \neq \psi(a)$ by cases:
+
+* **Case 1 ($x < a$):** The minimality of $a$ ensures that $\phi(x) = \psi(x)$. Since $\psi$ is order-preserving and $x < a$, we get:
+    $$\phi(x) = \psi(x) <' \psi(a)$$
+    Thus, $\phi(x) \neq \psi(a)$.
+* **Case 2 ($x = a$):** We know $\phi(a) \neq \psi(a)$ directly by our initial choice of $a$.
+* **Case 3 ($a < x$):** Since $\phi$ is order-preserving, we have $\phi(a) <' \phi(x)$. Combining this with the assumption $\psi(a) <' \phi(a)$ yields $\psi(a) <' \phi(x)$ by the transitivity of the order in $S'$. Thus again, $\phi(x) \neq \psi(a)$.
 
 Therefore, no element $x \in S$ satisfies $\phi(x) = \psi(a)$. Hence:
-$$\psi(a) \notin \operatorname{im}(\phi)$$
+$$\psi(a) \notin \text{im}(\phi)$$
+
     </div>
 </details>
 
