@@ -7,11 +7,12 @@ primary_subarea: Set Theory
 difficulty: UG-Upper
 published: 2026-06-30
 updated:
-
 permalink: /entries/entry-0009-ordinals-part-i/
-
 pdf: /assets/pdfs/entry-0009/entry-0009-ordinals-part-i.pdf
 abstract: "Cardinal numbers measure size. Ordinal numbers measure order. This essay explains why."
+# ADD THESE AI-OPTIMIZATION KEYS BELOW:
+keywords: ["von Neumann ordinals", "well-ordering theorem", "representation theorem", "transitive sets", "rigidity of well-orderings", "set theory"]
+description: "A rigorous mathematical exposition on von Neumann ordinal numbers, covering structural rigidity, transitivity, and the full proof of the Representation Theorem."
 ---
 
 ## 1. Two Questions: How Many, and In What Order?
@@ -63,7 +64,18 @@ Since $S'$ is totally ordered, trichotomy implies that either $\psi(a)<'\phi(a)$
         PZoom: Prove that $\psi(a)$ escapes the image of $\phi$
     </summary>
     <div style="margin-top: 10px; cursor: default; color: #333333;">
-        We will show that $\psi(a)$ cannot lie in the range of $\phi$. By analyzing the placement of an arbitrary element $x \in S$ relative to $a$, the strict order-preserving properties of our isomorphisms yield that $\phi(x) \neq \psi(a)$ for all $x$.
+      Let $x \in S$. We show that $\phi(x) \neq \psi(a)$:
+
+* If **$x < a$**, the minimality of $a$ ensures that $\phi(x) = \psi(x)$. Since $\psi$ is order-preserving and $x < a$, we get:
+  $$\phi(x) = \psi(x) <' \psi(a)$$
+  Thus, $\phi(x) \neq \psi(a)$.
+* If **$x = a$**, then $\phi(a) \neq \psi(a)$ by the choice of $a$.
+* If **$a < x$**, then since $\phi$ is order-preserving:
+  $$\phi(a) <' \phi(x)$$
+  Combining this with our assumption $\psi(a) <' \phi(a)$ yields $\psi(a) <' \phi(x)$ by transitivity of the order in $S'$. Thus again, $\phi(x) \neq \psi(a)$.
+
+Therefore, no element $x \in S$ satisfies $\phi(x) = \psi(a)$. Hence:
+$$\psi(a) \notin \operatorname{im}(\phi)$$
     </div>
 </details>
 
@@ -330,7 +342,7 @@ Let $\gamma \in \beta$. By definition, $\gamma = \alpha_y$ for some specific $y 
 
 Recall that $A_y$ is order-isomorphic to $\alpha_y$ via some unique mapping. Under this isomorphism, the element $\delta \in \alpha_y$ must correspond to an element $z \in A_y$, meaning $z < y$. Furthermore, this isomorphism maps the initial segment of $A_y$ below $z$—which is exactly $A_z$—onto the initial segment of $\alpha_y$ below $\delta$. Since $\alpha_y$ is an ordinal, its initial segment below $\delta$ is exactly $\delta$. This establishes an order-isomorphism between $A_z$ and $\delta$. 
 
-Because $\alpha_z$ is the unique ordinal isomorphic to $A_z$, we have $\delta = \alpha_z$. Since $z < y < x$, it follows that $\alpha_z \in \beta$, which means $\delta \in \beta$. Thus, \gamma \subseteq \beta, proving that $\beta$ is a transitive set of ordinals, and therefore an ordinal itself.
+Because $\alpha_z$ is the unique ordinal isomorphic to $A_z$, we have $\delta = \alpha_z$. Since $z < y < x$, it follows that $\alpha_z \in \beta$, which means $\delta \in \beta$. Thus, $\gamma \subseteq \beta$, proving that $\beta$ is a transitive set of ordinals, and therefore an ordinal itself.
 
 Now, define the assignment mapping:
 $$F: A_x \to \beta \quad \text{where} \quad F(y) = \alpha_y$$
