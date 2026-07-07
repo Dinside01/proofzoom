@@ -63,20 +63,30 @@ Since $S'$ is totally ordered, trichotomy implies that either $\psi(a)<'\phi(a)$
         <span style="display: inline-block; transition: transform 0.2s; margin-right: 8px;">▶</span>
         PZoom: Prove that $\psi(a)$ escapes the image of $\phi$
     </summary>
+   <details style="background-color: #F1F8F1; border-left: 4px solid #4F7942; padding: 12px; margin: 20px 0; border-radius: 4px; cursor: pointer;">
+    <summary style="list-style: none; outline: none; font-weight: bold; color: #4F7942;">
+        <span style="display: inline-block; transition: transform 0.2s; margin-right: 8px;">▶</span>
+        PZoom: Prove that $\psi(a)$ escapes the image of $\phi$
+    </summary>
     <div style="margin-top: 10px; cursor: default; color: #333333; line-height: 1.6;">
 
-<p>Let $x \in S$. We show that $\phi(x) \neq \psi(a)$ by cases:</p>
+Let $x \in S$. We show that $\phi(x) \neq \psi(a)$ by cases:
 
-<ul style="margin-top: 10px; margin-bottom: 10px; padding-left: 20px;">
-    <li style="margin-bottom: 8px;"><strong>Case 1 ($x < a$):</strong> The minimality of $a$ ensures that $\phi(x) = \psi(x)$. Since $\psi$ is order-preserving and $x < a$, we get:
+<ul>
+    <li style="margin-bottom: 12px;">
+        <strong>Case 1 ($x < a$):</strong> The minimality of $a$ ensures that $\phi(x) = \psi(x)$. Since $\psi$ is order-preserving and $x < a$, we get:
         $$\phi(x) = \psi(x) <' \psi(a)$$
-        Thus, $\phi(x) \neq \psi(a).$$
+        Thus, $\phi(x) \neq \psi(a)$.
     </li>
-    <li style="margin-bottom: 8px;"><strong>Case 2 ($x = a$):</strong> We know $\phi(a) \neq \psi(a)$ directly by our initial choice of $a$.</li>
-    <li style="margin-bottom: 8px;"><strong>Case 3 ($a < x$):</strong> Since $\phi$ is order-preserving, we have $\phi(a) <' \phi(x)$. Combining this with the assumption $\psi(a) <' \phi(a)$ yields $\psi(a) <' \phi(x)$ by the transitivity of the order in $S'$. Thus again, $\phi(x) \neq \psi(a).</li>
+    <li style="margin-bottom: 12px;">
+        <strong>Case 2 ($x = a$):</strong> We know $\phi(a) \neq \psi(a)$ directly by our initial choice of $a$.
+    </li>
+    <li style="margin-bottom: 12px;">
+        <strong>Case 3 ($a < x$):</strong> Since $\phi$ is order-preserving, we have $\phi(a) <' \phi(x)$. Combining this with the assumption $\psi(a) <' \phi(a)$ yields $\psi(a) <' \phi(x)$ by the transitivity of the order in $S'$. Thus again, $\phi(x) \neq \psi(a)$.
+    </li>
 </ul>
 
-<p>Therefore, no element $x \in S$ satisfies $\phi(x) = \psi(a)$. Hence:</p>
+Therefore, no element $x \in S$ satisfies $\phi(x) = \psi(a)$. Hence:
 $$\psi(a) \notin \text{im}(\phi)$$
 
     </div>
