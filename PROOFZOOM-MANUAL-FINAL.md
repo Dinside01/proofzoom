@@ -25,6 +25,13 @@ It should be updated as the site evolves.
 ---
 
 # Part II. Site Manual
+## Overview of the Publication Ecosystem
+The ProofZoom platform is designed to deliver a high-density, interactive reading experience. Managing this ecosystem requires producing and posting every essay in two distinct, coordinated formats:
+
+1. **The Web Version (`.md`):** Built using Markdown, this version optimizes browser readability, controls metadata, and drives the site's search engine discoverability.
+2. **The PDF Version (`.tex`):** Built using LaTeX, this version generates high-fidelity printable assets and drives our deep-dive callout infrastructure.
+
+Both formats feature structural containers. On the web layout, these manifest as interactive text containers; in the PDF layout, they appear as signature visual "PZoom" box frames. These two versions work together seamlessly via hardcoded, sandboxed absolute hyperlinks to give readers frictionless, two-way zoom navigation.
 
 ## E. Editorial Style Guide for ProofZoom Entries
 
@@ -146,13 +153,13 @@ The main style file contains a macro named \pzbaseUrl. This acts as the master r
   % \newcommand{\pzbaseUrl}{https://proofzoom.org}
 
 ### 2. The Double-Anchor System (Cross-File Targets)
-Because standard web browsers struggle to resolve relative folder links containing specific anchor hashes (#), all cross-file navigation must use absolute paths evaluated through \pzbaseUrl.
+Because modern web browser PDF engines (like Chrome and Firefox's PDF.js) enforce strict security sandboxing rules, relative paths (e.g., `./entry-0009...pdf`) or links containing escaped hash tokens (`\#` or `\%23`) will cause the browser to completely freeze the click action. 
 
-- The Inbound Hook (Master Essay): Inside proofzoom.sty, the \pzoom macro engine automatically places a hidden, trackable landing target immediately above the visual callout box using:
-  \hypertarget{body:#2}{}
-  Example: For Box 9.1, this bakes a target named body:entry-0009-1 into the master PDF.
-- The Outbound Return Link (Standalone Wrapper): Every standalone compilation wrapper (e.g., compile-0009-1.tex) must reference this target using a fully qualified absolute macro path at the bottom of the file:
-  \href{\pzbaseUrl/assets/pdfs/entry-0009/entry-0009-ordinals-part-i.pdf#body:entry-0009-1}{\textbf{\ensuremath{\blacktriangleleft} Return to Main Text}}
+To ensure web responsiveness, all standalone companion files must use a **fully qualified, hardcoded absolute web URL** pointing directly to the production deliverable, paired with a raw, unescaped `#nameddest=` anchor parameter.
+
+- **The Inbound Hook (Master Essay):** The master PDF embeds targets using the `\hypertarget{body:#2}{}` macro structure (e.g., `body:entry-0009-1`).
+- **The Outbound Return Link (Standalone Wrapper):** The wrapper file targets this anchor using a literal, unescaped string:
+  \href{https://proofzoom.org/assets/pdfs/entry-0009/entry-0009-ordinals-part-i.pdf#nameddest=body:entry-0009-1}{\textbf{\ensuremath{\blacktriangleleft} Return to Main Text}}
 
 ### 3. Layout Control & Page Overflow Prevention
 Standalone deep dives are designed to be high-impact, single-page reference documents. 
@@ -165,13 +172,16 @@ Standalone deep dives are designed to be high-impact, single-page reference docu
 
 ## K. Step-by-Step Blueprint Example (The Entry-00XY Standard)
 
-When creating a new mathematical essay with deep-dive callouts, staff must follow this exact three-file structural blueprint. This example uses a fictional placeholder identifier 00XY and topic slug ABC, paired with a sub-proof fragment z.
+When creating a new mathematical essay with deep-dive callouts (PZoom boxes), staff must follow this exact three-file structural blueprint. This example uses a fictional placeholder identifier 00XY and topic slug ABC, paired with a sub-proof fragment z.
+
 
 ### 1. The Master Essay File (entry-00XY-ABC.tex)
-This is the primary narrative file containing the main development text. It uses the \pzoom macro to render an inline box that links out to the deeper sub-proof PDF.
+This is the primary narrative file containing the main development text. It uses the `\pzoom` macro to render an inline box that links out to the deeper subproof PDF. 
+
+⚠️ **CRITICAL STRING MAPPING RULE:** The second argument of the `\pzoom` macro—the file path identifier—must be written as a relative path **without** the manual `.pdf` extension. The custom macro automatically appends `.pdf` under the hood. More importantly, this exact string name determines the target coordinate `body:entry-00XY-z` that your standalone return link looks for.
 
 =========================================================================
-File: entry-00XY-ABC.tex (Master Essay)
+File: entries/Entry-0009/entry-0009-ordinals-part-i.tex (Master Essay)
 =========================================================================
 \documentclass[11pt]{article}
 \usepackage{proofzoom}
@@ -179,54 +189,77 @@ File: entry-00XY-ABC.tex (Master Essay)
 
 \begin{document}
 
-\section*{1. Main Development Section}
-Here is the high-level narrative where we introduce a profound theorem. 
-We state the core observation here, but the granular edge-cases are 
-offloaded to prevent breaking the reader's conceptual flow.
+\section*{2. Order Type: Forgetting Names, Remembering Positions}
+Because the cases are symmetric, we assume without loss of generality 
+that \psi(a) <' \phi(a).
 
-% The macro parameter #2 must match the sub-proof file name exactly!
-► \pzoom[Goal={Verify the edge-case proof elements}]{entry-00XY-z}{%
-    This is the high-level summary sentence that remains perfectly visible 
-    inline within the main essay text.
+We will show that \psi(a) cannot lie in the range of \phi. By analyzing 
+the placement of an arbitrary element x \in S relative to a, the strict 
+order-preserving properties of our isomorphisms yield that \phi(x) \neq \psi(a) 
+for all x.
+
+% Parameter #2 matches the asset name exactly. This creates '\hypertarget{body:entry-0009-1}{}'
+► \pzoom[Goal={Prove that \psi(a) escapes the image of \phi}]{entry-0009-1}{%
+    So \psi(a) \notin im(\phi). This directly contradicts the fact that \phi 
+    is a surjective order-isomorphism onto S'.
 }
 
 \end{document}
 
 
-### 2. The Math Fragment File (entry-00XY-z.tex)
-This file contains only raw mathematical text. It must never contain \documentclass, \begin{document}, headers, or navigation links.
+### 2. The Math Fragment File Prototype (entry-0009-1.tex)
+This file houses only raw mathematical prose and proofs. To maintain structural modularity, it must never contain layout configuration syntax, headers, or document boundaries.
 
 =========================================================================
-File: entry-00XY-z.tex (Pure Math Fragment)
+File: entries/Entry-0009/entry-0009-1.tex (Pure Math Fragment)
 =========================================================================
-Let $x \in S$. We analyze the boundary behavior of our function:
+Because $\phi$ is an order-isomorphism mapping $S$ onto $S'$, it must preserve strict inequalities. We verify that for any arbitrary element $x \in S$:
+
 \begin{itemize}
-    \item \textbf{Case 1:} If $x < a$, the relation holds trivially by minimality.
-    \item \textbf{Case 2:} If $x = a$, the boundary condition is met directly.
+    \item If $x < a$, the definition of $a$ as the minimal point of disagreement forces $\phi(x) = \psi(x)$. By the strict order-preserving property of $\psi$, since $x < a$, it follows that $\psi(x) <' \psi(a)$. Substituting the equality yields $\phi(x) <' \psi(a)$. Thus, $\phi(x) \neq \psi(a)$.
+    \item If $x = a$, then by assumption, $\psi(a) <' \phi(a)$. Thus, $\phi(a) \neq \psi(a)$.
+    \item If $x > a$, then since $\psi$ is an order-isomorphism, $\psi(a) <' \psi(x)$. Since $a$ is the point of disagreement where $\psi(a) <' \phi(a)$, transitivity of the strict total order $<'$ on $S'$ yields $\psi(a) <' \phi(a) <' \phi(x)$. Thus, $\psi(a) <' \phi(x)$, meaning $\phi(x) \neq \psi(a)$.
 \end{itemize}
-Therefore, the claim is verified across all cases.
+
+Since $x$ was arbitrary, $\phi(x) \neq \psi(a)$ holds globally, showing that $\psi(a)$ escapes the image of $\phi$.
 
 
-### 3. The Standalone Wrapper File (compile-00XY-z.tex)
-This file wraps around the raw math fragment to build the standalone single-page deep dive PDF. It forces a clean layout and injects the absolute back-link URL.
+### 3. The Standalone Wrapper File Prototype (compile-0009-1.tex)
+This file handles document geometry, formatting, and the standalone sandbox-compliant return navigation. It reads the separate math snippet and links directly back to the production URL coordinate.
 
 =========================================================================
-File: compile-00XY-z.tex (Standalone PDF Compiler)
+File: entries/Entry-0009/compile-0009-1.tex (Standalone PDF Compiler)
 =========================================================================
 \documentclass[11pt]{article}
-\usepackage{proofzoom}
-\hypersetup{hidelinks}
 \usepackage[margin=1in]{geometry}
+\usepackage{../../proofzoom} % Dynamically pulls the master ProofZoom styles and branding
+
+\hypersetup{hidelinks} % Keeps text clean while preserving interactive metadata
 
 \begin{document}
 \pagestyle{empty} % Strips headers/footers for a clean look
 
-\section*{[PZoom Deep Dive 00XY.z] Detailed Proof Segment}
-\input{entry-00XY-z.tex} % Dynamically pulls in your raw math text!
+\textbf{[PZoom Deep Dive 9.1] Prove that $\psi(a)$ escapes the image of $\phi$}
+
+% =====================================================================================
+% CONTENT SOURCE:
+% This inputs the raw mathematical proof snippet. Do not duplicate proof text here; 
+% all structural edits to the math content should happen inside entry-0009-1.tex.
+% =====================================================================================
+\input{entry-0009-1.tex} 
 
 \vspace{0.8cm} % Tight fixed space prevents rendering an accidental second blank page
 \noindent
-\href{\pzbaseUrl/assets/pdfs/entry-00XY/entry-00XY-ABC.pdf#body:entry-00XY-z}{\textbf{\ensuremath{\blacktriangleleft} Return to Main Text}}
+% =====================================================================================
+% TECHNICAL MAINTENANCE NOTE FOR RETURN LINKS:
+% To bypass modern web browser PDF viewer security sandboxes, this link must use an 
+% absolute production web URL instead of a relative local file path. 
+% 
+% The '#nameddest=body:entry-0009-X' fragment is strictly required so that browser 
+% PDF engines know exactly which target \hypertarget{body:entry-0009-X} to snap back to 
+% inside the main document. Do not escape the hash character (\#) here, as it breaks the URL string.
+% =====================================================================================
+\href{https://proofzoom.org/assets/pdfs/entry-0009/entry-0009-ordinals-part-i.pdf#nameddest=body:entry-0009-1}{\textbf{\ensuremath{\blacktriangleleft} Return to Main Text}}
 
 \end{document}
 
@@ -392,3 +425,47 @@ When extracting text into a sub-proof math fragment (entry-00XY-z.tex), staff mu
 
 ### 3. The Wrapper Synthesis
 For every math fragment extracted, staff must generate a matching wrapper compiler file (compile-00XY-z.tex) following the template in Section K. This wrapper file is the ONLY place where the single-page layout geometry is applied, the custom \section*{} header is declared, and the absolute \href back-link target is injected.
+
+---
+
+# Part III. Infrastructure & System Administration
+
+## R. Local Machine Engineering Requirements
+
+Before a developer or staff member can execute the local testing workflows (Section N), their local machine must be configured with the specific compiler pipelines used by ProofZoom.
+
+### 1. The Core Software Stack
+The successor team must ensure the hired developer installs the following prerequisites:
+* **Ruby (Version 3.0+):** The underlying programming language that executes the static site builder.
+* **Bundler (Ruby Gem):** The dependency manager that fetches the specific software packages for the site.
+* **Jekyll (Version 4.0+):** The static site generator engine that transforms our Markdown files (`_entries/`) into web assets.
+
+### 2. Initial Machine Setup Command Sequence
+Once Ruby is installed on a new machine, the developer must run this explicit sequence inside a terminal at the root of the repository to match the production environment:
+
+```bash
+# Install the bundler package manager
+gem install bundler
+
+# Fetch and install all matching site dependencies listed in the Gemfile
+bundle install
+
+# Launch the secure local test server
+bundle exec jekyll serve
+
+## S. Hosting, Server Access, & Project Credentials
+
+To take over administrative control, deploy updates, or manage site domains, the successor team must have access to three core external platforms. 
+
+⚠️ **SECURITY WARNING:** To prevent unauthorized repository modification or domain hijacking, raw passwords must never be written directly into this document. All operational credentials (usernames, passwords, and two-factor authentication recovery keys) are stored securely in our team's central vault.
+
+### 1. Core Infrastructure Accounts
+* **GitHub (`github.com`):** Holds the master production repository. Access is required to execute `git push` operations (Section O) and manage automated GitHub Actions web deployment runners.
+* **Domain Registrar ('bigrock.in'):** Controls the `proofzoom.org` domain registration and DNS routing records.
+* **Overleaf (`overleaf.com`):** Houses the active LaTeX cloud project workspace where master files, pure math fragments, and compiler wrappers are collaboratively drafted.
+
+### 2. How to Retrieve Access Credentials
+* **Credential Location:** Contact Uday Shankar (udaysubashshankar@gmail.com) or Tejo Madhavarappu (tejovrush@gmail.com).
+* **Primary GitHub Username:** `Dinside01`
+* **Primary GitHub Password:** See Credential Location.
+* **URL Registrar Access:** Contact Dr. Pat Prodanovich (pprodano@gmail.com) or Praveena Madhavarapu (praveena.madhavarapu@gmail.com).
